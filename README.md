@@ -99,7 +99,7 @@ override func viewDidLoad() {
 
 ####Storyboards
 
-As `TypeWritingLabel` is in a pod, when using it in storyboards you will need to define the `Module` field.
+As `TypeWritingLabel` is in a pod, when using it in storyboards you will need to define the `Module` field with `TypeWriting`.
 
 ##Example
 
