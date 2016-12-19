@@ -17,12 +17,12 @@ public class TypeWritingLabel: UILabel {
     private var animationTimer: Timer?
     
     /// Allows for text to be hidden before animation begins
-    public var hideTextBeforeTypewritingAnimation = false {
+    public var hideTextBeforeTypewritingAnimation = true {
         didSet {
             if hideTextBeforeTypewritingAnimation {
-                if let text = text {
-                    setAlphaOnAttributedText(alpha: CGFloat(0), until: text.characters.count)
-                }
+                setAttributedTextColorToTransparent()
+            } else {
+                setAttributedTextColorToOpaque()
             }
         }
     }
@@ -44,6 +44,7 @@ public class TypeWritingLabel: UILabel {
      - Parameter completion: a callback block/closure for when the type writing animation is complete. This can be useful for chaining multiple animations together
      */
     public func startTypewritingAnimation(completion: (() -> Void)?) {
+        setAttributedTextColorToTransparent()
         stopTypewritingAnimation()
         var animateUntilCharacterIndex = 1
         
@@ -73,6 +74,28 @@ public class TypeWritingLabel: UILabel {
     }
     
     // MARK: - Configure
+    
+    /**
+     Adjusts the alpha value on the attributed string so that it is transparent.
+     */
+    private func setAttributedTextColorToTransparent() {
+        if hideTextBeforeTypewritingAnimation {
+            if let text = text {
+                setAlphaOnAttributedText(alpha: CGFloat(0), until: text.characters.count)
+            }
+        }
+    }
+    
+    /**
+     Adjusts the alpha value on the attributed string so that it is opaque.
+     */
+    private func setAttributedTextColorToOpaque() {
+        if !hideTextBeforeTypewritingAnimation {
+            if let text = text {
+                setAlphaOnAttributedText(alpha: CGFloat(1), until: text.characters.count)
+            }
+        }
+    }
     
     /**
      Adjusts the alpha value on the attributed string until (inclusive) a certain character length.
