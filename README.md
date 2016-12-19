@@ -25,7 +25,7 @@ $ pod install
 
 #####Usage
 
-[Animated Typing](typingAnimation.gif)
+![Animated Typing](typingAnimation.gif)
 
 > CocoaPods 1.1.1+ is required to build TypeWritingLabel.
 
