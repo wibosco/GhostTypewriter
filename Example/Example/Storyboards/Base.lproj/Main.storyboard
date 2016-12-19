@@ -43,11 +43,26 @@ This really is just an excuse to show you the animation in action and how it can
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHm-fp-cUh">
+                                <rect key="frame" x="77.5" y="582" width="220" height="44"/>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.61568627450000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="BG4-Q0-1qA"/>
+                                    <constraint firstAttribute="height" constant="44" id="s7e-8G-awj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <state key="normal" title="Start Animation"/>
+                                <connections>
+                                    <action selector="startAnimationButtonPressed:" destination="BYZ-38-t0r" eventType="touchDragInside" id="t4E-7n-BpG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rYz-Gt-6NH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="8kv-pA-AOF"/>
+                            <constraint firstItem="CHm-fp-cUh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="I4P-TC-MDT"/>
                             <constraint firstAttribute="trailing" secondItem="rYz-Gt-6NH" secondAttribute="trailing" constant="20" id="nGc-bn-yPV"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CHm-fp-cUh" secondAttribute="bottom" constant="41" id="vdB-U8-KPI"/>
                             <constraint firstItem="rYz-Gt-6NH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="yVf-W2-hPW"/>
                         </constraints>
                     </view>

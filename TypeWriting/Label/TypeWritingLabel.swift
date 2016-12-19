@@ -10,13 +10,13 @@ import UIKit
 
 public class TypeWritingLabel: UILabel {
     
-    /// Interval (time gap) between each character being animated on screen
+    /// Interval (time gap) between each character being animated on screen.
     public var typingTimeInterval: TimeInterval = 0.1
     
-    /// Timer instance that control's the animation
+    /// Timer instance that control's the animation.
     private var animationTimer: Timer?
     
-    /// Allows for text to be hidden before animation begins
+    /// Allows for text to be hidden before animation begins.
     public var hideTextBeforeTypewritingAnimation = true {
         didSet {
             if hideTextBeforeTypewritingAnimation {
@@ -41,7 +41,7 @@ public class TypeWritingLabel: UILabel {
     /**
      Starts the type writing animation.
      
-     - Parameter completion: a callback block/closure for when the type writing animation is complete. This can be useful for chaining multiple animations together
+     - Parameter completion: a callback block/closure for when the type writing animation is complete. This can be useful for chaining multiple animations together.
      */
     public func startTypewritingAnimation(completion: (() -> Void)?) {
         setAttributedTextColorToTransparent()
@@ -71,6 +71,18 @@ public class TypeWritingLabel: UILabel {
     public func stopTypewritingAnimation() {
         animationTimer?.invalidate()
         animationTimer = nil
+    }
+    
+    /**
+     Cancels the typing animation and can clear label's content if `clear` is `true`.
+     
+     - Parameter clear: sets label's content to transparent when animation is cancelled.
+     */
+    public func cancelTypewritingAnimation(clearText: Bool = true) {
+        if clearText {
+            setAttributedTextColorToTransparent()
+        }
+        stopTypewritingAnimation()
     }
     
     // MARK: - Configure

@@ -23,16 +23,13 @@ class ViewController: UIViewController {
         descriptionLabel.hideTextBeforeTypewritingAnimation = true
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    // MARK: ButtonAction
+    
+    @IBAction func startAnimationButtonPressed(_ sender: Any) {
+        titleLabel.cancelTypewritingAnimation()
+        descriptionLabel.cancelTypewritingAnimation()
         
-        animateLabels()
-    }
-    
-    // MARK: - Animation
-    
-    func animateLabels() {
-        titleLabel.startTypewritingAnimation { 
+        titleLabel.startTypewritingAnimation {
             self.descriptionLabel.startTypewritingAnimation(completion: nil)
         }
     }
