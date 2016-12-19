@@ -1,0 +1,16 @@
+PODS:
+  - TypeWriting (0.0.1)
+
+DEPENDENCIES:
+  - TypeWriting (from `../`)
+
+EXTERNAL SOURCES:
+  TypeWriting:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  TypeWriting: bc7c783bfcbea3b6f120b83102f51873bc560cda
+
+PODFILE CHECKSUM: 6aa2e4b8584f366975fe6763d87bb600f089a62c
+
+COCOAPODS: 1.1.1
