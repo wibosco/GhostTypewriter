@@ -10,9 +10,13 @@ import UIKit
 
 class TypeWritingLabel: UILabel {
     
+    /// Interval (tiem gap) between each character being animated on screen
     var typingTimeInterval: TimeInterval = 0.1
-    var animationTimer: Timer?
     
+    /// Timer instance that control's the animation
+    private var animationTimer: Timer?
+    
+    /// Allows for text to be hidden before animation begins
     var hideTextBeforeTypewritingAnimation = false {
         didSet {
             if hideTextBeforeTypewritingAnimation {
@@ -25,14 +29,22 @@ class TypeWritingLabel: UILabel {
     
     // MARK: - Init
     
+    /**
+     Tidies the animation up if it's still in progress by invalidating the timer.
+     */
     deinit {
         animationTimer?.invalidate()
     }
     
     // MARK: - TypingAnimation
     
-    func startTypewriterAnimation(completion: (() -> Void)?) {
-        stopTypewriterAnimation()
+    /**
+     Starts the type writing animation.
+     
+     - Parameter completion: a callback block/closure for when the type writing animation is complete. This can be useful for chaining multiple animations together
+     */
+    func startTypewritingAnimation(completion: (() -> Void)?) {
+        stopTypewritingAnimation()
         var animateUntilCharacterIndex = 0
         
         animationTimer = Timer.scheduledTimer(withTimeInterval: typingTimeInterval, repeats: true, block: { (timer: Timer) in
@@ -47,18 +59,27 @@ class TypeWritingLabel: UILabel {
                 self.setAlphaOnAttributedText(alpha: CGFloat(1), until: animateUntilCharacterIndex)
             } else {
                 completion?()
-                self.stopTypewriterAnimation()
+                self.stopTypewritingAnimation()
             }
         })
     }
     
-    func stopTypewriterAnimation() {
+    /**
+     Stops the type writing animation.
+     */
+    func stopTypewritingAnimation() {
         animationTimer?.invalidate()
         animationTimer = nil
     }
     
     // MARK: - Configure
     
+    /**
+     Adjusts the alpha value on the attributed string until (inclusive) a certain character length.
+     
+     - Parameter alpha: alpha value the attributed string's characters will be set to.
+     - Parameter until: upper bound of attributed string's characters that the alpha value will be applied to.
+     */
     private func setAlphaOnAttributedText(alpha: CGFloat, until: Int) {
         let attributedString = NSMutableAttributedString(attributedString: attributedText!)
         attributedString.addAttribute(NSForegroundColorAttributeName, value: textColor.withAlphaComponent(alpha), range: NSRange(location:0, length: until))
