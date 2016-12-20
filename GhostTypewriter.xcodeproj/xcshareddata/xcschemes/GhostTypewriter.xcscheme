@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "91980EFC1E0860A2004714BE"
-               BuildableName = "TypeWriting.framework"
-               BlueprintName = "TypeWriting"
-               ReferencedContainer = "container:TypeWriting.xcodeproj">
+               BuildableName = "GhostTypewriter.framework"
+               BlueprintName = "GhostTypewriter"
+               ReferencedContainer = "container:GhostTypewriter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "91980F051E0860A2004714BE"
-               BuildableName = "TypeWritingTests.xctest"
-               BlueprintName = "TypeWritingTests"
-               ReferencedContainer = "container:TypeWriting.xcodeproj">
+               BuildableName = "GhostTypeWriterTests.xctest"
+               BlueprintName = "GhostTypeWriterTests"
+               ReferencedContainer = "container:GhostTypewriter.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "91980EFC1E0860A2004714BE"
-            BuildableName = "TypeWriting.framework"
-            BlueprintName = "TypeWriting"
-            ReferencedContainer = "container:TypeWriting.xcodeproj">
+            BuildableName = "GhostTypewriter.framework"
+            BlueprintName = "GhostTypewriter"
+            ReferencedContainer = "container:GhostTypewriter.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -65,9 +65,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "91980EFC1E0860A2004714BE"
-            BuildableName = "TypeWriting.framework"
-            BlueprintName = "TypeWriting"
-            ReferencedContainer = "container:TypeWriting.xcodeproj">
+            BuildableName = "GhostTypewriter.framework"
+            BlueprintName = "GhostTypewriter"
+            ReferencedContainer = "container:GhostTypewriter.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -83,9 +83,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "91980EFC1E0860A2004714BE"
-            BuildableName = "TypeWriting.framework"
-            BlueprintName = "TypeWriting"
-            ReferencedContainer = "container:TypeWriting.xcodeproj">
+            BuildableName = "GhostTypewriter.framework"
+            BlueprintName = "GhostTypewriter"
+            ReferencedContainer = "container:GhostTypewriter.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

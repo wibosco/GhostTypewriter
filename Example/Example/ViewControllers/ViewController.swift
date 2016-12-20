@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import TypeWriting
+import GhostTypewriter
 
 class ViewController: UIViewController {
 
-    @IBOutlet var titleLabel: TypeWritingLabel!
-    @IBOutlet var descriptionLabel: TypeWritingLabel!
+    @IBOutlet var titleLabel: TypewriterLabel!
+    @IBOutlet var descriptionLabel: TypewriterLabel!
     
     // MARK: - ViewLifecycle
     

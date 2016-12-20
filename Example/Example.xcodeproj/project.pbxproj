@@ -14,7 +14,6 @@
 		915B191D1E0845220038B5DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 915B19141E0845220038B5DD /* LaunchScreen.storyboard */; };
 		915B191E1E0845220038B5DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 915B19161E0845220038B5DD /* Main.storyboard */; };
 		915B191F1E0845220038B5DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B19191E0845220038B5DD /* ViewController.swift */; };
-		919F5F3B1E086373002C58D4 /* TypeWriting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919F5F3A1E086373002C58D4 /* TypeWriting.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +39,6 @@
 		915B19151E0845220038B5DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		915B19171E0845220038B5DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		915B19191E0845220038B5DD /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		919F5F3A1E086373002C58D4 /* TypeWriting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TypeWriting.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Example-gagiqedeavqaygeuwcxfhwrxtgiq/Build/Products/Debug-iphonesimulator/TypeWriting/TypeWriting.framework"; sourceTree = "<group>"; };
 		A4752544C1E815BE53320A8A /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,7 +47,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				919F5F3B1E086373002C58D4 /* TypeWriting.framework in Frameworks */,
 				4AD9A0C52F44BED47280F619 /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,7 +138,6 @@
 		BC9FA4EE11C05CE554E7FB92 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				919F5F3A1E086373002C58D4 /* TypeWriting.framework */,
 				0F03BBB8345450C435EAB72E /* Pods_Example.framework */,
 			);
 			name = Frameworks;
@@ -454,7 +450,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Example/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.boles.TypeWritingLabel.Example;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boles.ghosttypewriter.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -468,7 +464,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Example/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.boles.TypeWritingLabel.Example;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boles.ghosttypewriter.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -481,7 +477,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.boles.TypeWritingLabel.ExampleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boles.ghosttypewriter.exampletests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
@@ -495,7 +491,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.boles.TypeWritingLabel.ExampleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boles.ghosttypewriter.exampletests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";

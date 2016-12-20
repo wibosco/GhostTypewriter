@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/wibosco/TypeWriting.svg)](https://travis-ci.org/wibosco/TypeWriting)
-[![Version](https://img.shields.io/cocoapods/v/TypeWriting.svg?style=flat)](http://cocoapods.org/pods/TypeWriting)
-[![License](https://img.shields.io/cocoapods/l/TypeWriting.svg?style=flat)](http://cocoapods.org/pods/TypeWriting)
-[![Platform](https://img.shields.io/cocoapods/p/TypeWriting.svg?style=flat)](http://cocoapods.org/pods/TypeWriting)
-[![CocoaPods](https://img.shields.io/cocoapods/metrics/doc-percent/TypeWriting.svg)](http://cocoapods.org/pods/TypeWriting)
+[![Build Status](https://travis-ci.org/wibosco/GhostTypewriter.svg)](https://travis-ci.org/wibosco/GhostTypewriter)
+[![Version](https://img.shields.io/cocoapods/v/GhostTypewriter.svg?style=flat)](http://cocoapods.org/pods/GhostTypewriter)
+[![License](https://img.shields.io/cocoapods/l/GhostTypewriter.svg?style=flat)](http://cocoapods.org/pods/GhostTypewriter)
+[![Platform](https://img.shields.io/cocoapods/p/GhostTypewriter.svg?style=flat)](http://cocoapods.org/pods/GhostTypewriter)
+[![CocoaPods](https://img.shields.io/cocoapods/metrics/doc-percent/GhostTypewriter.svg)](http://cocoapods.org/pods/GhostTypewriter)
 
 A `UILabel` subclass that adds a type writing animation effect.
 
@@ -16,7 +16,7 @@ To integrate CoreDataServices into your Xcode project using CocoaPods, specify i
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '10.0'
 
-pod 'TypeWriting'
+pod 'GhostTypewriter'
 ```
 
 Then, run the following command:
@@ -25,18 +25,18 @@ Then, run the following command:
 $ pod install
 ```
 
-> CocoaPods 1.1.1+ is required to build `TypeWriting`.
+> CocoaPods 1.1.1+ is required to build `GhostTypewriter`.
 
 ##Usage
 
 ![Animated Typing](typingAnimation.gif)
 
-`TypeWritingLabel` is a subclass of `UILabel` and where the animation (magic) happens. It works by taking advantage of the `attributedText` property on the label and changing the properties of the text content to gradually expose the text using an animation similar to what you get on a mechanical type writer. 
+`TypewriterLabel` is a subclass of `UILabel` and where the animation (magic) happens. It works by taking advantage of the `attributedText` property on the label and changing the properties of the text content to gradually expose the text using an animation similar to what you get on a mechanical type writer. 
 
 ####Starting
 
 ```swift
-import TypeWriting
+import GhostTypewriter
 
 @IBAction func startAnimationButtonPressed(_ sender: Any) {
     self.descriptionLabel.startTypewritingAnimation(completion: nil)
@@ -46,7 +46,7 @@ import TypeWriting
 ####Stoping
 
 ```swift
-import TypeWriting
+import GhostTypewriter
 
 @IBAction func startAnimationButtonPressed(_ sender: Any) {
 	if animating {
@@ -60,7 +60,7 @@ import TypeWriting
 ####Canceling
 
 ```swift
-import TypeWriting
+import GhostTypewriter
 
 @IBAction func startAnimationButtonPressed(_ sender: Any) {
 	if animating {
@@ -74,13 +74,13 @@ import TypeWriting
 ####Chaining animations
 
 ```swift
-import TypeWriting
+import GhostTypewriter
 
 @IBAction func startAnimationButtonPressed(_ sender: Any) {
     titleLabel.cancelTypewritingAnimation()
     descriptionLabel.cancelTypewritingAnimation()
     
-    titleLabel.startTypewritingAnimation {
+    titleLabel.startGhostTypewriterAnimation {
         self.descriptionLabel.startTypewritingAnimation(completion: nil)
     }
 }
@@ -89,7 +89,7 @@ import TypeWriting
 ####Adjusting animation timing
 
 ```swift
-import TypeWriting
+import GhostTypewriter
 
 override func viewDidLoad() {
 	super.viewDidLoad()
@@ -99,14 +99,14 @@ override func viewDidLoad() {
 
 ####Storyboards
 
-As `TypeWritingLabel` is in a pod, when using it in storyboards you will need to define the `Module` field with `TypeWriting`.
+As `TypewriterLabel` contained in a pod, when using it in your storyboards you will need to use the `Module` field with the value `GhostTypewriter`.
 
 ##Example
 
-> `TypeWriting` comes with an [example project](https://github.com/wibosco/TypeWritingLabel/tree/master/Example) to provide more details than listed above.
+> `GhostTypewriter` comes with an [example project](https://github.com/wibosco/GhostTypewriter/tree/master/Example) to provide more details than listed above.
 
 ##Found an issue?
 
-Please open a [new Issue here](https://github.com/wibosco/TypeWritingLabel/issues/new) if you run into a problem specific to CoreDataServices, have a feature request, or want to share a comment. Note that general Core Data questions should be asked on [Stack Overflow](http://stackoverflow.com).
+Please open a [new Issue here](https://github.com/wibosco/GhostTypewriterLabel/issues/new) if you run into a problem specific to CoreDataServices, have a feature request, or want to share a comment. Note that general Core Data questions should be asked on [Stack Overflow](http://stackoverflow.com).
 
 Pull requests are encouraged and greatly appreciated! Please try to maintain consistency with the existing code style. If you're considering taking on significant changes or additions to the project, please communicate in advance by opening a new Issue. This allows everyone to get onboard with upcoming changes, ensures that changes align with the project's design philosophy, and avoids duplicated work.

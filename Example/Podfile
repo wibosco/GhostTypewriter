@@ -6,5 +6,5 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'Example' do	
-	pod 'TypeWriting', :path => '../'
+	pod 'GhostTypewriter', :path => '../'
 end

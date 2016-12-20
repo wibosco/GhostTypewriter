@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		914DD0FB1E086826005CCA10 /* TypeWritingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DD0F81E086826005CCA10 /* TypeWritingLabel.swift */; };
-		914DD0FD1E08684A005CCA10 /* TypeWritingLabel.swift in Headers */ = {isa = PBXBuildFile; fileRef = 914DD0F81E086826005CCA10 /* TypeWritingLabel.swift */; };
-		91980F071E0860A2004714BE /* TypeWriting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91980EFD1E0860A2004714BE /* TypeWriting.framework */; };
-		91980F0C1E0860A2004714BE /* TypeWritingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91980F0B1E0860A2004714BE /* TypeWritingTests.swift */; };
-		91980F0E1E0860A2004714BE /* TypeWriting.h in Headers */ = {isa = PBXBuildFile; fileRef = 91980F001E0860A2004714BE /* TypeWriting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		914248871E093E3A008729C9 /* GhostTypewriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 914248821E093E3A008729C9 /* GhostTypewriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		914248881E093E3A008729C9 /* TypewriterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914248841E093E3A008729C9 /* TypewriterLabel.swift */; };
+		9142488E1E093E5A008729C9 /* GhostTypewriterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142488C1E093E5A008729C9 /* GhostTypewriterTests.swift */; };
+		91980F071E0860A2004714BE /* GhostTypewriter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91980EFD1E0860A2004714BE /* GhostTypewriter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,13 +24,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		914DD0F81E086826005CCA10 /* TypeWritingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeWritingLabel.swift; sourceTree = "<group>"; };
-		914DD0FA1E086826005CCA10 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		91980EFD1E0860A2004714BE /* TypeWriting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TypeWriting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		91980F001E0860A2004714BE /* TypeWriting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeWriting.h; sourceTree = "<group>"; };
-		91980F061E0860A2004714BE /* TypeWritingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TypeWritingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		91980F0B1E0860A2004714BE /* TypeWritingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeWritingTests.swift; sourceTree = "<group>"; };
-		91980F0D1E0860A2004714BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		914248821E093E3A008729C9 /* GhostTypewriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GhostTypewriter.h; sourceTree = "<group>"; };
+		914248841E093E3A008729C9 /* TypewriterLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterLabel.swift; sourceTree = "<group>"; };
+		914248861E093E3A008729C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9142488B1E093E5A008729C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9142488C1E093E5A008729C9 /* GhostTypewriterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GhostTypewriterTests.swift; sourceTree = "<group>"; };
+		91980EFD1E0860A2004714BE /* GhostTypewriter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GhostTypewriter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91980F061E0860A2004714BE /* GhostTypeWriterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GhostTypeWriterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,34 +45,53 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91980F071E0860A2004714BE /* TypeWriting.framework in Frameworks */,
+				91980F071E0860A2004714BE /* GhostTypewriter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		914DD0F71E086826005CCA10 /* Label */ = {
+		914248811E093E3A008729C9 /* GhostTypewriter */ = {
 			isa = PBXGroup;
 			children = (
-				914DD0F81E086826005CCA10 /* TypeWritingLabel.swift */,
+				914248821E093E3A008729C9 /* GhostTypewriter.h */,
+				914248831E093E3A008729C9 /* Label */,
+				914248851E093E3A008729C9 /* SupportingFiles */,
+			);
+			path = GhostTypewriter;
+			sourceTree = "<group>";
+		};
+		914248831E093E3A008729C9 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				914248841E093E3A008729C9 /* TypewriterLabel.swift */,
 			);
 			path = Label;
 			sourceTree = "<group>";
 		};
-		914DD0F91E086826005CCA10 /* SupportingFiles */ = {
+		914248851E093E3A008729C9 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				914DD0FA1E086826005CCA10 /* Info.plist */,
+				914248861E093E3A008729C9 /* Info.plist */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		9142488A1E093E5A008729C9 /* GhostTypewriterTests */ = {
+			isa = PBXGroup;
+			children = (
+				9142488B1E093E5A008729C9 /* Info.plist */,
+				9142488C1E093E5A008729C9 /* GhostTypewriterTests.swift */,
+			);
+			path = GhostTypewriterTests;
 			sourceTree = "<group>";
 		};
 		91980EF31E0860A2004714BE = {
 			isa = PBXGroup;
 			children = (
-				91980EFF1E0860A2004714BE /* TypeWriting */,
-				91980F0A1E0860A2004714BE /* TypeWritingTests */,
+				914248811E093E3A008729C9 /* GhostTypewriter */,
+				9142488A1E093E5A008729C9 /* GhostTypewriterTests */,
 				91980EFE1E0860A2004714BE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,29 +99,10 @@
 		91980EFE1E0860A2004714BE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				91980EFD1E0860A2004714BE /* TypeWriting.framework */,
-				91980F061E0860A2004714BE /* TypeWritingTests.xctest */,
+				91980EFD1E0860A2004714BE /* GhostTypewriter.framework */,
+				91980F061E0860A2004714BE /* GhostTypeWriterTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		91980EFF1E0860A2004714BE /* TypeWriting */ = {
-			isa = PBXGroup;
-			children = (
-				914DD0F71E086826005CCA10 /* Label */,
-				914DD0F91E086826005CCA10 /* SupportingFiles */,
-				91980F001E0860A2004714BE /* TypeWriting.h */,
-			);
-			path = TypeWriting;
-			sourceTree = "<group>";
-		};
-		91980F0A1E0860A2004714BE /* TypeWritingTests */ = {
-			isa = PBXGroup;
-			children = (
-				91980F0B1E0860A2004714BE /* TypeWritingTests.swift */,
-				91980F0D1E0860A2004714BE /* Info.plist */,
-			);
-			path = TypeWritingTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -113,17 +112,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91980F0E1E0860A2004714BE /* TypeWriting.h in Headers */,
-				914DD0FD1E08684A005CCA10 /* TypeWritingLabel.swift in Headers */,
+				914248871E093E3A008729C9 /* GhostTypewriter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		91980EFC1E0860A2004714BE /* TypeWriting */ = {
+		91980EFC1E0860A2004714BE /* GhostTypewriter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 91980F111E0860A2004714BE /* Build configuration list for PBXNativeTarget "TypeWriting" */;
+			buildConfigurationList = 91980F111E0860A2004714BE /* Build configuration list for PBXNativeTarget "GhostTypewriter" */;
 			buildPhases = (
 				91980EF81E0860A2004714BE /* Sources */,
 				91980EF91E0860A2004714BE /* Frameworks */,
@@ -134,14 +132,14 @@
 			);
 			dependencies = (
 			);
-			name = TypeWriting;
+			name = GhostTypewriter;
 			productName = TypeWriting;
-			productReference = 91980EFD1E0860A2004714BE /* TypeWriting.framework */;
+			productReference = 91980EFD1E0860A2004714BE /* GhostTypewriter.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		91980F051E0860A2004714BE /* TypeWritingTests */ = {
+		91980F051E0860A2004714BE /* GhostTypeWriterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 91980F141E0860A2004714BE /* Build configuration list for PBXNativeTarget "TypeWritingTests" */;
+			buildConfigurationList = 91980F141E0860A2004714BE /* Build configuration list for PBXNativeTarget "GhostTypeWriterTests" */;
 			buildPhases = (
 				91980F021E0860A2004714BE /* Sources */,
 				91980F031E0860A2004714BE /* Frameworks */,
@@ -152,9 +150,9 @@
 			dependencies = (
 				91980F091E0860A2004714BE /* PBXTargetDependency */,
 			);
-			name = TypeWritingTests;
+			name = GhostTypeWriterTests;
 			productName = TypeWritingTests;
-			productReference = 91980F061E0860A2004714BE /* TypeWritingTests.xctest */;
+			productReference = 91980F061E0860A2004714BE /* GhostTypeWriterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -178,7 +176,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 91980EF71E0860A2004714BE /* Build configuration list for PBXProject "TypeWriting" */;
+			buildConfigurationList = 91980EF71E0860A2004714BE /* Build configuration list for PBXProject "GhostTypewriter" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -190,8 +188,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				91980EFC1E0860A2004714BE /* TypeWriting */,
-				91980F051E0860A2004714BE /* TypeWritingTests */,
+				91980EFC1E0860A2004714BE /* GhostTypewriter */,
+				91980F051E0860A2004714BE /* GhostTypeWriterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -218,7 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				914DD0FB1E086826005CCA10 /* TypeWritingLabel.swift in Sources */,
+				914248881E093E3A008729C9 /* TypewriterLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,7 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91980F0C1E0860A2004714BE /* TypeWritingTests.swift in Sources */,
+				9142488E1E093E5A008729C9 /* GhostTypewriterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +233,7 @@
 /* Begin PBXTargetDependency section */
 		91980F091E0860A2004714BE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 91980EFC1E0860A2004714BE /* TypeWriting */;
+			target = 91980EFC1E0860A2004714BE /* GhostTypewriter */;
 			targetProxy = 91980F081E0860A2004714BE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -282,7 +280,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -329,7 +327,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -349,10 +347,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = TypeWriting/SupportingFiles/Info.plist;
+				INFOPLIST_FILE = GhostTypewriter/SupportingFiles/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.boles.TypeWriting;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boles.ghosttypewriter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -369,10 +367,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = TypeWriting/SupportingFiles/Info.plist;
+				INFOPLIST_FILE = GhostTypewriter/SupportingFiles/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.boles.TypeWriting;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boles.ghosttypewriter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -383,9 +381,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = TypeWritingTests/Info.plist;
+				INFOPLIST_FILE = GhostTypewriterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.boles.TypeWritingTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boles.ghosttypewritertests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -395,9 +393,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = TypeWritingTests/Info.plist;
+				INFOPLIST_FILE = GhostTypewriterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.boles.TypeWritingTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boles.ghosttypewritertests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -406,7 +404,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		91980EF71E0860A2004714BE /* Build configuration list for PBXProject "TypeWriting" */ = {
+		91980EF71E0860A2004714BE /* Build configuration list for PBXProject "GhostTypewriter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				91980F0F1E0860A2004714BE /* Debug */,
@@ -415,7 +413,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		91980F111E0860A2004714BE /* Build configuration list for PBXNativeTarget "TypeWriting" */ = {
+		91980F111E0860A2004714BE /* Build configuration list for PBXNativeTarget "GhostTypewriter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				91980F121E0860A2004714BE /* Debug */,
@@ -424,7 +422,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		91980F141E0860A2004714BE /* Build configuration list for PBXNativeTarget "TypeWritingTests" */ = {
+		91980F141E0860A2004714BE /* Build configuration list for PBXNativeTarget "GhostTypeWriterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				91980F151E0860A2004714BE /* Debug */,

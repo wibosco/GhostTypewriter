@@ -1,15 +1,15 @@
 //
-//  TypeWritingTests.swift
-//  TypeWritingTests
+//  GhostTypewriterTests.swift
+//  GhostTypewriterTests
 //
 //  Created by William Boles on 19/12/2016.
 //  Copyright © 2016 Boles. All rights reserved.
 //
 
 import XCTest
-@testable import TypeWriting
+@testable import GhostTypewriter
 
-class TypeWritingTests: XCTestCase {
+class GhostTypewriterTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

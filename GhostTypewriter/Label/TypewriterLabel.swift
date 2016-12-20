@@ -1,6 +1,6 @@
 //
-//  TypeWritingLabel.swift
-//  TypeWriting
+//  GhoastTypewriter.swift
+//  GhostTypeWriter
 //
 //  Created by William Boles on 19/12/2016.
 //  Copyright © 2016 Boles. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class TypeWritingLabel: UILabel {
+public class TypewriterLabel: UILabel {
     
     /// Interval (time gap) between each character being animated on screen.
     public var typingTimeInterval: TimeInterval = 0.1

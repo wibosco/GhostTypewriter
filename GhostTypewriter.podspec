@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
-  s.name         = "TypeWriting"
-  s.version      = "0.0.1"
+  s.name         = "GhostTypewriter"
+  s.version      = "0.1.0"
   s.summary      = "A UILabel subclass that adds a type writing animation effect."
 
   s.homepage     = "http://www.williamboles.me"
@@ -11,11 +11,11 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "10.0"
 
-  s.source       = { :git => "https://github.com/wibosco/TypeWritingLabel.git", 
+  s.source       = { :git => "https://github.com/wibosco/GhostTypewriter.git", 
   					 :branch => "master", 
   					 :tag => s.version }
 
-  s.source_files  = "TypeWriting/**/*.swift"
+  s.source_files  = "GhostTypewriter/**/*.swift"
 	
   s.requires_arc = true
 
