@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [0.2.0](https://github.com/wibosco/TypeWritingLabel/releases/tag/0.2.0)
+
+* Supports unicode chracters - treats multiple code points as one character
+
 ## [0.1.0](https://github.com/wibosco/TypeWritingLabel/releases/tag/0.1.0)
 
 * Renamed to `GhostTypeWriter`
