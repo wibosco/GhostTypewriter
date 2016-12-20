@@ -27,8 +27,8 @@ public class TypewriterLabel: UILabel {
         }
     }
     
-    ///
-    private var utfLocation = 0
+    /// Tracks the location of the next character using UTF16 encoding.
+    private var utf16CharacterLocation = 0
     
     // MARK: - Init
     
@@ -55,6 +55,7 @@ public class TypewriterLabel: UILabel {
         stopTypewritingAnimation()
         var animateUntilCharacterIndex = 0
         let charactersCount = attributedText.string.characters.count
+        utf16CharacterLocation = 0
         
         animationTimer = Timer.scheduledTimer(withTimeInterval: typingTimeInterval, repeats: true, block: { (timer: Timer) in
             if animateUntilCharacterIndex < charactersCount {
@@ -137,9 +138,9 @@ public class TypewriterLabel: UILabel {
         let index = attributedString.string.index(attributedString.string.startIndex, offsetBy: chracterIndex)
         let character = "\(attributedString.string[index])"
         let count = character.utf16.count
-        attributedString.addAttribute(NSForegroundColorAttributeName, value: textColor.withAlphaComponent(alpha), range: NSRange(location: utfLocation, length: count))
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: textColor.withAlphaComponent(alpha), range: NSRange(location: utf16CharacterLocation, length: count))
         attributedText = attributedString
         
-        utfLocation += count
+        utf16CharacterLocation += count
     }
 }
