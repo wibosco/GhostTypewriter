@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet var titleLabel: TypewriterLabel!
     @IBOutlet var descriptionLabel: TypewriterLabel!
+    @IBOutlet var endLabel: TypewriterLabel!
     
     // MARK: - ViewLifecycle
     
@@ -21,6 +22,7 @@ class ViewController: UIViewController {
         
         titleLabel.hideTextBeforeTypewritingAnimation = true
         descriptionLabel.hideTextBeforeTypewritingAnimation = true
+        endLabel.hideTextBeforeTypewritingAnimation = true
     }
     
     // MARK: ButtonAction
@@ -30,7 +32,9 @@ class ViewController: UIViewController {
         descriptionLabel.cancelTypewritingAnimation()
         
         titleLabel.startTypewritingAnimation {
-            self.descriptionLabel.startTypewritingAnimation(completion: nil)
+            self.descriptionLabel.startTypewritingAnimation {
+                self.endLabel.startTypewritingAnimation(completion: nil)
+            }
         }
     }
 }

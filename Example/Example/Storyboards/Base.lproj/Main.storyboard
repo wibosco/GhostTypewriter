@@ -21,27 +21,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rYz-Gt-6NH">
-                                <rect key="frame" x="20" y="120" width="335" height="287.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="rYz-Gt-6NH">
+                                <rect key="frame" x="20" y="120" width="335" height="361.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The heroic tale of one man's pursuit of the perfect typing animation - there may be dragons!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1C-Sz-CSn" customClass="TypewriterLabel" customModule="GhostTypewriter">
-                                        <rect key="frame" x="0.0" y="0.0" width="327" height="115"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The heroic tale of one developer's pursuit of the perfect typing animation 🐎 - there will be dragons! 🐲" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1C-Sz-CSn" customClass="TypewriterLabel" customModule="GhostTypewriter">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="115"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrA-eT-4zu" customClass="TypewriterLabel" customModule="GhostTypewriter">
-                                        <rect key="frame" x="0.0" y="125" width="335" height="162.5"/>
+                                        <rect key="frame" x="0.0" y="133" width="335" height="162.5"/>
                                         <string key="text">OK....so the part about the dragons, total lie 😫 
 
 As was the heroic part 😓
 
-This really is just an excuse to show you the animation in action and how it can handle any regular label text data  </string>
+This really is just an excuse to show you the animation in action and how it can handle any regular label text data  😀</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏁" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kvi-ys-j7x" customClass="TypewriterLabel" customModule="GhostTypewriter">
+                                        <rect key="frame" x="0.0" y="313.5" width="335" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="Kvi-ys-j7x" firstAttribute="width" secondItem="mrA-eT-4zu" secondAttribute="width" id="qUO-LT-rn8"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHm-fp-cUh">
                                 <rect key="frame" x="77.5" y="582" width="220" height="44"/>
@@ -68,6 +77,7 @@ This really is just an excuse to show you the animation in action and how it can
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="mrA-eT-4zu" id="f4i-x4-Gvl"/>
+                        <outlet property="endLabel" destination="Kvi-ys-j7x" id="Lhu-9Z-Ge9"/>
                         <outlet property="titleLabel" destination="S1C-Sz-CSn" id="7Q5-JQ-CoD"/>
                     </connections>
                 </viewController>

@@ -27,6 +27,9 @@ public class TypewriterLabel: UILabel {
         }
     }
     
+    ///
+    private var utfLocation = 0
+    
     // MARK: - Init
     
     /**
@@ -44,19 +47,18 @@ public class TypewriterLabel: UILabel {
      - Parameter completion: a callback block/closure for when the type writing animation is complete. This can be useful for chaining multiple animations together.
      */
     public func startTypewritingAnimation(completion: (() -> Void)?) {
+        guard let attributedText = attributedText else {
+            return
+        }
+        
         setAttributedTextColorToTransparent()
         stopTypewritingAnimation()
-        var animateUntilCharacterIndex = 1
+        var animateUntilCharacterIndex = 0
+        let charactersCount = attributedText.string.characters.count
         
         animationTimer = Timer.scheduledTimer(withTimeInterval: typingTimeInterval, repeats: true, block: { (timer: Timer) in
-            guard let labelText = self.attributedText?.string else {
-                return
-            }
-        
-            let charactersCount = labelText.characters.count
-            
-            if animateUntilCharacterIndex <= charactersCount {
-                self.setAlphaOnAttributedText(alpha: CGFloat(1), until: animateUntilCharacterIndex)
+            if animateUntilCharacterIndex < charactersCount {
+                self.setAlphaOnAttributedText(alpha: CGFloat(1), chracterIndex: animateUntilCharacterIndex)
                 animateUntilCharacterIndex += 1
             } else {
                 completion?()
@@ -91,10 +93,12 @@ public class TypewriterLabel: UILabel {
      Adjusts the alpha value on the attributed string so that it is transparent.
      */
     private func setAttributedTextColorToTransparent() {
+        guard let attributedText = attributedText else {
+            return
+        }
+        
         if hideTextBeforeTypewritingAnimation {
-            if let text = text {
-                setAlphaOnAttributedText(alpha: CGFloat(0), until: text.characters.count)
-            }
+            setAlphaOnAttributedText(alpha: CGFloat(0))
         }
     }
     
@@ -102,22 +106,40 @@ public class TypewriterLabel: UILabel {
      Adjusts the alpha value on the attributed string so that it is opaque.
      */
     private func setAttributedTextColorToOpaque() {
-        if !hideTextBeforeTypewritingAnimation {
-            if let text = text {
-                setAlphaOnAttributedText(alpha: CGFloat(1), until: text.characters.count)
-            }
+        guard let attributedText = attributedText else {
+            return
         }
+        
+        if !hideTextBeforeTypewritingAnimation {
+            setAlphaOnAttributedText(alpha: CGFloat(1))
+        }
+    }
+    
+    /**
+     Adjusts the alpha value on the full attributed string.
+     
+     - Parameter alpha: alpha value the attributed string's characters will be set to.
+     */
+    private func setAlphaOnAttributedText(alpha: CGFloat) {
+        let attributedString = NSMutableAttributedString(attributedString: attributedText!)
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: textColor.withAlphaComponent(alpha), range: NSRange(location:0, length: attributedString.length))
+        attributedText = attributedString
     }
     
     /**
      Adjusts the alpha value on the attributed string until (inclusive) a certain character length.
      
      - Parameter alpha: alpha value the attributed string's characters will be set to.
-     - Parameter until: upper bound of attributed string's characters that the alpha value will be applied to.
+     - Parameter chracterIndex: upper bound of attributed string's characters that the alpha value will be applied to.
      */
-    private func setAlphaOnAttributedText(alpha: CGFloat, until: Int) {
+    private func setAlphaOnAttributedText(alpha: CGFloat, chracterIndex: Int) {
         let attributedString = NSMutableAttributedString(attributedString: attributedText!)
-        attributedString.addAttribute(NSForegroundColorAttributeName, value: textColor.withAlphaComponent(alpha), range: NSRange(location:0, length: until))
+        let index = attributedString.string.index(attributedString.string.startIndex, offsetBy: chracterIndex)
+        let character = "\(attributedString.string[index])"
+        let count = character.utf16.count
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: textColor.withAlphaComponent(alpha), range: NSRange(location: utfLocation, length: count))
         attributedText = attributedString
+        
+        utfLocation += count
     }
 }
