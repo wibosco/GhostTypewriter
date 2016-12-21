@@ -94,7 +94,7 @@ public class TypewriterLabel: UILabel {
     /**
      Adjust transparency to match value set for `hideTextBeforeTypewritingAnimation`.
     */
-    func configureTransparency() {
+    private func configureTransparency() {
         if hideTextBeforeTypewritingAnimation {
             setAttributedTextColorToTransparent()
         } else {

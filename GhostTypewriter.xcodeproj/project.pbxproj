@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		914248871E093E3A008729C9 /* GhostTypewriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 914248821E093E3A008729C9 /* GhostTypewriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		914248881E093E3A008729C9 /* TypewriterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914248841E093E3A008729C9 /* TypewriterLabel.swift */; };
-		9142488E1E093E5A008729C9 /* GhostTypewriterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142488C1E093E5A008729C9 /* GhostTypewriterTests.swift */; };
+		9142488E1E093E5A008729C9 /* TypewriterLabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142488C1E093E5A008729C9 /* TypewriterLabelTests.swift */; };
 		91980F071E0860A2004714BE /* GhostTypewriter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91980EFD1E0860A2004714BE /* GhostTypewriter.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,7 @@
 		914248841E093E3A008729C9 /* TypewriterLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterLabel.swift; sourceTree = "<group>"; };
 		914248861E093E3A008729C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9142488B1E093E5A008729C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9142488C1E093E5A008729C9 /* GhostTypewriterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GhostTypewriterTests.swift; sourceTree = "<group>"; };
+		9142488C1E093E5A008729C9 /* TypewriterLabelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterLabelTests.swift; sourceTree = "<group>"; };
 		91980EFD1E0860A2004714BE /* GhostTypewriter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GhostTypewriter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91980F061E0860A2004714BE /* GhostTypeWriterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GhostTypeWriterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -82,7 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				9142488B1E093E5A008729C9 /* Info.plist */,
-				9142488C1E093E5A008729C9 /* GhostTypewriterTests.swift */,
+				9142488C1E093E5A008729C9 /* TypewriterLabelTests.swift */,
 			);
 			path = GhostTypewriterTests;
 			sourceTree = "<group>";
@@ -224,7 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9142488E1E093E5A008729C9 /* GhostTypewriterTests.swift in Sources */,
+				9142488E1E093E5A008729C9 /* TypewriterLabelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
