@@ -19,18 +19,19 @@ public class TypewriterLabel: UILabel {
     /// Allows for text to be hidden before animation begins.
     public var hideTextBeforeTypewritingAnimation = true {
         didSet {
-            if hideTextBeforeTypewritingAnimation {
-                setAttributedTextColorToTransparent()
-            } else {
-                setAttributedTextColorToOpaque()
-            }
+            configureTransparency()
         }
     }
     
     /// Tracks the location of the next character using UTF16 encoding.
     private var utf16CharacterLocation = 0
     
-    // MARK: - Init
+    // MARK: - Lifecycle
+    
+    override public func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
+        configureTransparency()
+    }
     
     /**
      Tidies the animation up if it's still in progress by invalidating the timer.
@@ -91,13 +92,20 @@ public class TypewriterLabel: UILabel {
     // MARK: - Configure
     
     /**
+     Adjust transparency to match value set for `hideTextBeforeTypewritingAnimation`.
+    */
+    func configureTransparency() {
+        if hideTextBeforeTypewritingAnimation {
+            setAttributedTextColorToTransparent()
+        } else {
+            setAttributedTextColorToOpaque()
+        }
+    }
+    
+    /**
      Adjusts the alpha value on the attributed string so that it is transparent.
      */
     private func setAttributedTextColorToTransparent() {
-        guard let attributedText = attributedText else {
-            return
-        }
-        
         if hideTextBeforeTypewritingAnimation {
             setAlphaOnAttributedText(alpha: CGFloat(0))
         }
@@ -107,10 +115,6 @@ public class TypewriterLabel: UILabel {
      Adjusts the alpha value on the attributed string so that it is opaque.
      */
     private func setAttributedTextColorToOpaque() {
-        guard let attributedText = attributedText else {
-            return
-        }
-        
         if !hideTextBeforeTypewritingAnimation {
             setAlphaOnAttributedText(alpha: CGFloat(1))
         }
@@ -122,9 +126,13 @@ public class TypewriterLabel: UILabel {
      - Parameter alpha: alpha value the attributed string's characters will be set to.
      */
     private func setAlphaOnAttributedText(alpha: CGFloat) {
-        let attributedString = NSMutableAttributedString(attributedString: attributedText!)
+        guard let attributedText = attributedText else {
+            return
+        }
+        
+        let attributedString = NSMutableAttributedString(attributedString: attributedText)
         attributedString.addAttribute(NSForegroundColorAttributeName, value: textColor.withAlphaComponent(alpha), range: NSRange(location:0, length: attributedString.length))
-        attributedText = attributedString
+        self.attributedText = attributedString
     }
     
     /**
@@ -134,12 +142,16 @@ public class TypewriterLabel: UILabel {
      - Parameter chracterIndex: upper bound of attributed string's characters that the alpha value will be applied to.
      */
     private func setAlphaOnAttributedText(alpha: CGFloat, chracterIndex: Int) {
-        let attributedString = NSMutableAttributedString(attributedString: attributedText!)
+        guard let attributedText = attributedText else {
+            return
+        }
+        
+        let attributedString = NSMutableAttributedString(attributedString: attributedText)
         let index = attributedString.string.index(attributedString.string.startIndex, offsetBy: chracterIndex)
         let character = "\(attributedString.string[index])"
         let count = character.utf16.count
         attributedString.addAttribute(NSForegroundColorAttributeName, value: textColor.withAlphaComponent(alpha), range: NSRange(location: utf16CharacterLocation, length: count))
-        attributedText = attributedString
+        self.attributedText = attributedString
         
         utf16CharacterLocation += count
     }

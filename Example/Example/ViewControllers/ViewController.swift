@@ -15,21 +15,12 @@ class ViewController: UIViewController {
     @IBOutlet var descriptionLabel: TypewriterLabel!
     @IBOutlet var endLabel: TypewriterLabel!
     
-    // MARK: - ViewLifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        titleLabel.hideTextBeforeTypewritingAnimation = true
-        descriptionLabel.hideTextBeforeTypewritingAnimation = true
-        endLabel.hideTextBeforeTypewritingAnimation = true
-    }
-    
     // MARK: ButtonAction
     
     @IBAction func startAnimationButtonPressed(_ sender: Any) {
         titleLabel.cancelTypewritingAnimation()
         descriptionLabel.cancelTypewritingAnimation()
+        endLabel.cancelTypewritingAnimation()
         
         titleLabel.startTypewritingAnimation {
             self.descriptionLabel.startTypewritingAnimation {

@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="rYz-Gt-6NH">
-                                <rect key="frame" x="20" y="120" width="335" height="361.5"/>
+                                <rect key="frame" x="20" y="70" width="335" height="361.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The heroic tale of one developer's pursuit of the perfect typing animation 🐎 - there will be dragons! 🐲" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1C-Sz-CSn" customClass="TypewriterLabel" customModule="GhostTypewriter">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="115"/>
@@ -72,7 +72,7 @@ This really is just an excuse to show you the animation in action and how it can
                             <constraint firstItem="CHm-fp-cUh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="I4P-TC-MDT"/>
                             <constraint firstAttribute="trailing" secondItem="rYz-Gt-6NH" secondAttribute="trailing" constant="20" id="nGc-bn-yPV"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CHm-fp-cUh" secondAttribute="bottom" constant="41" id="vdB-U8-KPI"/>
-                            <constraint firstItem="rYz-Gt-6NH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="yVf-W2-hPW"/>
+                            <constraint firstItem="rYz-Gt-6NH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="yVf-W2-hPW"/>
                         </constraints>
                     </view>
                     <connections>
