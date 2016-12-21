@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// A UILabel subclass that adds a ghost type writing animation effect.
 public class TypewriterLabel: UILabel {
     
     /// Interval (time gap) between each character being animated on screen.
@@ -28,6 +29,11 @@ public class TypewriterLabel: UILabel {
     
     // MARK: - Lifecycle
     
+    /**
+     Triggered when label is added to superview, will configure label with provided transparency.
+     
+     - Parameter toSuperview: view that label is added to.
+     */
     override public func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         configureTransparency()
