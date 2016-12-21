@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "GhostTypewriter"
-  s.version      = "0.1.0"
+  s.version      = "0.5.0"
   s.summary      = "A UILabel subclass that adds a type writing animation effect."
 
   s.homepage     = "http://www.williamboles.me"

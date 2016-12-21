@@ -1,8 +1,13 @@
 #Change Log
 All notable changes to this project will be documented in this file.
-`TypeWritingLabel` adheres to [Semantic Versioning](http://semver.org/).
+`GhostTypeWriter` adheres to [Semantic Versioning](http://semver.org/).
 
 ---
+
+## [0.5.0](https://github.com/wibosco/TypeWritingLabel/releases/tag/0.5.0)
+
+* Apply pre-animation transparency option to label when added to superview
+* Unit tests 
 
 ## [0.2.0](https://github.com/wibosco/TypeWritingLabel/releases/tag/0.2.0)
 
