@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [0.5.1](https://github.com/wibosco/TypeWritingLabel/releases/tag/0.5.1)
+
+* Added missing documentation
+* Improved typing animation example gif
+
 ## [0.5.0](https://github.com/wibosco/TypeWritingLabel/releases/tag/0.5.0)
 
 * Apply pre-animation transparency option to label when added to superview
