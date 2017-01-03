@@ -66,7 +66,7 @@ public class TypewriterLabel: UILabel {
         
         animationTimer = Timer.scheduledTimer(withTimeInterval: typingTimeInterval, repeats: true, block: { (timer: Timer) in
             if animateUntilCharacterIndex < charactersCount {
-                self.setAlphaOnAttributedText(alpha: CGFloat(1), chracterIndex: animateUntilCharacterIndex)
+                self.setAlphaOnAttributedText(alpha: CGFloat(1), characterIndex: animateUntilCharacterIndex)
                 animateUntilCharacterIndex += 1
             } else {
                 completion?()
@@ -145,15 +145,15 @@ public class TypewriterLabel: UILabel {
      Adjusts the alpha value on the attributed string until (inclusive) a certain character length.
      
      - Parameter alpha: alpha value the attributed string's characters will be set to.
-     - Parameter chracterIndex: upper bound of attributed string's characters that the alpha value will be applied to.
+     - Parameter characterIndex: upper bound of attributed string's characters that the alpha value will be applied to.
      */
-    private func setAlphaOnAttributedText(alpha: CGFloat, chracterIndex: Int) {
+    private func setAlphaOnAttributedText(alpha: CGFloat, characterIndex: Int) {
         guard let attributedText = attributedText else {
             return
         }
         
         let attributedString = NSMutableAttributedString(attributedString: attributedText)
-        let index = attributedString.string.index(attributedString.string.startIndex, offsetBy: chracterIndex)
+        let index = attributedString.string.index(attributedString.string.startIndex, offsetBy: characterIndex)
         let character = "\(attributedString.string[index])"
         let count = character.utf16.count
         attributedString.addAttribute(NSForegroundColorAttributeName, value: textColor.withAlphaComponent(alpha), range: NSRange(location: utf16CharacterLocation, length: count))
