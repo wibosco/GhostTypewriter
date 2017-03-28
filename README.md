@@ -8,7 +8,7 @@ A `UILabel` subclass that adds a type writing animation effect. The interesting 
 
 This pod was inspired by the following post [here](http://williamboles.me/ghost-typing-your-way-to-hollywood/).
 
-##Installation via [CocoaPods](https://cocoapods.org/)
+## Installation via [CocoaPods](https://cocoapods.org/)
 
 To integrate CoreDataServices into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -27,13 +27,13 @@ $ pod install
 
 > CocoaPods 1.1.1+ is required to build `GhostTypewriter`.
 
-##Usage
+## Usage
 
 ![Animated Typing](typingAnimation.gif)
 
 `TypewriterLabel` is a subclass of `UILabel` and where the animation (magic) happens. It works by taking advantage of the `attributedText` property on the label and changing the properties of the text content to gradually expose the text using an animation similar to what you get on a mechanical type writer. 
 
-####Starting
+#### Starting
 
 ```swift
 import GhostTypewriter
@@ -43,7 +43,7 @@ import GhostTypewriter
 }
 ```
 
-####Stoping
+#### Stoping
 
 ```swift
 import GhostTypewriter
@@ -57,7 +57,7 @@ import GhostTypewriter
 }
 ```
 
-####Canceling
+#### Canceling
 
 ```swift
 import GhostTypewriter
@@ -71,7 +71,7 @@ import GhostTypewriter
 }
 ```
 
-####Chaining animations
+#### Chaining animations
 
 ```swift
 import GhostTypewriter
@@ -86,7 +86,7 @@ import GhostTypewriter
 }
 ```
 
-####Adjusting animation timing
+#### Adjusting animation timing
 
 ```swift
 import GhostTypewriter
@@ -97,15 +97,15 @@ override func viewDidLoad() {
 }
 ```
 
-####Storyboards
+#### Storyboards
 
 As `TypewriterLabel` contained in a pod, when using it in your storyboards you will need to use the `Module` field with the value `GhostTypewriter`.
 
-##Example
+## Example
 
 > `GhostTypewriter` comes with an [example project](https://github.com/wibosco/GhostTypewriter/tree/master/Example) to provide more details than listed above.
 
-##Found an issue?
+## Found an issue?
 
 Please open a [new Issue here](https://github.com/wibosco/GhostTypewriterLabel/issues/new) if you run into a problem specific to CoreDataServices, have a feature request, or want to share a comment. Note that general Core Data questions should be asked on [Stack Overflow](http://stackoverflow.com).
 
