@@ -49,11 +49,11 @@ import GhostTypewriter
 import GhostTypewriter
 
 @IBAction func startAnimationButtonPressed(_ sender: Any) {
-	if animating {
-		descriptionLabel.stopTypewritingAnimation()
-	} else {
-		self.descriptionLabel.startTypewritingAnimation(completion: nil)
-	}
+    if animating {
+	descriptionLabel.stopTypewritingAnimation()
+    } else {
+	self.descriptionLabel.startTypewritingAnimation(completion: nil)
+    }
 }
 ```
 
@@ -63,11 +63,11 @@ import GhostTypewriter
 import GhostTypewriter
 
 @IBAction func startAnimationButtonPressed(_ sender: Any) {
-	if animating {
-		descriptionLabel.cancelTypewritingAnimation()
-	} else {
-		self.descriptionLabel.startTypewritingAnimation(completion: nil)
-	}
+    if animating {
+        descriptionLabel.cancelTypewritingAnimation()
+    } else {
+	self.descriptionLabel.startTypewritingAnimation(completion: nil)
+    }
 }
 ```
 
@@ -92,8 +92,8 @@ import GhostTypewriter
 import GhostTypewriter
 
 override func viewDidLoad() {
-	super.viewDidLoad()
-	titleLabel.typingTimeInterval = 0.3
+    super.viewDidLoad()
+    titleLabel.typingTimeInterval = 0.3
 }
 ```
 
