@@ -43,7 +43,7 @@ import GhostTypewriter
 }
 ```
 
-#### Stoping
+#### Stopping
 
 ```swift
 import GhostTypewriter
