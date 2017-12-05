@@ -39,7 +39,7 @@ $ pod install
 import GhostTypewriter
 
 @IBAction func startAnimationButtonPressed(_ sender: Any) {
-    self.descriptionLabel.startTypewritingAnimation(completion: nil)
+    descriptionLabel.startTypewritingAnimation(completion: nil)
 }
 ```
 
@@ -52,7 +52,7 @@ import GhostTypewriter
     if animating {
 	descriptionLabel.stopTypewritingAnimation()
     } else {
-	self.descriptionLabel.startTypewritingAnimation(completion: nil)
+	descriptionLabel.startTypewritingAnimation(completion: nil)
     }
 }
 ```
@@ -66,7 +66,7 @@ import GhostTypewriter
     if animating {
         descriptionLabel.cancelTypewritingAnimation()
     } else {
-	self.descriptionLabel.startTypewritingAnimation(completion: nil)
+	descriptionLabel.startTypewritingAnimation(completion: nil)
     }
 }
 ```
