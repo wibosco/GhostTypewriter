@@ -61,7 +61,7 @@ public class TypewriterLabel: UILabel {
         setAttributedTextColorToTransparent()
         stopTypewritingAnimation()
         var animateUntilCharacterIndex = 0
-        let charactersCount = attributedText.string.characters.count
+        let charactersCount = attributedText.string.count
         utf16CharacterLocation = 0
         
         animationTimer = Timer.scheduledTimer(withTimeInterval: typingTimeInterval, repeats: true, block: { (timer: Timer) in
@@ -137,7 +137,7 @@ public class TypewriterLabel: UILabel {
         }
         
         let attributedString = NSMutableAttributedString(attributedString: attributedText)
-        attributedString.addAttribute(NSForegroundColorAttributeName, value: textColor.withAlphaComponent(alpha), range: NSRange(location:0, length: attributedString.length))
+        attributedString.addAttribute(.foregroundColor, value: textColor.withAlphaComponent(alpha), range: NSRange(location:0, length: attributedString.length))
         self.attributedText = attributedString
     }
     
@@ -156,7 +156,7 @@ public class TypewriterLabel: UILabel {
         let index = attributedString.string.index(attributedString.string.startIndex, offsetBy: characterIndex)
         let character = "\(attributedString.string[index])"
         let count = character.utf16.count
-        attributedString.addAttribute(NSForegroundColorAttributeName, value: textColor.withAlphaComponent(alpha), range: NSRange(location: utf16CharacterLocation, length: count))
+        attributedString.addAttribute(.foregroundColor, value: textColor.withAlphaComponent(alpha), range: NSRange(location: utf16CharacterLocation, length: count))
         self.attributedText = attributedString
         
         utf16CharacterLocation += count
