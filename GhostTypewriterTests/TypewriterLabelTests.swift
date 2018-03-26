@@ -36,7 +36,7 @@ class TypewriterLabelTests: XCTestCase {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             var foregroundColorApplied = 0
-            self.label.attributedText!.enumerateAttribute(NSForegroundColorAttributeName, in: NSMakeRange(0, self.label.attributedText!.length), options: []) { (value, range, stop) -> Void in
+            self.label.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, self.label.attributedText!.length), options: []) { (value, range, stop) -> Void in
                 foregroundColorApplied += 1
             }
             XCTAssertEqual(foregroundColorApplied, 2) // Hasn't been able to complete the animation due the time interval
@@ -57,7 +57,7 @@ class TypewriterLabelTests: XCTestCase {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             var foregroundColorApplied = 0
-            self.label.attributedText!.enumerateAttribute(NSForegroundColorAttributeName, in: NSMakeRange(0, self.label.attributedText!.length), options: []) { (value, range, stop) -> Void in
+            self.label.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, self.label.attributedText!.length), options: []) { (value, range, stop) -> Void in
                 foregroundColorApplied += 1
             }
             XCTAssertEqual(foregroundColorApplied, 2)
@@ -84,7 +84,7 @@ class TypewriterLabelTests: XCTestCase {
         let expectation = self.expectation(description: "Handler called")
         
         label.startTypewritingAnimation {
-            self.label.attributedText!.enumerateAttribute(NSForegroundColorAttributeName, in: NSMakeRange(0, self.label.attributedText!.length), options: []) { (value, range, stop) -> Void in
+            self.label.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, self.label.attributedText!.length), options: []) { (value, range, stop) -> Void in
                 let expectedRange = NSRange(location: 0, length: self.label.attributedText!.length)
                 
                 XCTAssertEqual(value as! UIColor, UIColor.black)
@@ -109,7 +109,7 @@ class TypewriterLabelTests: XCTestCase {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.label.cancelTypewritingAnimation(clearText: true)
             
-            self.label.attributedText!.enumerateAttribute(NSForegroundColorAttributeName, in: NSMakeRange(0, self.label.attributedText!.length), options: []) { (value, range, stop) -> Void in
+            self.label.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, self.label.attributedText!.length), options: []) { (value, range, stop) -> Void in
                 XCTAssertEqual(value as! UIColor, UIColor.clear)
             }
             
@@ -129,7 +129,7 @@ class TypewriterLabelTests: XCTestCase {
             self.label.cancelTypewritingAnimation(clearText: false)
             
             var foregroundColorApplied = 0
-            self.label.attributedText!.enumerateAttribute(NSForegroundColorAttributeName, in: NSMakeRange(0, self.label.attributedText!.length), options: []) { (value, range, stop) -> Void in
+            self.label.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, self.label.attributedText!.length), options: []) { (value, range, stop) -> Void in
                 foregroundColorApplied += 1
             }
             XCTAssertEqual(foregroundColorApplied, 2)
@@ -154,7 +154,7 @@ class TypewriterLabelTests: XCTestCase {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             var foregroundColorApplied = 0
-            self.label.attributedText!.enumerateAttribute(NSForegroundColorAttributeName, in: NSMakeRange(0, self.label.attributedText!.length), options: []) { (value, range, stop) -> Void in
+            self.label.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, self.label.attributedText!.length), options: []) { (value, range, stop) -> Void in
                 foregroundColorApplied += 1
             }
             XCTAssertEqual(foregroundColorApplied, 2)
@@ -171,7 +171,7 @@ class TypewriterLabelTests: XCTestCase {
         label.attributedText = NSAttributedString(string: "A significantly large test string")
         label.hideTextBeforeTypewritingAnimation = false
         
-        self.label.attributedText!.enumerateAttribute(NSForegroundColorAttributeName, in: NSMakeRange(0, self.label.attributedText!.length), options: []) { (value, range, stop) -> Void in
+        self.label.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, self.label.attributedText!.length), options: []) { (value, range, stop) -> Void in
             XCTAssertEqual(value as! UIColor, UIColor.black)
         }
     }
@@ -180,7 +180,7 @@ class TypewriterLabelTests: XCTestCase {
         label.attributedText = NSAttributedString(string: "A significantly large test string")
         label.hideTextBeforeTypewritingAnimation = true
         
-        self.label.attributedText!.enumerateAttribute(NSForegroundColorAttributeName, in: NSMakeRange(0, self.label.attributedText!.length), options: []) { (value, range, stop) -> Void in
+        self.label.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, self.label.attributedText!.length), options: []) { (value, range, stop) -> Void in
             XCTAssertEqual(value as! UIColor, UIColor.clear)
         }
     }
@@ -190,7 +190,7 @@ class TypewriterLabelTests: XCTestCase {
         label.hideTextBeforeTypewritingAnimation = false
         label.hideTextBeforeTypewritingAnimation = true
         
-        self.label.attributedText!.enumerateAttribute(NSForegroundColorAttributeName, in: NSMakeRange(0, self.label.attributedText!.length), options: []) { (value, range, stop) -> Void in
+        self.label.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, self.label.attributedText!.length), options: []) { (value, range, stop) -> Void in
             XCTAssertEqual(value as! UIColor, UIColor.clear)
         }
     }
@@ -204,7 +204,7 @@ class TypewriterLabelTests: XCTestCase {
         let superView = UIView()
         superView.addSubview(subviewLabel)
         
-        subviewLabel.attributedText!.enumerateAttribute(NSForegroundColorAttributeName, in: NSMakeRange(0, subviewLabel.attributedText!.length), options: []) { (value, range, stop) -> Void in
+        subviewLabel.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, subviewLabel.attributedText!.length), options: []) { (value, range, stop) -> Void in
             XCTAssertEqual(value as! UIColor, UIColor.clear)
         }
     }
@@ -217,7 +217,7 @@ class TypewriterLabelTests: XCTestCase {
         let superView = UIView()
         superView.addSubview(subviewLabel)
         
-        subviewLabel.attributedText!.enumerateAttribute(NSForegroundColorAttributeName, in: NSMakeRange(0, subviewLabel.attributedText!.length), options: []) { (value, range, stop) -> Void in
+        subviewLabel.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, subviewLabel.attributedText!.length), options: []) { (value, range, stop) -> Void in
             XCTAssertEqual(value as! UIColor, UIColor.black)
         }
     }
