@@ -9,6 +9,7 @@
 import XCTest
 @testable import GhostTypewriter
 
+// TODO: - test delegate methods
 class TypewriterLabelTests: XCTestCase {
     
     var label: TypewriterLabel!
@@ -30,7 +31,7 @@ class TypewriterLabelTests: XCTestCase {
     func test_typingTimeInterval_change() {
         label.attributedText = NSAttributedString(string: "test")
         label.typingTimeInterval = 0.5
-        label.startTypewritingAnimation(completion: nil)
+        label.startTypewritingAnimation()
         
         let expectation = self.expectation(description: "Handler called")
         
@@ -51,7 +52,7 @@ class TypewriterLabelTests: XCTestCase {
     
     func test_start_inProgress() {
         label.attributedText = NSAttributedString(string: "A significantly large test string")
-        label.startTypewritingAnimation(completion: nil)
+        label.startTypewritingAnimation()
         
         let expectation = self.expectation(description: "Handler called")
         
@@ -102,7 +103,7 @@ class TypewriterLabelTests: XCTestCase {
     
     func test_cancel_clearText() {
         label.attributedText = NSAttributedString(string: "A significantly large test string")
-        label.startTypewritingAnimation(completion: nil)
+        label.startTypewritingAnimation()
         
         let expectation = self.expectation(description: "Handler called")
         
@@ -121,7 +122,7 @@ class TypewriterLabelTests: XCTestCase {
     
     func test_cancel_doNotClearText() {
         label.attributedText = NSAttributedString(string: "A significantly large test string")
-        label.startTypewritingAnimation(completion: nil)
+        label.startTypewritingAnimation()
         
         let expectation = self.expectation(description: "Handler called")
         
@@ -144,7 +145,7 @@ class TypewriterLabelTests: XCTestCase {
     
     func test_stop_leavesLabelAsIs() {
         label.attributedText = NSAttributedString(string: "A significantly large test string")
-        label.startTypewritingAnimation(completion: nil)
+        label.startTypewritingAnimation()
         
         let expectation = self.expectation(description: "Handler called")
         

@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   					 :file => 'LICENSE.md' }
   s.author       = "William Boles"
 
-  s.platform     = :ios, "10.0"
+  s.platform     = :ios, "9.0"
   s.swift_version = '4.0'
 
   s.source       = { :git => "https://github.com/wibosco/GhostTypewriter.git",
