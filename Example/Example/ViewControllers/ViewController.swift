@@ -11,9 +11,9 @@ import GhostTypewriter
 
 class ViewController: UIViewController {
 
-    @IBOutlet var titleLabel: TypewriterLabel!
-    @IBOutlet var descriptionLabel: TypewriterLabel!
-    @IBOutlet var endLabel: TypewriterLabel!
+    @IBOutlet weak var titleLabel: TypewriterLabel!
+    @IBOutlet weak var descriptionLabel: TypewriterLabel!
+    @IBOutlet weak var endLabel: TypewriterLabel!
     
     // MARK: ButtonAction
     
