@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: TypewriterLabel!
     @IBOutlet weak var descriptionLabel: TypewriterLabel!
+    @IBOutlet weak var colorLabel: TypewriterLabel!
     @IBOutlet weak var endLabel: TypewriterLabel!
     
     // MARK: ButtonAction
@@ -20,11 +21,14 @@ class ViewController: UIViewController {
     @IBAction func startAnimationButtonPressed(_ sender: Any) {
         titleLabel.cancelTypewritingAnimation()
         descriptionLabel.cancelTypewritingAnimation()
+        colorLabel.cancelTypewritingAnimation()
         endLabel.cancelTypewritingAnimation()
         
         titleLabel.startTypewritingAnimation {
             self.descriptionLabel.startTypewritingAnimation {
-                self.endLabel.startTypewritingAnimation(completion: nil)
+                self.colorLabel.startTypewritingAnimation {
+                    self.endLabel.startTypewritingAnimation()
+                }
             }
         }
     }
