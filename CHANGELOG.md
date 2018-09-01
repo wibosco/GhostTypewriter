@@ -4,10 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [1.1.0](https://github.com/wibosco/TypeWritingLabel/releases/tag/1.0.0)
+
+* Simplified `TypewriterLabel` API
+
 ## [1.0.0](https://github.com/wibosco/TypeWritingLabel/releases/tag/1.0.0)
 
 * Updated project to use Swift 4.0
-* Added fastlane to make building the project on Travis-CI easier
+* Added `fastlane` to make building the project on Travis-CI easier
 
 ## [0.5.1](https://github.com/wibosco/TypeWritingLabel/releases/tag/0.5.1)
 
@@ -29,4 +33,4 @@ All notable changes to this project will be documented in this file.
 
 ## [0.0.1](https://github.com/wibosco/TypeWritingLabel/releases/tag/0.0.1)
 
-* Supports type writer effect animation using NSAttributedString
+* Supports type writer effect animation using `NSAttributedString`
