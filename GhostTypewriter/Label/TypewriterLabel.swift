@@ -24,9 +24,6 @@ public class TypewriterLabel: UILabel {
         }
     }
     
-    /// Tracks the location of the next character using UTF16 encoding.
-    private var utf16CharacterLocation = 0
-    
     // MARK: - Lifecycle
     
     /**
@@ -64,7 +61,7 @@ public class TypewriterLabel: UILabel {
         
         animationTimer = Timer.scheduledTimer(withTimeInterval: typingTimeInterval, repeats: true, block: { (timer: Timer) in
             if animateUntilCharacterIndex < attributedText.string.endIndex {
-                self.setAlphaOnAttributedText(alpha: CGFloat(1), characterIndex: animateUntilCharacterIndex)
+                self.setAlphaOnAttributedText(1, visibleCharacterEndIndex: animateUntilCharacterIndex)
                 animateUntilCharacterIndex = attributedText.string.index(after: animateUntilCharacterIndex)
             } else {
                 completion?()
@@ -111,7 +108,7 @@ public class TypewriterLabel: UILabel {
      */
     private func setAttributedTextColorToTransparent() {
         if hideTextBeforeTypewritingAnimation {
-            setAlphaOnAttributedText(alpha: CGFloat(0))
+            setAlphaOnAttributedText(0)
         }
     }
     
@@ -120,7 +117,7 @@ public class TypewriterLabel: UILabel {
      */
     private func setAttributedTextColorToOpaque() {
         if !hideTextBeforeTypewritingAnimation {
-            setAlphaOnAttributedText(alpha: CGFloat(1))
+            setAlphaOnAttributedText(1)
         }
     }
     
@@ -129,7 +126,7 @@ public class TypewriterLabel: UILabel {
      
      - Parameter alpha: alpha value the attributed string's characters will be set to.
      */
-    private func setAlphaOnAttributedText(alpha: CGFloat) {
+    private func setAlphaOnAttributedText(_ alpha: CGFloat) {
         guard let attributedText = attributedText else {
             return
         }
@@ -145,13 +142,13 @@ public class TypewriterLabel: UILabel {
      - Parameter alpha: alpha value the attributed string's characters will be set to.
      - Parameter characterIndex: upper bound of attributed string's characters that the alpha value will be applied to.
      */
-    private func setAlphaOnAttributedText(alpha: CGFloat, characterIndex: String.Index) {
+    private func setAlphaOnAttributedText(_ alpha: CGFloat, visibleCharacterEndIndex endIndex: String.Index) {
         guard let attributedText = attributedText else {
             return
         }
         
         let attributedString = NSMutableAttributedString(attributedString: attributedText)
-        let visibleText = attributedString.string.prefix(through: characterIndex)
+        let visibleText = attributedString.string.prefix(through: endIndex)
         
         if let range = attributedString.string.range(of: visibleText) {
             let nsRange = NSRange(range, in: attributedString.string)
