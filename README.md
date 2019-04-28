@@ -1,16 +1,17 @@
 [![Build Status](https://travis-ci.org/wibosco/GhostTypewriter.svg)](https://travis-ci.org/wibosco/GhostTypewriter)
+<a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat" alt="Swift" /></a>
 [![Version](https://img.shields.io/cocoapods/v/GhostTypewriter.svg?style=flat)](http://cocoapods.org/pods/GhostTypewriter)
 [![License](https://img.shields.io/cocoapods/l/GhostTypewriter.svg?style=flat)](http://cocoapods.org/pods/GhostTypewriter)
 [![Platform](https://img.shields.io/cocoapods/p/GhostTypewriter.svg?style=flat)](http://cocoapods.org/pods/GhostTypewriter)
 [![CocoaPods](https://img.shields.io/cocoapods/metrics/doc-percent/GhostTypewriter.svg)](http://cocoapods.org/pods/GhostTypewriter)
  
-A `UILabel` subclass that adds a type writing animation effect. The interesting thing about this pod is that the characters will not jump around as they are animated onto the screen instead the characters will be animated onto the screen in their final position - this is especially important for multiple line text as the jump can be very visually displeasing.
+A `UILabel` subclass that adds a type writing animation effect - as if a 👻 was typing it directly on your user's device!
 
 This pod was inspired by the following post [here](http://williamboles.me/ghost-typing-your-way-to-hollywood/).
 
 ## Installation via [CocoaPods](https://cocoapods.org/)
 
-To integrate CoreDataServices into your Xcode project using CocoaPods, specify it in your `Podfile`:
+To integrate `GhostTypewriter` into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
