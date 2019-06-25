@@ -32,7 +32,7 @@ $ pod install
 
 ![Animated Typing](typingAnimation.gif)
 
-`TypewriterLabel` is a subclass of `UILabel` and where the animation (magic) happens. It works by taking advantage of the `attributedText` property on the label and changing the properties of the text content to gradually expose the text using an animation similar to what you get on a mechanical type writer. 
+`TypewriterLabel` is a subclass of `UILabel` and where the animation (magic) happens. It works by taking advantage of the `attributedText` property on the label and changing the properties of the text content to gradually expose the text using an animation similar to what you get on a mechanical typewriter. 
 
 #### Starting
 
