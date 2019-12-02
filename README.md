@@ -4,7 +4,8 @@
 [![License](https://img.shields.io/cocoapods/l/GhostTypewriter.svg?style=flat)](http://cocoapods.org/pods/GhostTypewriter)
 [![Platform](https://img.shields.io/cocoapods/p/GhostTypewriter.svg?style=flat)](http://cocoapods.org/pods/GhostTypewriter)
 [![CocoaPods](https://img.shields.io/cocoapods/metrics/doc-percent/GhostTypewriter.svg)](http://cocoapods.org/pods/GhostTypewriter)
- 
+<a href="https://twitter.com/wibosco"><img src="https://img.shields.io/badge/twitter-@wibosco-blue.svg?style=flat" alt="Twitter: @wibosco" /></a>
+
 A `UILabel` subclass that adds a typewriting animation effect - as if a 👻 was typing it directly on your user's device!
 
 This pod was inspired by the following post [here](http://williamboles.me/ghost-typing-your-way-to-hollywood/).
