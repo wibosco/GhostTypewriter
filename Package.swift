@@ -9,7 +9,7 @@ let package = Package(
         .library(
             name: "GhostTypewriter",
             targets: ["GhostTypewriter"]
-        ),
+        )
     ],
     targets: [
         .target(
