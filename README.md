@@ -101,7 +101,7 @@ override func viewDidLoad() {
 
 #### Storyboards
 
-As `TypewriterLabel` contained in a pod, when using it in your storyboards you will need to use the `Module` field with the value `GhostTypewriter`.
+As `TypewriterLabel` is contained in a pod, when using it with storyboards you will need to set the `Module` field to `GhostTypewriter`.
 
 ## Example
 
