@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,69 +21,111 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="rYz-Gt-6NH">
-                                <rect key="frame" x="20" y="70" width="335" height="420.5"/>
+                                <rect key="frame" x="20" y="50" width="335" height="275.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The heroic tale 💪 of one developer's pursuit of the perfect typing animation 🐎 - there will be dragons! 🐲" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1C-Sz-CSn" customClass="TypewriterLabel" customModule="GhostTypewriter">
-                                        <rect key="frame" x="0.0" y="0.0" width="329" height="115"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The heroic tale 💪 of one developer's pursuit of the perfect typing animation - there will be a 🐲!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1C-Sz-CSn" customClass="TypewriterLabel" customModule="GhostTypewriter">
+                                        <rect key="frame" x="0.0" y="0.0" width="297" height="115"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrA-eT-4zu" customClass="TypewriterLabel" customModule="GhostTypewriter">
-                                        <rect key="frame" x="0.0" y="133" width="335" height="162.5"/>
-                                        <string key="text">OK....so the part about the dragons, total lie 😫 
+                                        <rect key="frame" x="0.0" y="133" width="335" height="142.5"/>
+                                        <string key="text">OK....so the part about a dragon, I lied 😫. 
 
-As was the heroic part 😓
+The heroic part, another lie 😓.
 
-This really is just an excuse to show you the animation in action and how it can handle any regular label text data  😀</string>
+This really is just an excuse to show you the animation in action and how it can handle any regular label text data  😀.</string>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hopefully supporting colors will make up for some of the disappointment" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUP-33-XTV" customClass="TypewriterLabel" customModule="GhostTypewriter">
-                                        <rect key="frame" x="0.0" y="313.5" width="335" height="41"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <color key="textColor" red="0.49208060471646464" green="1" blue="0.27254266105080616" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏁" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kvi-ys-j7x" customClass="TypewriterLabel" customModule="GhostTypewriter">
-                                        <rect key="frame" x="0.0" y="372.5" width="335" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KaO-1G-KAV">
+                                <rect key="frame" x="8" y="547" width="359" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DI2-TD-U0S">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="hzz-H4-fQU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Start"/>
+                                        <connections>
+                                            <action selector="startAnimationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CIE-wg-zpz"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SUU-H4-Egf">
+                                        <rect key="frame" x="0.0" y="52" width="359" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KbY-aO-cqM">
+                                                <rect key="frame" x="0.0" y="0.0" width="84" height="48"/>
+                                                <state key="normal" title="Stop"/>
+                                                <connections>
+                                                    <action selector="stopButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QpC-0w-mhI"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFV-8v-tHY">
+                                                <rect key="frame" x="92" y="0.0" width="83.5" height="48"/>
+                                                <state key="normal" title="Reset"/>
+                                                <connections>
+                                                    <action selector="resetButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EJh-TP-l4l"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWL-GO-yX7">
+                                                <rect key="frame" x="183.5" y="0.0" width="84" height="48"/>
+                                                <state key="normal" title="Restart"/>
+                                                <connections>
+                                                    <action selector="restartButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DRK-ss-jl5"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHm-fp-cUh">
+                                                <rect key="frame" x="275.5" y="0.0" width="83.5" height="48"/>
+                                                <state key="normal" title="Complete"/>
+                                                <connections>
+                                                    <action selector="completeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wug-mp-94c"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="KbY-aO-cqM" secondAttribute="bottom" id="0xg-BG-aiq"/>
+                                            <constraint firstAttribute="trailing" secondItem="CHm-fp-cUh" secondAttribute="trailing" id="8e7-rH-AJl"/>
+                                            <constraint firstItem="CHm-fp-cUh" firstAttribute="top" secondItem="SUU-H4-Egf" secondAttribute="top" id="Hcn-Bs-O8N"/>
+                                            <constraint firstItem="xFV-8v-tHY" firstAttribute="top" secondItem="SUU-H4-Egf" secondAttribute="top" id="O53-b1-abo"/>
+                                            <constraint firstItem="KbY-aO-cqM" firstAttribute="leading" secondItem="SUU-H4-Egf" secondAttribute="leading" id="UYa-RW-eMY"/>
+                                            <constraint firstAttribute="bottom" secondItem="xFV-8v-tHY" secondAttribute="bottom" id="V8x-rM-Xkm"/>
+                                            <constraint firstItem="KbY-aO-cqM" firstAttribute="top" secondItem="SUU-H4-Egf" secondAttribute="top" id="cDg-To-DdE"/>
+                                            <constraint firstAttribute="bottom" secondItem="CHm-fp-cUh" secondAttribute="bottom" id="tR7-lN-Dvr"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Kvi-ys-j7x" firstAttribute="width" secondItem="mrA-eT-4zu" secondAttribute="width" id="qUO-LT-rn8"/>
+                                    <constraint firstItem="DI2-TD-U0S" firstAttribute="top" secondItem="KaO-1G-KAV" secondAttribute="top" id="Ccu-vs-FXx"/>
+                                    <constraint firstAttribute="trailing" secondItem="DI2-TD-U0S" secondAttribute="trailing" id="Kpj-dJ-YqU"/>
+                                    <constraint firstItem="DI2-TD-U0S" firstAttribute="leading" secondItem="KaO-1G-KAV" secondAttribute="leading" id="O70-0Z-VOa"/>
+                                    <constraint firstAttribute="height" constant="100" id="lZq-Xp-CDo"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHm-fp-cUh">
-                                <rect key="frame" x="77.5" y="582" width="220" height="44"/>
-                                <color key="backgroundColor" red="0.0039215686269999999" green="0.61568627450000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="220" id="BG4-Q0-1qA"/>
-                                    <constraint firstAttribute="height" constant="44" id="s7e-8G-awj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                <state key="normal" title="Start Animation"/>
-                                <connections>
-                                    <action selector="startAnimationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eil-Ft-JFv"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rYz-Gt-6NH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="8kv-pA-AOF"/>
-                            <constraint firstItem="CHm-fp-cUh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="I4P-TC-MDT"/>
+                            <constraint firstItem="KaO-1G-KAV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="NJC-FZ-TUv"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KaO-1G-KAV" secondAttribute="bottom" constant="20" id="QiQ-1X-XIZ"/>
+                            <constraint firstAttribute="trailing" secondItem="KaO-1G-KAV" secondAttribute="trailing" constant="8" id="XSD-Rd-COd"/>
                             <constraint firstAttribute="trailing" secondItem="rYz-Gt-6NH" secondAttribute="trailing" constant="20" id="nGc-bn-yPV"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CHm-fp-cUh" secondAttribute="bottom" constant="41" id="vdB-U8-KPI"/>
                             <constraint firstItem="rYz-Gt-6NH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="yVf-W2-hPW"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="colorLabel" destination="RUP-33-XTV" id="GKJ-fk-hc3"/>
+                        <outlet property="completeButton" destination="CHm-fp-cUh" id="K7K-N3-ioq"/>
                         <outlet property="descriptionLabel" destination="mrA-eT-4zu" id="f4i-x4-Gvl"/>
-                        <outlet property="endLabel" destination="Kvi-ys-j7x" id="Lhu-9Z-Ge9"/>
+                        <outlet property="resetButton" destination="xFV-8v-tHY" id="aMb-uH-don"/>
+                        <outlet property="restartButton" destination="UWL-GO-yX7" id="ZuW-2e-n8U"/>
+                        <outlet property="stackView" destination="rYz-Gt-6NH" id="kBw-L1-ZAA"/>
+                        <outlet property="startButton" destination="DI2-TD-U0S" id="f2L-SW-5Mw"/>
+                        <outlet property="stopButton" destination="KbY-aO-cqM" id="AVu-Mu-p4x"/>
                         <outlet property="titleLabel" destination="S1C-Sz-CSn" id="7Q5-JQ-CoD"/>
                     </connections>
                 </viewController>

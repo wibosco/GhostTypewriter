@@ -1,0 +1,6 @@
+framework module GhostTypewriter {
+  umbrella header "GhostTypewriter-umbrella.h"
+
+  export *
+  module * { export * }
+}

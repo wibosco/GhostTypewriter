@@ -11,29 +11,37 @@ import UIKit
 /// A UILabel subclass that adds a ghost type writing animation effect.
 public class TypewriterLabel: UILabel {
     
-    /// Interval (time gap) between each character being animated on screen.
+    /// The interval (time gap) between each character being animated on screen.
     public var typingTimeInterval: TimeInterval = 0.1
     
-    /// Timer instance that control's the animation.
-    private var animationTimer: Timer?
+    /// Factory for making timers
+    var timerFactory: TimerFactoryType = TimerFactory()
     
-    /// Allows for text to be hidden before animation begins.
-    public var hideTextBeforeTypewritingAnimation = true {
-        didSet {
-            configureTransparency()
-        }
-    }
+    /// Timer instance that control's the animation.
+    private var animationTimer: TimerType?
+    
+    /// Current index for next character to be animated on screen.
+    private var currentCharacterAnimationIndex: String.Index?
+    
+    ///Type alias for completion closure.
+    public typealias TypewriterLabelCompletion = () -> ()
+    
+    /// A callback closure for when the type writing animation is complete.
+    private var completion: TypewriterLabelCompletion?
+    
+    public private(set) var isAnimating: Bool = false
     
     // MARK: - Lifecycle
     
     /**
      Triggered when label is added to superview, will configure label with provided transparency.
      
-     - Parameter toSuperview: view that label is added to.
+     - Parameter newSuperview: view that label is added to.
      */
     override public func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
-        configureTransparency()
+        
+        hideAttributedText()
     }
     
     /**
@@ -43,82 +51,110 @@ public class TypewriterLabel: UILabel {
         animationTimer?.invalidate()
     }
     
-    // MARK: - TypingAnimation
+    // MARK: - Controls
     
     /**
      Starts the type writing animation.
      
-     - Parameter completion: a callback block/closure for when the type writing animation is complete. This can be useful for chaining multiple animations together.
+     - Parameter completion: a callback closure for when the type writing animation is complete.
      */
-    public func startTypewritingAnimation(completion: (() -> Void)? = nil) {
+    public func startTypewritingAnimation(completion: TypewriterLabelCompletion? = nil) {
         guard let attributedText = attributedText else {
+            completion?()
             return
         }
+    
+        self.completion = completion
         
-        setAttributedTextColorToTransparent()
-        stopTypewritingAnimation()
-        var animateUntilCharacterIndex = attributedText.string.startIndex
+        if currentCharacterAnimationIndex == nil {
+            currentCharacterAnimationIndex = attributedText.string.startIndex
+            hideAttributedText()
+        }
         
-        animationTimer = Timer.scheduledTimer(withTimeInterval: typingTimeInterval, repeats: true, block: { (timer: Timer) in
-            if animateUntilCharacterIndex < attributedText.string.endIndex {
-                self.setAlphaOnAttributedText(1, visibleCharacterEndIndex: animateUntilCharacterIndex)
-                animateUntilCharacterIndex = attributedText.string.index(after: animateUntilCharacterIndex)
-            } else {
+        animationTimer = timerFactory.buildScheduledTimer(withTimeInterval: typingTimeInterval, repeats: true, block: { _ in
+            guard let characterIndex = self.currentCharacterAnimationIndex, characterIndex < attributedText.string.endIndex else {
                 completion?()
                 self.stopTypewritingAnimation()
+                return
             }
+            
+            self.revealCharacter(atIndex: characterIndex)
+              
+            self.currentCharacterAnimationIndex = attributedText.string.index(after: characterIndex)
         })
+        
+        isAnimating = true
+    }
+    
+    /**
+     Adjusts the alpha value on the attributed string at the given index.
+     
+     - Parameter characterIndex: index that the alpha value will be applied to.
+     */
+    private func revealCharacter(atIndex characterIndex: String.Index) {
+        let range = characterIndex...characterIndex
+        
+        updateAttributedTextVisibility(to: alpha, range: range)
     }
     
     /**
      Stops the type writing animation.
+     
+     Any characters that have been animated on screen, remain on screen.
      */
     public func stopTypewritingAnimation() {
+        isAnimating = false
+        
         animationTimer?.invalidate()
         animationTimer = nil
     }
     
     /**
-     Cancels the typing animation and can clear label's content if `clear` is `true`.
+     Resets the type writing animation.
      
-     - Parameter clear: sets label's content to transparent when animation is cancelled.
+     Hides the labels text.
+     
+     Does *not* restart the animation again.
      */
-    public func cancelTypewritingAnimation(clearText: Bool = true) {
-        if clearText {
-            setAttributedTextColorToTransparent()
-        }
+    public func resetTypewritingAnimation() {
         stopTypewritingAnimation()
+        hideAttributedText()
+        currentCharacterAnimationIndex = nil
     }
-    
-    // MARK: - Configure
     
     /**
-     Adjust transparency to match value set for `hideTextBeforeTypewritingAnimation`.
-    */
-    private func configureTransparency() {
-        if hideTextBeforeTypewritingAnimation {
-            setAttributedTextColorToTransparent()
-        } else {
-            setAttributedTextColorToOpaque()
-        }
+     Restarts the type writing animation.
+     
+     - Parameter completion: a callback closure for when the type writing animation is complete.
+     */
+    public func restartTypewritingAnimation(completion: TypewriterLabelCompletion? = nil) {
+        resetTypewritingAnimation()
+        startTypewritingAnimation(completion: completion)
     }
+    
+    /**
+     Abruptly completes the remaining type writing animation without an animation.
+     */
+    public func completeTypewritingAnimation() {
+        stopTypewritingAnimation()
+        showAttributedText()
+        currentCharacterAnimationIndex = nil
+    }
+    
+    // MARK: - Visibility
     
     /**
      Adjusts the alpha value on the attributed string so that it is transparent.
      */
-    private func setAttributedTextColorToTransparent() {
-        if hideTextBeforeTypewritingAnimation {
-            setAlphaOnAttributedText(0)
-        }
+    private func hideAttributedText() {
+        updateAttributedTextVisibility(to: 0)
     }
     
     /**
      Adjusts the alpha value on the attributed string so that it is opaque.
      */
-    private func setAttributedTextColorToOpaque() {
-        if !hideTextBeforeTypewritingAnimation {
-            setAlphaOnAttributedText(1)
-        }
+    private func showAttributedText() {
+        updateAttributedTextVisibility(to: 1)
     }
     
     /**
@@ -126,34 +162,40 @@ public class TypewriterLabel: UILabel {
      
      - Parameter alpha: alpha value the attributed string's characters will be set to.
      */
-    private func setAlphaOnAttributedText(_ alpha: CGFloat) {
+    private func updateAttributedTextVisibility(to alpha: CGFloat) {
         guard let attributedText = attributedText else {
             return
         }
         
-        let attributedString = NSMutableAttributedString(attributedString: attributedText)
-        attributedString.addAttribute(.foregroundColor, value: textColor.withAlphaComponent(alpha), range: NSRange(location:0, length: attributedString.length))
-        self.attributedText = attributedString
+        let range = attributedText.string.startIndex..<attributedText.string.endIndex
+        
+        updateAttributedTextVisibility(to: alpha, range: range)
     }
     
     /**
-     Adjusts the alpha value on the attributed string until (inclusive) a certain character length.
+     Adjusts the alpha value on the attributed string within the given range.
      
      - Parameter alpha: alpha value the attributed string's characters will be set to.
-     - Parameter characterIndex: upper bound of attributed string's characters that the alpha value will be applied to.
+     - Parameter range: range of attributed string's characters that the alpha value will be applied to.
      */
-    private func setAlphaOnAttributedText(_ alpha: CGFloat, visibleCharacterEndIndex endIndex: String.Index) {
+    private func updateAttributedTextVisibility<R: RangeExpression>(to alpha: CGFloat, range: R) where R.Bound == String.Index {
         guard let attributedText = attributedText else {
             return
         }
         
         let attributedString = NSMutableAttributedString(attributedString: attributedText)
-        let visibleText = attributedString.string.prefix(through: endIndex)
+        attributedText.enumerateAttribute(.foregroundColor, in: NSRange(range, in: attributedString.string), options: []) { (value, range, stop) -> Void in
+            let color: UIColor
+            if let colorValue = value as? UIColor {
+                color = colorValue
+            } else {
+                color = textColor
+            }
         
-        if let range = attributedString.string.range(of: visibleText) {
-            let nsRange = NSRange(range, in: attributedString.string)
-            attributedString.addAttribute(.foregroundColor, value: textColor.withAlphaComponent(alpha), range: nsRange)
-            self.attributedText = attributedString
+            let adjustedColor = color.withAlphaComponent(alpha)
+            attributedString.addAttribute(.foregroundColor, value: adjustedColor, range: range)
         }
+        
+        self.attributedText = attributedString
     }
 }
