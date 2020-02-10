@@ -155,6 +155,18 @@ It's important to note that setting/changing `typingTimeInterval` after an anima
 
 As `TypewriterLabel` is contained in a pod, when using it with storyboards you will need to set the `Module` field to `GhostTypewriter`.
 
+## Migrating from v1 to v2
+
+Version [`2.0.0`](https://github.com/wibosco/GhostTypewriter/releases/tag/2.0.0) of `GhostTypewriter` contains breaking changes.
+
+### Migrating from `cancelTypewritingAnimation()` or `cancelTypewritingAnimation(clearText: true)`
+
+Now use `resetTypewritingAnimation()`.
+
+### Migrating from `cancelTypewritingAnimation(clearText: false)`
+
+Now use `stopTypewritingAnimation()`.
+
 ## Example
 
 > `GhostTypewriter` comes with an [example project](https://github.com/wibosco/GhostTypewriter/tree/master/Example) to provide more details than listed above.
