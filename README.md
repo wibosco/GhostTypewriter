@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/wibosco/GhostTypewriter.svg)](https://travis-ci.org/wibosco/GhostTypewriter)
-<a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat" alt="Swift" /></a>
+<a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat" alt="Swift" /></a>
 [![Version](https://img.shields.io/cocoapods/v/GhostTypewriter.svg?style=flat)](http://cocoapods.org/pods/GhostTypewriter)
 [![License](https://img.shields.io/cocoapods/l/GhostTypewriter.svg?style=flat)](http://cocoapods.org/pods/GhostTypewriter)
 [![Platform](https://img.shields.io/cocoapods/p/GhostTypewriter.svg?style=flat)](http://cocoapods.org/pods/GhostTypewriter)
