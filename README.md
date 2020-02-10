@@ -159,13 +159,9 @@ As `TypewriterLabel` is contained in a pod, when using it with storyboards you w
 
 Version [`2.0.0`](https://github.com/wibosco/GhostTypewriter/releases/tag/2.0.0) of `GhostTypewriter` contains breaking changes.
 
-### Migrating from `cancelTypewritingAnimation()` or `cancelTypewritingAnimation(clearText: true)`
-
-Now use `resetTypewritingAnimation()`.
-
-### Migrating from `cancelTypewritingAnimation(clearText: false)`
-
-Now use `stopTypewritingAnimation()`.
+* `cancelTypewritingAnimation()` now use `resetTypewritingAnimation()`.
+* `cancelTypewritingAnimation(clearText: true)` now use `resetTypewritingAnimation()`.
+* `cancelTypewritingAnimation(clearText: false)` now use `stopTypewritingAnimation()`.
 
 ## Example
 
