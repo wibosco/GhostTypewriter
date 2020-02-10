@@ -11,26 +11,110 @@ import GhostTypewriter
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: TypewriterLabel!
-    @IBOutlet weak var descriptionLabel: TypewriterLabel!
-    @IBOutlet weak var colorLabel: TypewriterLabel!
-    @IBOutlet weak var endLabel: TypewriterLabel!
+    @IBOutlet weak private var stackView: UIStackView!
     
-    // MARK: ButtonAction
+    @IBOutlet weak private var startButton: UIButton!
+    @IBOutlet weak private var stopButton: UIButton!
+    @IBOutlet weak private var resetButton: UIButton!
+    @IBOutlet weak private var restartButton: UIButton!
+    @IBOutlet weak private var completeButton: UIButton!
+    
+    @IBOutlet weak private var titleLabel: TypewriterLabel!
+    @IBOutlet weak private var descriptionLabel: TypewriterLabel!
+    
+    private lazy var programmaticLabel: TypewriterLabel = {
+        let programmaticLabel = TypewriterLabel()
+        programmaticLabel.numberOfLines = 0
+        programmaticLabel.lineBreakMode = .byWordWrapping
+        
+        let text = "Still not convinced...\n\nWell this label shows support for attributed labels created programmatically rather than via storyboards so maybe that will soothe you."
+        
+        let attributedString = NSMutableAttributedString(string: text)
+
+        if let programmaticallyTextRange = text.range(of: "programmatically") {
+            let programmaticallyTextNSRange = NSRange(programmaticallyTextRange, in: attributedString.string)
+            attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.green, range: programmaticallyTextNSRange)
+        }
+        
+        if let storyboardsTextRange = text.range(of: "storyboards") {
+            let storyboardsTextNSRange = NSRange(storyboardsTextRange, in: attributedString.string)
+            attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: storyboardsTextNSRange)
+        }
+        
+        programmaticLabel.attributedText = attributedString
+        
+        return programmaticLabel
+    }()
+    
+    // MARK: - ViewLifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        stackView.addArrangedSubview(programmaticLabel)
+    }
+    
+    // MARK: ButtonActions
     
     @IBAction func startAnimationButtonPressed(_ sender: Any) {
-        titleLabel.cancelTypewritingAnimation()
-        descriptionLabel.cancelTypewritingAnimation()
-        colorLabel.cancelTypewritingAnimation()
-        endLabel.cancelTypewritingAnimation()
+        startButton.isEnabled = false
+        stopButton.isEnabled = true
+        resetButton.isEnabled = true
+        completeButton.isEnabled = true
+        restartButton.isEnabled = true
         
         titleLabel.startTypewritingAnimation {
             self.descriptionLabel.startTypewritingAnimation {
-                self.colorLabel.startTypewritingAnimation {
-                    self.endLabel.startTypewritingAnimation()
-                }
+                self.programmaticLabel.startTypewritingAnimation()
             }
         }
     }
+    
+    @IBAction func stopButtonPressed(_ sender: Any) {
+        startButton.isEnabled = true
+        stopButton.isEnabled = false
+        resetButton.isEnabled = true
+        completeButton.isEnabled = true
+        restartButton.isEnabled = true
+        
+        titleLabel.stopTypewritingAnimation()
+        descriptionLabel.stopTypewritingAnimation()
+        programmaticLabel.stopTypewritingAnimation()
+    }
+    
+    @IBAction func resetButtonPressed(_ sender: Any) {
+        startButton.isEnabled = true
+        stopButton.isEnabled = false
+        resetButton.isEnabled = false
+        completeButton.isEnabled = true
+        restartButton.isEnabled = false
+        
+        titleLabel.resetTypewritingAnimation()
+        descriptionLabel.resetTypewritingAnimation()
+        programmaticLabel.resetTypewritingAnimation()
+    }
+    
+    @IBAction func restartButtonPressed(_ sender: Any) {
+        startButton.isEnabled = false
+        stopButton.isEnabled = true
+        resetButton.isEnabled = true
+        completeButton.isEnabled = true
+        restartButton.isEnabled = true
+        
+        titleLabel.restartTypewritingAnimation()
+        descriptionLabel.resetTypewritingAnimation()
+        programmaticLabel.resetTypewritingAnimation()
+    }
+    
+    @IBAction func completeButtonPressed(_ sender: Any) {
+        startButton.isEnabled = false
+        stopButton.isEnabled = false
+        resetButton.isEnabled = true
+        completeButton.isEnabled = false
+        restartButton.isEnabled = true
+        
+        titleLabel.completeTypewritingAnimation()
+        descriptionLabel.completeTypewritingAnimation()
+        programmaticLabel.completeTypewritingAnimation()
+    }
 }
-

@@ -33,75 +33,139 @@ $ pod install
 
 ![Animated Typing](typingAnimation.gif)
 
-`TypewriterLabel` is a subclass of `UILabel` and where the animation (magic) happens. It works by taking advantage of the `attributedText` property on the label and changing the properties of the text content to gradually expose the text using an animation similar to what you get on a mechanical typewriter. 
+`TypewriterLabel` is a subclass of `UILabel` and where the animation (magic) happens. It works by taking advantage of the `attributedText` property on the label and changing the properties of the text content to gradually expose the text using an animation similar to what you get on a mechanical typewriter.
+
+A `TypewriterLabel` instance when added as a subview will hide it's content.
 
 #### Starting
+
+Starting the animation will cause the content of the label to be reveal one character at a time.
+
+> How quickly each character is revealed is controlled by setting the `typingTimeInterval` property.
+
+There are two ways to start an animation: with and without a completion closure.
+
+With a completion closure:
 
 ```swift
 import GhostTypewriter
 
 @IBAction func startAnimationButtonPressed(_ sender: Any) {
-    descriptionLabel.startTypewritingAnimation(completion: nil)
+    titleLabel.startTypewritingAnimation {
+        //Implement your completion closure body here...
+    }
+}
+```
+
+Without a completion closure:
+
+```swift
+import GhostTypewriter
+
+@IBAction func startAnimationButtonPressed(_ sender: Any) {
+    titleLabel.startTypewritingAnimation()
 }
 ```
 
 #### Stopping
 
+Stopping an animation causes the characters that have been revealed to remain as is and no new characters being revealed.
+
 ```swift
 import GhostTypewriter
 
-@IBAction func startAnimationButtonPressed(_ sender: Any) {
-    if animating {
-	descriptionLabel.stopTypewritingAnimation()
-    } else {
-	descriptionLabel.startTypewritingAnimation(completion: nil)
+@IBAction func stopAnimationButtonPressed(_ sender: Any) {
+    titleLabel.stopTypewritingAnimation()
+}
+```
+
+#### Resetting
+
+Resetting an animation causes all characters to be hidden.
+
+```swift
+import GhostTypewriter
+
+@IBAction func resetAnimationButtonPressed(_ sender: Any) {
+    titleLabel.resetTypewritingAnimation()
+}
+```
+
+It's important to note that resetting an `TypewriterLabel` instance does not cause the animation to restart instead you need to call `restartAnimationButtonPressed()`.
+
+### Restarting
+
+Restarting an animation causes all characters to be hidden and for the animation to begin from the start again.
+
+There are two ways to start an animation: with and without a completion closure.
+
+Without a completion closure:
+
+```swift
+import GhostTypewriter
+
+@IBAction func restartAnimationButtonPressed(_ sender: Any) {
+    titleLabel.restartTypewritingAnimation()
+}
+```
+
+With a completion closure:
+
+```swift
+import GhostTypewriter
+
+@IBAction func restartAnimationButtonPressed(_ sender: Any) {
+    titleLabel.restartTypewritingAnimation {
+        //Implement your completion closure body here...
     }
 }
 ```
 
-#### Canceling
+#### Completing
+
+Completing an animation causes all characters to instantly be revealed.
 
 ```swift
 import GhostTypewriter
 
-@IBAction func startAnimationButtonPressed(_ sender: Any) {
-    if animating {
-        descriptionLabel.cancelTypewritingAnimation()
-    } else {
-	descriptionLabel.startTypewritingAnimation(completion: nil)
-    }
-}
-```
-
-#### Chaining animations
-
-```swift
-import GhostTypewriter
-
-@IBAction func startAnimationButtonPressed(_ sender: Any) {
-    titleLabel.cancelTypewritingAnimation()
-    descriptionLabel.cancelTypewritingAnimation()
-    
-    titleLabel.startGhostTypewriterAnimation {
-        self.descriptionLabel.startTypewritingAnimation(completion: nil)
-    }
+@IBAction func completeAnimationButtonPressed(_ sender: Any) {
+    titleLabel.completeTypewritingAnimation()
 }
 ```
 
 #### Adjusting animation timing
+
+Each character of a `TypewriterLabel` instance is revealed at a pace set by the `typingTimeInterval` property.
+
+`typingTimeInterval` defaults to `0.1` second.
 
 ```swift
 import GhostTypewriter
 
 override func viewDidLoad() {
     super.viewDidLoad()
+
     titleLabel.typingTimeInterval = 0.3
 }
 ```
 
+It's important to note that setting/changing `typingTimeInterval` after an animation has been started, has no affect on the timing of that animation.
+
 #### Storyboards
 
 As `TypewriterLabel` is contained in a pod, when using it with storyboards you will need to set the `Module` field to `GhostTypewriter`.
+
+## Migrating from v1 to v2
+
+Version [`2.0.0`](https://github.com/wibosco/GhostTypewriter/releases/tag/2.0.0) of `GhostTypewriter` contains breaking changes.
+
+### Migrating from `cancelTypewritingAnimation()` or `cancelTypewritingAnimation(clearText: true)`
+
+Now use `resetTypewritingAnimation()`.
+
+### Migrating from `cancelTypewritingAnimation(clearText: false)`
+
+Now use `stopTypewritingAnimation()`.
 
 ## Example
 
