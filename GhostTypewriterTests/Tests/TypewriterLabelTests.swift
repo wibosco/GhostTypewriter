@@ -357,11 +357,8 @@ class TypewriterLabelTests: XCTestCase {
     func test_complete_revealsFullText() {
         let timerFactory = MockTimerFactory()
         
-        var timerClosure: ((TimerType) -> ())?
         let timerExpectation = expectation(description: "timerExpectation")
         timerFactory.buildScheduledTimerClosure = { _, _, block in
-            timerClosure = block
-            
             timerExpectation.fulfill()
         }
         

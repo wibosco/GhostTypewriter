@@ -11,7 +11,7 @@
   "platforms": {
     "ios": "10.0"
   },
-  "swift_version": "5.0",
+  "swift_versions": "5.0",
   "source": {
     "git": "https://github.com/wibosco/GhostTypewriter.git",
     "branch": "master",
@@ -19,5 +19,6 @@
   },
   "source_files": "GhostTypewriter/**/*.swift",
   "requires_arc": true,
-  "frameworks": "UIKit"
+  "frameworks": "UIKit",
+  "swift_version": "5.0"
 }

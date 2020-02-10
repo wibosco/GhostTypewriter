@@ -7,242 +7,240 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		20E6005BE18D472769DF54BE2772902D /* TimerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE97645C044A880D4276B67053E5BC9 /* TimerFactory.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		23AB6AB8DD0AFD67B71FE5088FF5F967 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
-		2CD0478D231C719276E497DD2D2F0CB2 /* Pods-Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD65E35A3233FBE6F2EFDEB3D43D114 /* Pods-Example-dummy.m */; };
-		4781EA25F1972D5C86127DF7E624BDC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */; };
-		86703F694C9329EFA230E2D56A5C9BA1 /* Pods-Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 15D3FE98E9F2D34863BD3F3597A0485A /* Pods-Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BBB04ABFEA3F625F0614BE2073E35926 /* GhostTypewriter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 995C8F79A7277DE95A836E8F66128FE4 /* GhostTypewriter-dummy.m */; };
-		E3E39FFBB8B6C41A83926CE17151B2DD /* GhostTypewriter-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DFDCE94514DD54C080EAA780E94B2DC /* GhostTypewriter-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E615BE65293AFD853E141CC059F2D6B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
-		EF5691222486EE258FDB292E02B16E84 /* TypewriterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF7BDFB1512DE383A43F2F4EE0546FA /* TypewriterLabel.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		0486C88061CE353D7818AD14A56C33DF /* TypewriterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C49C3E6D94CBC4E30ED676E0E01266 /* TypewriterLabel.swift */; };
+		3B06E4FDC01F2FEBD7C44F03587A8D59 /* GhostTypewriter-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4663043DF05D403D94E2F0474820807 /* GhostTypewriter-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BC9202CEDC2B5D84BE89AEAF627AB90 /* TimerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F3EC58723183E765BECD9431621A9B /* TimerFactory.swift */; };
+		4A19C476B765502F3B4621FF563CBC68 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		682654186236588A179F06BCA1DB90FC /* Pods-Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7825A90E082A1582EB16256B0E722B3F /* Pods-Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7CC13490155D254C6526A939BE6DDF0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
+		89C6CDA6898B18D10E5A45B1F5E7AF2E /* Pods-Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7C498FA339E02BD53ECB8916CEA8E /* Pods-Example-dummy.m */; };
+		8B1818C21B849C98815D52A69D594211 /* GhostTypewriter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B09C7262BD048DF91D345676B998743 /* GhostTypewriter-dummy.m */; };
+		E2EDB00CBA81200304125C9CD510DD49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5A428E6686260643FFF7A497C90E047C /* PBXContainerItemProxy */ = {
+		3A30A5930DDED1E2BD65E0967DBDA372 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D83C70612F3C16F9A01BBC9CB851E17C;
+			remoteGlobalIDString = DDE6B10EDAC938DA6D87A1F53A7AC3A6;
 			remoteInfo = GhostTypewriter;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		044AA3E23F71470C9B5F50D44720EA0D /* Pods-Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-resources.sh"; sourceTree = "<group>"; };
-		11434BC759D12F57876FBB74A4775E74 /* Pods-Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		15D3FE98E9F2D34863BD3F3597A0485A /* Pods-Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Example-umbrella.h"; sourceTree = "<group>"; };
-		1AD65E35A3233FBE6F2EFDEB3D43D114 /* Pods-Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-dummy.m"; sourceTree = "<group>"; };
-		25A37D4D536CC5988A439441117C41F4 /* Pods-Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Example.modulemap"; sourceTree = "<group>"; };
-		2FC56B293EE44881A81455F60C301412 /* GhostTypewriter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GhostTypewriter.modulemap; sourceTree = "<group>"; };
-		2FF7BDFB1512DE383A43F2F4EE0546FA /* TypewriterLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TypewriterLabel.swift; path = GhostTypewriter/Label/TypewriterLabel.swift; sourceTree = "<group>"; };
-		3ADE9E5655579DB0F79DC9C80758673C /* Pods-Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		3DFDCE94514DD54C080EAA780E94B2DC /* GhostTypewriter-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GhostTypewriter-umbrella.h"; sourceTree = "<group>"; };
-		3F3EFEBDE6702DEFDFFF9D5C6DBC3773 /* Pods-Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-frameworks.sh"; sourceTree = "<group>"; };
-		3FF8568437327DE0971FFF88D42A17A0 /* LICENSE.md */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.md; sourceTree = "<group>"; };
-		45EFB464311D9904FAE0E980811E45D3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B81C04F8E84EAE60AE15C8695031A5F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		664C0078AA0425B2F4B28388B5C84CA4 /* GhostTypewriter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GhostTypewriter.xcconfig; sourceTree = "<group>"; };
-		6A7007FF7016F0DD8F0BDDB1747ECB7C /* GhostTypewriter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = GhostTypewriter.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		6B32271E4E0608FD6051DA1512602068 /* GhostTypewriter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GhostTypewriter-prefix.pch"; sourceTree = "<group>"; };
-		908E902E026C5C22904CF9014A5604AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		995C8F79A7277DE95A836E8F66128FE4 /* GhostTypewriter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GhostTypewriter-dummy.m"; sourceTree = "<group>"; };
-		A2AE123BB7AD0B0FEC2E045E4EA77D59 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Example.framework; path = "Pods-Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A77C8FFD35662395B6B7FAD88F08E69D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		A79AC23D5A157FED70D9C53D844B2319 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
-		A7C864C02491939D9F34BA82B6951EFF /* GhostTypewriter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GhostTypewriter.framework; path = GhostTypewriter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		ECE97645C044A880D4276B67053E5BC9 /* TimerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TimerFactory.swift; sourceTree = "<group>"; };
-		EFC5B2E05B58CD826FD55659BF1D7E39 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		0C179446A8BAE6FED46868125ABFD9F3 /* GhostTypewriter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GhostTypewriter.framework; path = GhostTypewriter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D099C6D48829A66990686590F067100 /* GhostTypewriter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GhostTypewriter.modulemap; sourceTree = "<group>"; };
+		1F667CC0E19EAF34E5A4119E2121F585 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Example.framework; path = "Pods-Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		243410B9535472556EA4BB6DBC133A0D /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		26A3254AE6402D69560B54FBAEEBB8E4 /* LICENSE.md */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.md; sourceTree = "<group>"; };
+		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		31C1D37707DFAA5E6A164BCC07834264 /* Pods-Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-Info.plist"; sourceTree = "<group>"; };
+		35C305D3797C284E6F5BAA1D3E6F9BF8 /* Pods-Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Example.modulemap"; sourceTree = "<group>"; };
+		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		441854E35F81731E63E53DC7E4EEAD9D /* Pods-Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6029DFAB92ACBD773C10C0BCB8E3B2B2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		75F3EC58723183E765BECD9431621A9B /* TimerFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TimerFactory.swift; sourceTree = "<group>"; };
+		7825A90E082A1582EB16256B0E722B3F /* Pods-Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Example-umbrella.h"; sourceTree = "<group>"; };
+		7B09C7262BD048DF91D345676B998743 /* GhostTypewriter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GhostTypewriter-dummy.m"; sourceTree = "<group>"; };
+		846630E82249BE99F0A7BC1BF733170C /* GhostTypewriter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GhostTypewriter.xcconfig; sourceTree = "<group>"; };
+		878F9CE39CA78D80F071BAD359FE04A4 /* GhostTypewriter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GhostTypewriter-prefix.pch"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AED6360E16497B21F292FD4843516DE8 /* GhostTypewriter-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "GhostTypewriter-Info.plist"; sourceTree = "<group>"; };
+		AFECBC24E09D0D25F822C27BD944AFD4 /* Pods-Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-frameworks.sh"; sourceTree = "<group>"; };
+		B45138496B85A072654D1D0F8EBBEDE5 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		C9C49C3E6D94CBC4E30ED676E0E01266 /* TypewriterLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TypewriterLabel.swift; path = GhostTypewriter/Label/TypewriterLabel.swift; sourceTree = "<group>"; };
+		D6D7C498FA339E02BD53ECB8916CEA8E /* Pods-Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-dummy.m"; sourceTree = "<group>"; };
+		E4663043DF05D403D94E2F0474820807 /* GhostTypewriter-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GhostTypewriter-umbrella.h"; sourceTree = "<group>"; };
+		EA21B344259B58996DB73382B1B1521F /* Pods-Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		F3E5F3FBEDCF53CF580AF2570AECF73D /* GhostTypewriter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = GhostTypewriter.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3242FEBB821B63C8A23789CDEA382EED /* Frameworks */ = {
+		3A17A9C21B2EC559BAE719A6FF0BD9FD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E615BE65293AFD853E141CC059F2D6B0 /* Foundation.framework in Frameworks */,
+				4A19C476B765502F3B4621FF563CBC68 /* Foundation.framework in Frameworks */,
+				7CC13490155D254C6526A939BE6DDF0B /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		462C83BC8CC0C05C4B7ABF838CF9854A /* Frameworks */ = {
+		6AAC4FE630C88D4E34B902FF3A82BF31 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23AB6AB8DD0AFD67B71FE5088FF5F967 /* Foundation.framework in Frameworks */,
-				4781EA25F1972D5C86127DF7E624BDC0 /* UIKit.framework in Frameworks */,
+				E2EDB00CBA81200304125C9CD510DD49 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		10DEDCB394BAA0C7FEDEBE330207B074 /* iOS */ = {
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				908E902E026C5C22904CF9014A5604AD /* Foundation.framework */,
-				BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */,
+				E2983683FD097A93297E2F5D4E382B36 /* iOS */,
 			);
-			name = iOS;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1B5ECB992A56AE0C70DC72D88BB90B05 /* Pods-Example */ = {
+		3B0FA0A977BEEA47C8DDE952DF1AADE2 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				5B81C04F8E84EAE60AE15C8695031A5F /* Info.plist */,
-				25A37D4D536CC5988A439441117C41F4 /* Pods-Example.modulemap */,
-				3ADE9E5655579DB0F79DC9C80758673C /* Pods-Example-acknowledgements.markdown */,
-				11434BC759D12F57876FBB74A4775E74 /* Pods-Example-acknowledgements.plist */,
-				1AD65E35A3233FBE6F2EFDEB3D43D114 /* Pods-Example-dummy.m */,
-				3F3EFEBDE6702DEFDFFF9D5C6DBC3773 /* Pods-Example-frameworks.sh */,
-				044AA3E23F71470C9B5F50D44720EA0D /* Pods-Example-resources.sh */,
-				15D3FE98E9F2D34863BD3F3597A0485A /* Pods-Example-umbrella.h */,
-				EFC5B2E05B58CD826FD55659BF1D7E39 /* Pods-Example.debug.xcconfig */,
-				A79AC23D5A157FED70D9C53D844B2319 /* Pods-Example.release.xcconfig */,
+				F3E5F3FBEDCF53CF580AF2570AECF73D /* GhostTypewriter.podspec */,
+				26A3254AE6402D69560B54FBAEEBB8E4 /* LICENSE.md */,
+				6029DFAB92ACBD773C10C0BCB8E3B2B2 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		9BDBD95ED116334D1B2835202D8D3060 /* Pods-Example */ = {
+			isa = PBXGroup;
+			children = (
+				35C305D3797C284E6F5BAA1D3E6F9BF8 /* Pods-Example.modulemap */,
+				441854E35F81731E63E53DC7E4EEAD9D /* Pods-Example-acknowledgements.markdown */,
+				EA21B344259B58996DB73382B1B1521F /* Pods-Example-acknowledgements.plist */,
+				D6D7C498FA339E02BD53ECB8916CEA8E /* Pods-Example-dummy.m */,
+				AFECBC24E09D0D25F822C27BD944AFD4 /* Pods-Example-frameworks.sh */,
+				31C1D37707DFAA5E6A164BCC07834264 /* Pods-Example-Info.plist */,
+				7825A90E082A1582EB16256B0E722B3F /* Pods-Example-umbrella.h */,
+				B45138496B85A072654D1D0F8EBBEDE5 /* Pods-Example.debug.xcconfig */,
+				243410B9535472556EA4BB6DBC133A0D /* Pods-Example.release.xcconfig */,
 			);
 			name = "Pods-Example";
 			path = "Target Support Files/Pods-Example";
 			sourceTree = "<group>";
 		};
-		262B8455CD2FE94CB65696B93E4C40E5 /* Timer */ = {
+		B246BD2993971D81E9846EE534153B5C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ECE97645C044A880D4276B67053E5BC9 /* TimerFactory.swift */,
+				0C179446A8BAE6FED46868125ABFD9F3 /* GhostTypewriter.framework */,
+				1F667CC0E19EAF34E5A4119E2121F585 /* Pods_Example.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B8F0EBFBA260DE6C4B63D824F0434B01 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				75F3EC58723183E765BECD9431621A9B /* TimerFactory.swift */,
 			);
 			name = Timer;
 			path = GhostTypewriter/Label/Timer;
 			sourceTree = "<group>";
 		};
-		31F02C736A39730F0F19DEED097B5914 /* Products */ = {
+		CE2E825F08D3AD0FD76E6D78D7512ED0 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				A7C864C02491939D9F34BA82B6951EFF /* GhostTypewriter.framework */,
-				A2AE123BB7AD0B0FEC2E045E4EA77D59 /* Pods_Example.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				10DEDCB394BAA0C7FEDEBE330207B074 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		56C9309099CAC218E37040A741420C16 /* GhostTypewriter */ = {
-			isa = PBXGroup;
-			children = (
-				2FF7BDFB1512DE383A43F2F4EE0546FA /* TypewriterLabel.swift */,
-				C63730F73B8DA1294041A38F50504746 /* Pod */,
-				E2AA730BB1AEC12AC61FB4EBF411CEE6 /* Support Files */,
-				262B8455CD2FE94CB65696B93E4C40E5 /* Timer */,
-			);
-			name = GhostTypewriter;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		6A4F6A14E3FB951290E4531728B7A461 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				1B5ECB992A56AE0C70DC72D88BB90B05 /* Pods-Example */,
+				9BDBD95ED116334D1B2835202D8D3060 /* Pods-Example */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		7A3A350A9CACA0B0CA5ABFE16CDF31B8 /* Development Pods */ = {
+		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
-				56C9309099CAC218E37040A741420C16 /* GhostTypewriter */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		7DB346D0F39D3F0E887471402A8071AB = {
-			isa = PBXGroup;
-			children = (
-				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				7A3A350A9CACA0B0CA5ABFE16CDF31B8 /* Development Pods */,
-				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				31F02C736A39730F0F19DEED097B5914 /* Products */,
-				6A4F6A14E3FB951290E4531728B7A461 /* Targets Support Files */,
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				EE0448BC287536E46A6F78C3E33B6CC6 /* Development Pods */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				B246BD2993971D81E9846EE534153B5C /* Products */,
+				CE2E825F08D3AD0FD76E6D78D7512ED0 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		C63730F73B8DA1294041A38F50504746 /* Pod */ = {
+		DDC9D8450CA527CA4FAE2E0440A37681 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				6A7007FF7016F0DD8F0BDDB1747ECB7C /* GhostTypewriter.podspec */,
-				3FF8568437327DE0971FFF88D42A17A0 /* LICENSE.md */,
-				A77C8FFD35662395B6B7FAD88F08E69D /* README.md */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		E2AA730BB1AEC12AC61FB4EBF411CEE6 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				2FC56B293EE44881A81455F60C301412 /* GhostTypewriter.modulemap */,
-				664C0078AA0425B2F4B28388B5C84CA4 /* GhostTypewriter.xcconfig */,
-				995C8F79A7277DE95A836E8F66128FE4 /* GhostTypewriter-dummy.m */,
-				6B32271E4E0608FD6051DA1512602068 /* GhostTypewriter-prefix.pch */,
-				3DFDCE94514DD54C080EAA780E94B2DC /* GhostTypewriter-umbrella.h */,
-				45EFB464311D9904FAE0E980811E45D3 /* Info.plist */,
+				1D099C6D48829A66990686590F067100 /* GhostTypewriter.modulemap */,
+				846630E82249BE99F0A7BC1BF733170C /* GhostTypewriter.xcconfig */,
+				7B09C7262BD048DF91D345676B998743 /* GhostTypewriter-dummy.m */,
+				AED6360E16497B21F292FD4843516DE8 /* GhostTypewriter-Info.plist */,
+				878F9CE39CA78D80F071BAD359FE04A4 /* GhostTypewriter-prefix.pch */,
+				E4663043DF05D403D94E2F0474820807 /* GhostTypewriter-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/GhostTypewriter";
 			sourceTree = "<group>";
 		};
+		E2983683FD097A93297E2F5D4E382B36 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */,
+				312B988EF117AE4DE76A268D970131FE /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E4DD4EE31DD9B7DC9382B984EAFBE8BE /* GhostTypewriter */ = {
+			isa = PBXGroup;
+			children = (
+				C9C49C3E6D94CBC4E30ED676E0E01266 /* TypewriterLabel.swift */,
+				3B0FA0A977BEEA47C8DDE952DF1AADE2 /* Pod */,
+				DDC9D8450CA527CA4FAE2E0440A37681 /* Support Files */,
+				B8F0EBFBA260DE6C4B63D824F0434B01 /* Timer */,
+			);
+			name = GhostTypewriter;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		EE0448BC287536E46A6F78C3E33B6CC6 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E4DD4EE31DD9B7DC9382B984EAFBE8BE /* GhostTypewriter */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		93FE42F994CFCE2F0EEECE8AC54362D8 /* Headers */ = {
+		439279ECEB16298E9179173BDDCD14AA /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86703F694C9329EFA230E2D56A5C9BA1 /* Pods-Example-umbrella.h in Headers */,
+				3B06E4FDC01F2FEBD7C44F03587A8D59 /* GhostTypewriter-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C4417701F4A7982D5DF681DC9C9FFC1B /* Headers */ = {
+		9C19171E118ABECB29EA743A968F35AA /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3E39FFBB8B6C41A83926CE17151B2DD /* GhostTypewriter-umbrella.h in Headers */,
+				682654186236588A179F06BCA1DB90FC /* Pods-Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D48DA4188E74F270BFCEDF1252918512 /* Pods-Example */ = {
+		0AEE99A309977BD12A049FF48AF9BA4B /* Pods-Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 886C962DB1A355635586852D90410C80 /* Build configuration list for PBXNativeTarget "Pods-Example" */;
+			buildConfigurationList = FCBE9B497DB46F8F1B37CB895AB7AF1F /* Build configuration list for PBXNativeTarget "Pods-Example" */;
 			buildPhases = (
-				93FE42F994CFCE2F0EEECE8AC54362D8 /* Headers */,
-				ABD0BFDCBFF6FA0101A63645A9E41B69 /* Sources */,
-				3242FEBB821B63C8A23789CDEA382EED /* Frameworks */,
-				4138E2C916FD9D9F883A24507AC69662 /* Resources */,
+				9C19171E118ABECB29EA743A968F35AA /* Headers */,
+				078C1C068C1648455EA4D956444A0496 /* Sources */,
+				6AAC4FE630C88D4E34B902FF3A82BF31 /* Frameworks */,
+				3ACC4A131DAF6C00473FF60FB2122B6D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4D94FB9380FE995E03F03BBB4E6575D7 /* PBXTargetDependency */,
+				F9013E7CE2DBBCDEE53ACCD088718EC2 /* PBXTargetDependency */,
 			);
 			name = "Pods-Example";
 			productName = "Pods-Example";
-			productReference = A2AE123BB7AD0B0FEC2E045E4EA77D59 /* Pods_Example.framework */;
+			productReference = 1F667CC0E19EAF34E5A4119E2121F585 /* Pods_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D83C70612F3C16F9A01BBC9CB851E17C /* GhostTypewriter */ = {
+		DDE6B10EDAC938DA6D87A1F53A7AC3A6 /* GhostTypewriter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 04DA0CE8B5B1713A710F9D48D2411034 /* Build configuration list for PBXNativeTarget "GhostTypewriter" */;
+			buildConfigurationList = FDCFCEF14AC72B67F0F6FD9E652FFEA5 /* Build configuration list for PBXNativeTarget "GhostTypewriter" */;
 			buildPhases = (
-				C4417701F4A7982D5DF681DC9C9FFC1B /* Headers */,
-				C4A3FC5EDB648A955848558748EA9006 /* Sources */,
-				462C83BC8CC0C05C4B7ABF838CF9854A /* Frameworks */,
-				94518CB593F281B11A84F1FC82AC9D69 /* Resources */,
+				439279ECEB16298E9179173BDDCD14AA /* Headers */,
+				949B78D1649BC6DF11211AF43BCF1291 /* Sources */,
+				3A17A9C21B2EC559BAE719A6FF0BD9FD /* Frameworks */,
+				0A439371CE5982D8AEAA1BF8084F6472 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -250,45 +248,46 @@
 			);
 			name = GhostTypewriter;
 			productName = GhostTypewriter;
-			productReference = A7C864C02491939D9F34BA82B6951EFF /* GhostTypewriter.framework */;
+			productReference = 0C179446A8BAE6FED46868125ABFD9F3 /* GhostTypewriter.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
 			};
-			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
-			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 31F02C736A39730F0F19DEED097B5914 /* Products */;
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = B246BD2993971D81E9846EE534153B5C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D83C70612F3C16F9A01BBC9CB851E17C /* GhostTypewriter */,
-				D48DA4188E74F270BFCEDF1252918512 /* Pods-Example */,
+				DDE6B10EDAC938DA6D87A1F53A7AC3A6 /* GhostTypewriter */,
+				0AEE99A309977BD12A049FF48AF9BA4B /* Pods-Example */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4138E2C916FD9D9F883A24507AC69662 /* Resources */ = {
+		0A439371CE5982D8AEAA1BF8084F6472 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		94518CB593F281B11A84F1FC82AC9D69 /* Resources */ = {
+		3ACC4A131DAF6C00473FF60FB2122B6D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -298,39 +297,39 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		ABD0BFDCBFF6FA0101A63645A9E41B69 /* Sources */ = {
+		078C1C068C1648455EA4D956444A0496 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CD0478D231C719276E497DD2D2F0CB2 /* Pods-Example-dummy.m in Sources */,
+				89C6CDA6898B18D10E5A45B1F5E7AF2E /* Pods-Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C4A3FC5EDB648A955848558748EA9006 /* Sources */ = {
+		949B78D1649BC6DF11211AF43BCF1291 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBB04ABFEA3F625F0614BE2073E35926 /* GhostTypewriter-dummy.m in Sources */,
-				20E6005BE18D472769DF54BE2772902D /* TimerFactory.swift in Sources */,
-				EF5691222486EE258FDB292E02B16E84 /* TypewriterLabel.swift in Sources */,
+				8B1818C21B849C98815D52A69D594211 /* GhostTypewriter-dummy.m in Sources */,
+				3BC9202CEDC2B5D84BE89AEAF627AB90 /* TimerFactory.swift in Sources */,
+				0486C88061CE353D7818AD14A56C33DF /* TypewriterLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4D94FB9380FE995E03F03BBB4E6575D7 /* PBXTargetDependency */ = {
+		F9013E7CE2DBBCDEE53ACCD088718EC2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GhostTypewriter;
-			target = D83C70612F3C16F9A01BBC9CB851E17C /* GhostTypewriter */;
-			targetProxy = 5A428E6686260643FFF7A497C90E047C /* PBXContainerItemProxy */;
+			target = DDE6B10EDAC938DA6D87A1F53A7AC3A6 /* GhostTypewriter */;
+			targetProxy = 3A30A5930DDED1E2BD65E0967DBDA372 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		5575E94FD6142985A75608AB9C3E9A68 /* Release */ = {
+		14BA5DCBA3EFC1FFEBA0D79945C109A4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A79AC23D5A157FED70D9C53D844B2319 /* Pods-Example.release.xcconfig */;
+			baseConfigurationReference = 243410B9535472556EA4BB6DBC133A0D /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -343,7 +342,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Example/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-Example/Pods-Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -356,8 +355,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -365,111 +362,7 @@
 			};
 			name = Release;
 		};
-		B140F5C6C43833EF03993AAA6A7C3014 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFC5B2E05B58CD826FD55659BF1D7E39 /* Pods-Example.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Example/Pods-Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		BAE3DA2FD8F2D67DF1AF0A408574F026 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 664C0078AA0425B2F4B28388B5C84CA4 /* GhostTypewriter.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/GhostTypewriter/GhostTypewriter-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/GhostTypewriter/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/GhostTypewriter/GhostTypewriter.modulemap";
-				PRODUCT_MODULE_NAME = GhostTypewriter;
-				PRODUCT_NAME = GhostTypewriter;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C4FD2E3AC9B3E8454605AC27AF175C82 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 664C0078AA0425B2F4B28388B5C84CA4 /* GhostTypewriter.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/GhostTypewriter/GhostTypewriter-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/GhostTypewriter/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/GhostTypewriter/GhostTypewriter.modulemap";
-				PRODUCT_MODULE_NAME = GhostTypewriter;
-				PRODUCT_NAME = GhostTypewriter;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		C92782E717C52E3633C9A5F211E7987A /* Debug */ = {
+		196DFA3E4A09A28224918543529A1885 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -501,8 +394,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -529,11 +420,78 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		EA8C7AF90938697605468604B2A17B9F /* Release */ = {
+		2494E8964437D832DA8D01CEF76E875A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 846630E82249BE99F0A7BC1BF733170C /* GhostTypewriter.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/GhostTypewriter/GhostTypewriter-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GhostTypewriter/GhostTypewriter-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/GhostTypewriter/GhostTypewriter.modulemap";
+				PRODUCT_MODULE_NAME = GhostTypewriter;
+				PRODUCT_NAME = GhostTypewriter;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		33152E7A482A077460DCA66EA2AF85F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 846630E82249BE99F0A7BC1BF733170C /* GhostTypewriter.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/GhostTypewriter/GhostTypewriter-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GhostTypewriter/GhostTypewriter-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/GhostTypewriter/GhostTypewriter.modulemap";
+				PRODUCT_MODULE_NAME = GhostTypewriter;
+				PRODUCT_NAME = GhostTypewriter;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B01D14FDC83DCF9D4BE53066BEA96D05 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -565,8 +523,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -588,41 +544,78 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
 		};
+		F8F4D51C3D5D16C451E6ECB1A0F987E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B45138496B85A072654D1D0F8EBBEDE5 /* Pods-Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Example/Pods-Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Example/Pods-Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		04DA0CE8B5B1713A710F9D48D2411034 /* Build configuration list for PBXNativeTarget "GhostTypewriter" */ = {
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C4FD2E3AC9B3E8454605AC27AF175C82 /* Debug */,
-				BAE3DA2FD8F2D67DF1AF0A408574F026 /* Release */,
+				196DFA3E4A09A28224918543529A1885 /* Debug */,
+				B01D14FDC83DCF9D4BE53066BEA96D05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+		FCBE9B497DB46F8F1B37CB895AB7AF1F /* Build configuration list for PBXNativeTarget "Pods-Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C92782E717C52E3633C9A5F211E7987A /* Debug */,
-				EA8C7AF90938697605468604B2A17B9F /* Release */,
+				F8F4D51C3D5D16C451E6ECB1A0F987E5 /* Debug */,
+				14BA5DCBA3EFC1FFEBA0D79945C109A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		886C962DB1A355635586852D90410C80 /* Build configuration list for PBXNativeTarget "Pods-Example" */ = {
+		FDCFCEF14AC72B67F0F6FD9E652FFEA5 /* Build configuration list for PBXNativeTarget "GhostTypewriter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B140F5C6C43833EF03993AAA6A7C3014 /* Debug */,
-				5575E94FD6142985A75608AB9C3E9A68 /* Release */,
+				33152E7A482A077460DCA66EA2AF85F2 /* Debug */,
+				2494E8964437D832DA8D01CEF76E875A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 }

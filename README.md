@@ -133,20 +133,6 @@ import GhostTypewriter
 }
 ```
 
-#### Chaining animations
-
-It is possible to chain animations together by wrapping one the `startTypewritingAnimation()` call of one `TypewriterLabel` instance inside the completion closure of another `TypewriterLabel` instance.
-
-```swift
-import GhostTypewriter
-
-@IBAction func startAnimationButtonPressed(_ sender: Any) {
-    titleLabel.startGhostTypewriterAnimation {
-        self.descriptionLabel.startTypewritingAnimation()
-    }
-}
-```
-
 #### Adjusting animation timing
 
 Each character of a `TypewriterLabel` instance is revealed at a pace set by the `typingTimeInterval` property.

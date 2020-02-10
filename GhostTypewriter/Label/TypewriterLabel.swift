@@ -29,6 +29,7 @@ public class TypewriterLabel: UILabel {
     /// A callback closure for when the type writing animation is complete.
     private var completion: TypewriterLabelCompletion?
     
+    /// Boolean for if the label is animating or not.
     public private(set) var isAnimating: Bool = false
     
     // MARK: - Lifecycle
@@ -36,7 +37,7 @@ public class TypewriterLabel: UILabel {
     /**
      Triggered when label is added to superview, will configure label with provided transparency.
      
-     - Parameter newSuperview: view that label is added to.
+     - Parameter newSuperview: View that label is added to.
      */
     override public func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
@@ -56,7 +57,7 @@ public class TypewriterLabel: UILabel {
     /**
      Starts the type writing animation.
      
-     - Parameter completion: a callback closure for when the type writing animation is complete.
+     - Parameter completion: A callback closure for when the type writing animation is complete.
      */
     public func startTypewritingAnimation(completion: TypewriterLabelCompletion? = nil) {
         guard let attributedText = attributedText else {
@@ -89,7 +90,7 @@ public class TypewriterLabel: UILabel {
     /**
      Adjusts the alpha value on the attributed string at the given index.
      
-     - Parameter characterIndex: index that the alpha value will be applied to.
+     - Parameter characterIndex: Index that the alpha value will be applied to.
      */
     private func revealCharacter(atIndex characterIndex: String.Index) {
         let range = characterIndex...characterIndex
@@ -125,7 +126,7 @@ public class TypewriterLabel: UILabel {
     /**
      Restarts the type writing animation.
      
-     - Parameter completion: a callback closure for when the type writing animation is complete.
+     - Parameter completion: A callback closure for when the type writing animation is complete.
      */
     public func restartTypewritingAnimation(completion: TypewriterLabelCompletion? = nil) {
         resetTypewritingAnimation()
@@ -139,6 +140,8 @@ public class TypewriterLabel: UILabel {
         stopTypewritingAnimation()
         showAttributedText()
         currentCharacterAnimationIndex = nil
+        
+        completion?()
     }
     
     // MARK: - Visibility
@@ -160,7 +163,7 @@ public class TypewriterLabel: UILabel {
     /**
      Adjusts the alpha value on the full attributed string.
      
-     - Parameter alpha: alpha value the attributed string's characters will be set to.
+     - Parameter alpha: Alpha value the attributed string's characters will be set to.
      */
     private func updateAttributedTextVisibility(to alpha: CGFloat) {
         guard let attributedText = attributedText else {
@@ -175,8 +178,8 @@ public class TypewriterLabel: UILabel {
     /**
      Adjusts the alpha value on the attributed string within the given range.
      
-     - Parameter alpha: alpha value the attributed string's characters will be set to.
-     - Parameter range: range of attributed string's characters that the alpha value will be applied to.
+     - Parameter alpha: Alpha value the attributed string's characters will be set to.
+     - Parameter range: Range of attributed string's characters that the alpha value will be applied to.
      */
     private func updateAttributedTextVisibility<R: RangeExpression>(to alpha: CGFloat, range: R) where R.Bound == String.Index {
         guard let attributedText = attributedText else {
