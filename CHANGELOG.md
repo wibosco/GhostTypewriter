@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## [2.0.0]((https://github.com/wibosco/GhostTypewriter/releases/tag/2.0.0)
+## [2.0.0](https://github.com/wibosco/GhostTypewriter/releases/tag/2.0.0)
 
 * Updated the project to use Swift 5.
 * Extended and rewrote `TypewriterLabel` API to allow for greater control of the animation.
