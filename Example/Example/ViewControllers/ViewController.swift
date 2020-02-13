@@ -102,8 +102,8 @@ class ViewController: UIViewController {
         restartButton.isEnabled = true
         
         titleLabel.restartTypewritingAnimation()
-        descriptionLabel.resetTypewritingAnimation()
-        programmaticLabel.resetTypewritingAnimation()
+        descriptionLabel.restartTypewritingAnimation()
+        programmaticLabel.restartTypewritingAnimation()
     }
     
     @IBAction func completeButtonPressed(_ sender: Any) {
