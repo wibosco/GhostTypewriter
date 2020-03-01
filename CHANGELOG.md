@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2.0.1](https://github.com/wibosco/GhostTypewriter/releases/tag/2.0.1)
+
+* Resolved bug where the character index being revealed would go out-of-sync with the actual character being revealed resulting in a crash.
+* Added unit tests for different scripts.
+* Updated `fastlane` to 2.142.0.
+
 ## [2.0.0](https://github.com/wibosco/GhostTypewriter/releases/tag/2.0.0)
 
 * Updated the project to use Swift 5.
