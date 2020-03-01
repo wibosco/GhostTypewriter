@@ -93,7 +93,7 @@ import GhostTypewriter
 
 It's important to note that resetting an `TypewriterLabel` instance does not cause the animation to restart instead you need to call `restartAnimationButtonPressed()`.
 
-### Restarting
+#### Restarting
 
 Restarting an animation causes all characters to be hidden and for the animation to begin from the start again.
 
