@@ -73,14 +73,18 @@ public class TypewriterLabel: UILabel {
         }
         
         animationTimer = timerFactory.buildScheduledTimer(withTimeInterval: typingTimeInterval, repeats: true, block: { _ in
-            guard let characterIndex = self.currentCharacterAnimationIndex, characterIndex < attributedText.string.endIndex else {
+            /* As each character is revealed the `attributedText` property of this label is overridden
+               so we need to keep fetching it inside this timer block. The real question is: "Why does
+               `currentCharacterAnimationIndex` work across `NSAttributedString` instances?"
+             */
+            guard let attributedText = self.attributedText, let characterIndex = self.currentCharacterAnimationIndex, characterIndex < attributedText.string.endIndex else {
                 completion?()
                 self.stopTypewritingAnimation()
                 return
             }
             
             self.revealCharacter(atIndex: characterIndex)
-              
+            
             self.currentCharacterAnimationIndex = attributedText.string.index(after: characterIndex)
         })
         
@@ -94,7 +98,7 @@ public class TypewriterLabel: UILabel {
      */
     private func revealCharacter(atIndex characterIndex: String.Index) {
         let range = characterIndex...characterIndex
-        
+  
         updateAttributedTextVisibility(to: alpha, range: range)
     }
     
@@ -169,7 +173,6 @@ public class TypewriterLabel: UILabel {
         guard let attributedText = attributedText else {
             return
         }
-        
         let range = attributedText.string.startIndex..<attributedText.string.endIndex
         
         updateAttributedTextVisibility(to: alpha, range: range)
@@ -187,7 +190,8 @@ public class TypewriterLabel: UILabel {
         }
         
         let attributedString = NSMutableAttributedString(attributedString: attributedText)
-        attributedText.enumerateAttribute(.foregroundColor, in: NSRange(range, in: attributedString.string), options: []) { (value, range, stop) -> Void in
+        let nsRange = NSRange(range, in: attributedText.string)
+        attributedText.enumerateAttribute(.foregroundColor, in: nsRange, options: []) { (value, range, stop) -> Void in
             let color: UIColor
             if let colorValue = value as? UIColor {
                 color = colorValue
