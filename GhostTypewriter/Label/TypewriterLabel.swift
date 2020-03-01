@@ -18,10 +18,10 @@ public class TypewriterLabel: UILabel {
     var timerFactory: TimerFactoryType = TimerFactory()
     
     /// Timer instance that control's the animation.
-    private var animationTimer: TimerType?
+    private var timer: TimerType?
     
-    /// Current index for next character to be animated on screen.
-    private var currentCharacterAnimationIndex: String.Index?
+    /// Current offset for next character to be revealed.
+    private var currentCharacterOffset: Int = 0
     
     ///Type alias for completion closure.
     public typealias TypewriterLabelCompletion = () -> ()
@@ -49,7 +49,7 @@ public class TypewriterLabel: UILabel {
      Tidies the animation up if it's still in progress by invalidating the timer.
      */
     deinit {
-        animationTimer?.invalidate()
+        timer?.invalidate()
     }
     
     // MARK: - Controls
@@ -60,28 +60,27 @@ public class TypewriterLabel: UILabel {
      - Parameter completion: A callback closure for when the type writing animation is complete.
      */
     public func startTypewritingAnimation(completion: TypewriterLabelCompletion? = nil) {
-        guard let attributedText = attributedText else {
-            completion?()
-            return
-        }
-    
         self.completion = completion
         
-        if currentCharacterAnimationIndex == nil {
-            currentCharacterAnimationIndex = attributedText.string.startIndex
+        if currentCharacterOffset == 0 {
             hideAttributedText()
         }
         
-        animationTimer = timerFactory.buildScheduledTimer(withTimeInterval: typingTimeInterval, repeats: true, block: { _ in
-            guard let characterIndex = self.currentCharacterAnimationIndex, characterIndex < attributedText.string.endIndex else {
+        timer = timerFactory.buildScheduledTimer(withTimeInterval: typingTimeInterval, repeats: true, block: { _ in
+            /*
+             As each character is revealed the `attributedText` property value of this label
+             is overridden so we need to keep fetching it inside this timer block.
+             */
+            guard let attributedText = self.attributedText, self.currentCharacterOffset < attributedText.string.count else {
                 completion?()
                 self.stopTypewritingAnimation()
                 return
             }
             
+            let characterIndex = attributedText.string.index(attributedText.string.startIndex, offsetBy: self.currentCharacterOffset)
             self.revealCharacter(atIndex: characterIndex)
-              
-            self.currentCharacterAnimationIndex = attributedText.string.index(after: characterIndex)
+            
+            self.currentCharacterOffset += 1
         })
         
         isAnimating = true
@@ -94,7 +93,7 @@ public class TypewriterLabel: UILabel {
      */
     private func revealCharacter(atIndex characterIndex: String.Index) {
         let range = characterIndex...characterIndex
-        
+  
         updateAttributedTextVisibility(to: alpha, range: range)
     }
     
@@ -106,8 +105,8 @@ public class TypewriterLabel: UILabel {
     public func stopTypewritingAnimation() {
         isAnimating = false
         
-        animationTimer?.invalidate()
-        animationTimer = nil
+        timer?.invalidate()
+        timer = nil
     }
     
     /**
@@ -120,7 +119,7 @@ public class TypewriterLabel: UILabel {
     public func resetTypewritingAnimation() {
         stopTypewritingAnimation()
         hideAttributedText()
-        currentCharacterAnimationIndex = nil
+        currentCharacterOffset = 0
     }
     
     /**
@@ -139,7 +138,7 @@ public class TypewriterLabel: UILabel {
     public func completeTypewritingAnimation() {
         stopTypewritingAnimation()
         showAttributedText()
-        currentCharacterAnimationIndex = nil
+        currentCharacterOffset = 0
         
         completion?()
     }
@@ -169,7 +168,6 @@ public class TypewriterLabel: UILabel {
         guard let attributedText = attributedText else {
             return
         }
-        
         let range = attributedText.string.startIndex..<attributedText.string.endIndex
         
         updateAttributedTextVisibility(to: alpha, range: range)
@@ -187,7 +185,8 @@ public class TypewriterLabel: UILabel {
         }
         
         let attributedString = NSMutableAttributedString(attributedString: attributedText)
-        attributedText.enumerateAttribute(.foregroundColor, in: NSRange(range, in: attributedString.string), options: []) { (value, range, stop) -> Void in
+        let nsRange = NSRange(range, in: attributedText.string)
+        attributedText.enumerateAttribute(.foregroundColor, in: nsRange, options: []) { (value, range, stop) -> Void in
             let color: UIColor
             if let colorValue = value as? UIColor {
                 color = colorValue
