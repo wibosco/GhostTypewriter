@@ -21,6 +21,7 @@ class TypewriterLabelTests: XCTestCase {
         sut = TypewriterLabel()
         sut.text = "Test"
         sut.textColor = .black
+        sut.typingTimeInterval = 0.01
     }
     
     override func tearDown() {
