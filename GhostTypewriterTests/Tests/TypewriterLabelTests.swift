@@ -55,7 +55,7 @@ class TypewriterLabelTests: XCTestCase {
     
     // MARK: Start
     
-    func test_start_revealOneCharacterAtATime() {
+    func test_start_configuredToForwardDirectionRevealAnimation_revealOneCharacterAtATime() {
         let timerFactory = MockTimerFactory()
         
         var timerClosure: ((TimerType) -> ())?
@@ -67,6 +67,8 @@ class TypewriterLabelTests: XCTestCase {
         }
         
         sut.timerFactory = timerFactory
+        
+        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .reveal)
         sut.startTypewritingAnimation()
         
         waitForExpectations(timeout: 3.0, handler: nil)
@@ -102,6 +104,152 @@ class TypewriterLabelTests: XCTestCase {
         }
     }
     
+    func test_start_configuredToBackwardDirectionRevealAnimation_revealOneCharacterAtATime() {
+        let timerFactory = MockTimerFactory()
+        
+        var timerClosure: ((TimerType) -> ())?
+        let timerExpectation = expectation(description: "timerExpectation")
+        timerFactory.buildScheduledTimerClosure = { _, _, block in
+            timerClosure = block
+            
+            timerExpectation.fulfill()
+        }
+        
+        sut.timerFactory = timerFactory
+        
+        sut.config = TypewriterConfig(animationDirection: .backward, characterPresentation: .reveal)
+        sut.startTypewritingAnimation()
+        
+        waitForExpectations(timeout: 3.0, handler: nil)
+        
+        timerClosure?(timerFactory.mockTimer)
+        
+        sut.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, sut.attributedText!.length), options: []) { (value, range, _) -> Void in
+            let blackRange = NSRange(location: 3, length: 1)
+            let clearRange = NSRange(location: 0, length: 3)
+            
+            if range == blackRange {
+                XCTAssertEqual(value as! UIColor, UIColor.black)
+            } else if range == clearRange {
+                XCTAssertEqual(value as! UIColor, UIColor.clear)
+            } else {
+                XCTFail("Unexpected color")
+            }
+        }
+        
+        timerClosure?(timerFactory.mockTimer)
+        
+        sut.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, sut.attributedText!.length), options: []) { (value, range, _) -> Void in
+            let blackRange = NSRange(location: 2, length: 2)
+            let clearRange = NSRange(location: 0, length: 2)
+            
+            if range == blackRange {
+                XCTAssertEqual(value as! UIColor, UIColor.black)
+            } else if range == clearRange {
+                XCTAssertEqual(value as! UIColor, UIColor.clear)
+            } else {
+                XCTFail("Unexpected color")
+            }
+        }
+    }
+    
+    func test_start_configuredToForwardDirectionRevealAnimation_hideOneCharacterAtATime() {
+        let timerFactory = MockTimerFactory()
+        
+        var timerClosure: ((TimerType) -> ())?
+        let timerExpectation = expectation(description: "timerExpectation")
+        timerFactory.buildScheduledTimerClosure = { _, _, block in
+            timerClosure = block
+            
+            timerExpectation.fulfill()
+        }
+        
+        sut.timerFactory = timerFactory
+        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .hide)
+        sut.startTypewritingAnimation()
+        
+        waitForExpectations(timeout: 3.0, handler: nil)
+        
+        timerClosure?(timerFactory.mockTimer)
+        
+        sut.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, sut.attributedText!.length), options: []) { (value, range, _) -> Void in
+            let clearRange = NSRange(location: 0, length: 1)
+            let blackRange = NSRange(location: 1, length: 3)
+            
+            if range == blackRange {
+                XCTAssertEqual(value as! UIColor, UIColor.black)
+            } else if range == clearRange {
+                XCTAssertEqual(value as! UIColor, UIColor.clear)
+            } else {
+                XCTFail("Unexpected color")
+            }
+        }
+        
+        timerClosure?(timerFactory.mockTimer)
+        
+        sut.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, sut.attributedText!.length), options: []) { (value, range, _) -> Void in
+            let clearRange = NSRange(location: 0, length: 2)
+            let blackRange = NSRange(location: 2, length: 2)
+            
+            if range == blackRange {
+                XCTAssertEqual(value as! UIColor, UIColor.black)
+            } else if range == clearRange {
+                XCTAssertEqual(value as! UIColor, UIColor.clear)
+            } else {
+                XCTFail("Unexpected color")
+            }
+        }
+    }
+    
+    func test_start_configuredToBackwardDirectionHideAnimation_hidesOneCharacterAtATime() {
+        let timerFactory = MockTimerFactory()
+        
+        var timerClosure: ((TimerType) -> ())?
+        let timerExpectation = expectation(description: "timerExpectation")
+        timerFactory.buildScheduledTimerClosure = { _, _, block in
+            timerClosure = block
+            
+            timerExpectation.fulfill()
+        }
+        
+        sut.timerFactory = timerFactory
+        
+        sut.config = TypewriterConfig(animationDirection: .backward, characterPresentation: .hide)
+        sut.startTypewritingAnimation()
+        
+        waitForExpectations(timeout: 3.0, handler: nil)
+        
+        timerClosure?(timerFactory.mockTimer)
+        
+        sut.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, sut.attributedText!.length), options: []) { (value, range, _) -> Void in
+            let clearRange = NSRange(location: 3, length: 1)
+            let blackRange = NSRange(location: 0, length: 3)
+            
+            if range == blackRange {
+                XCTAssertEqual(value as! UIColor, UIColor.black)
+            } else if range == clearRange {
+                XCTAssertEqual(value as! UIColor, UIColor.clear)
+            } else {
+                XCTFail("Unexpected color")
+            }
+        }
+        
+        timerClosure?(timerFactory.mockTimer)
+        
+        sut.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, sut.attributedText!.length), options: []) { (value, range, _) -> Void in
+            let clearRange = NSRange(location: 2, length: 2)
+            let blackRange = NSRange(location: 0, length: 2)
+            
+            if range == blackRange {
+                XCTAssertEqual(value as! UIColor, UIColor.black)
+            } else if range == clearRange {
+                XCTAssertEqual(value as! UIColor, UIColor.clear)
+            } else {
+                XCTFail("Unexpected color")
+            }
+        }
+    }
+    
     func test_start_completes_triggerCompletionCallback() {
         let handlerExpectation = expectation(description: "handlerExpectation")
         sut.startTypewritingAnimation {
@@ -111,7 +259,9 @@ class TypewriterLabelTests: XCTestCase {
         waitForExpectations(timeout: 3.0, handler: nil)
     }
     
-    func test_start_completes_revealFullText() {
+    func test_start_configuredToRevealAnimation_completes_revealFullText() {
+        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .reveal)
+        
         let handlerExpectation = expectation(description: "handlerExpectation")
         sut.startTypewritingAnimation {
             handlerExpectation.fulfill()
@@ -123,6 +273,24 @@ class TypewriterLabelTests: XCTestCase {
         
         sut.attributedText!.enumerateAttribute(.foregroundColor, in: fullRange, options: [])  { (value, range, _) -> Void in
             XCTAssertEqual(value as! UIColor, UIColor.black)
+            XCTAssertEqual(range, fullRange)
+        }
+    }
+    
+    func test_start_configuredToHideAnimation_completes_hidesFullText() {
+        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .hide)
+        
+        let handlerExpectation = expectation(description: "handlerExpectation")
+        sut.startTypewritingAnimation {
+            handlerExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 3.0, handler: nil)
+        
+        let fullRange = NSMakeRange(0, sut.attributedText!.length)
+        
+        sut.attributedText!.enumerateAttribute(.foregroundColor, in: fullRange, options: [])  { (value, range, _) -> Void in
+            XCTAssertEqual(value as! UIColor, UIColor.clear)
             XCTAssertEqual(range, fullRange)
         }
     }
@@ -161,50 +329,52 @@ class TypewriterLabelTests: XCTestCase {
     
     // MARK: CharacterSystems
     
-    func test_start_completes_latinCharacters_revealFullText() {
+    func test_start_configuredToRevealAnimation_completes_latinCharacters_revealFullText() {
         verifyStartRevealsFullText(for: "Test")
     }
     
-    func test_start_completes_phoneticCharacters_revealFullText() {
+    func test_start_configuredToRevealAnimation_completes_phoneticCharacters_revealFullText() {
         verifyStartRevealsFullText(for: "pər")
     }
     
-    func test_start_completes_cyrillicCharacters_revealFullText() {
+    func test_start_configuredToRevealAnimation_completes_cyrillicCharacters_revealFullText() {
         verifyStartRevealsFullText(for: "испытания")
     }
     
-    func test_start_completes_arabicCharacters_revealFullText() {
+    func test_start_configuredToRevealAnimation_completes_arabicCharacters_revealFullText() {
         verifyStartRevealsFullText(for: "اختبار")
     }
     
-    func test_start_completes_simplifiedChineseCharacters_revealFullText() {
+    func test_start_configuredToRevealAnimation_completes_simplifiedChineseCharacters_revealFullText() {
         verifyStartRevealsFullText(for: "测试")
     }
     
     private func verifyStartRevealsFullText(for text: String) {
         let font = UIFont.systemFont(ofSize: 21, weight: .light)
         let attributedString = NSAttributedString(string: text, attributes: [NSAttributedString.Key.font: font])
-
+        
         sut.attributedText = attributedString
-
+        
+        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .reveal)
+        
         let handlerExpectation = expectation(description: "handlerExpectation")
         sut.startTypewritingAnimation {
-           handlerExpectation.fulfill()
+            handlerExpectation.fulfill()
         }
-
+        
         waitForExpectations(timeout: 3.0, handler: nil)
-
+        
         let fullRange = NSMakeRange(0, sut.attributedText!.length)
-
+        
         sut.attributedText!.enumerateAttribute(.font, in: fullRange, options: [])  { (value, range, _) -> Void in
-           XCTAssertEqual(value as! UIFont, font)
-           XCTAssertEqual(range, fullRange)
+            XCTAssertEqual(value as! UIFont, font)
+            XCTAssertEqual(range, fullRange)
         }
     }
     
     // MARK: Reset
     
-    func test_reset_animationCompleted_hidesFullText() {
+    func test_reset_configuredToRevealAnimation_animationCompleted_hidesFullText() {
         let startExpectation = expectation(description: "startExpectation")
         sut.startTypewritingAnimation {
             startExpectation.fulfill()
@@ -212,6 +382,7 @@ class TypewriterLabelTests: XCTestCase {
         
         waitForExpectations(timeout: 3.0, handler: nil)
         
+        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .reveal)
         sut.resetTypewritingAnimation()
         
         sut.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, sut.attributedText!.length), options: []) { (value, range, _) -> Void in
@@ -219,7 +390,23 @@ class TypewriterLabelTests: XCTestCase {
         }
     }
     
-    func test_reset_animationInProgress_hidesFullText() {
+    func test_reset_configuredToHideAnimation_animationCompleted_revealsFullText() {
+        let startExpectation = expectation(description: "startExpectation")
+        sut.startTypewritingAnimation {
+            startExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 3.0, handler: nil)
+        
+        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .hide)
+        sut.resetTypewritingAnimation()
+        
+        sut.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, sut.attributedText!.length), options: []) { (value, range, _) -> Void in
+            XCTAssertEqual(value as! UIColor, UIColor.black)
+        }
+    }
+    
+    func test_reset_configuredToRevealAnimation_animationInProgress_hidesFullText() {
         let timerFactory = MockTimerFactory()
         
         var timerClosure: ((TimerType) -> ())?
@@ -231,6 +418,8 @@ class TypewriterLabelTests: XCTestCase {
         }
         
         sut.timerFactory = timerFactory
+        
+        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .reveal)
         sut.startTypewritingAnimation()
         
         waitForExpectations(timeout: 3.0, handler: nil)
@@ -241,6 +430,33 @@ class TypewriterLabelTests: XCTestCase {
         
         sut.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, sut.attributedText!.length), options: []) { (value, range, _) -> Void in
             XCTAssertEqual(value as! UIColor, UIColor.clear)
+        }
+    }
+    
+    func test_reset_configuredToHideAnimation_animationInProgress_revealsFullText() {
+        let timerFactory = MockTimerFactory()
+        
+        var timerClosure: ((TimerType) -> ())?
+        let timerExpectation = expectation(description: "timerExpectation")
+        timerFactory.buildScheduledTimerClosure = { _, _, block in
+            timerClosure = block
+            
+            timerExpectation.fulfill()
+        }
+        
+        sut.timerFactory = timerFactory
+        
+        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .hide)
+        sut.startTypewritingAnimation()
+        
+        waitForExpectations(timeout: 3.0, handler: nil)
+        
+        timerClosure?(timerFactory.mockTimer)
+        
+        sut.resetTypewritingAnimation()
+        
+        sut.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, sut.attributedText!.length), options: []) { (value, range, _) -> Void in
+            XCTAssertEqual(value as! UIColor, UIColor.black)
         }
     }
     
@@ -267,7 +483,7 @@ class TypewriterLabelTests: XCTestCase {
         waitForExpectations(timeout: 3, handler: nil)
     }
     
-    func test_reset_animationInProgress_hidesText_timerFires_revealsFirstCharacter() {
+    func test_reset_configuredToRevealAnimation_animationInProgress_hidesText_timerFires_revealsFirstCharacter() {
         let firstTimerFactory = MockTimerFactory()
         
         var firstTimerClosure: ((TimerType) -> ())?
@@ -279,6 +495,8 @@ class TypewriterLabelTests: XCTestCase {
         }
         
         sut.timerFactory = firstTimerFactory
+        
+        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .reveal)
         sut.startTypewritingAnimation()
         
         wait(for: [firstTimerExpectation], timeout: 3.0)
@@ -323,6 +541,75 @@ class TypewriterLabelTests: XCTestCase {
         sut.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, sut.attributedText!.length), options: []) { (value, range, _) -> Void in
             let blackRange = NSRange(location: 0, length: 1)
             let clearRange = NSRange(location: 1, length: 3)
+            
+            if range == blackRange {
+                XCTAssertEqual(value as! UIColor, UIColor.black)
+            } else if range == clearRange {
+                XCTAssertEqual(value as! UIColor, UIColor.clear)
+            } else {
+                XCTFail("Unexpected color")
+            }
+        }
+    }
+    
+    func test_reset_configuredToHideAnimation_animationInProgress_hidesText_timerFires_hidesFirstCharacter() {
+        let firstTimerFactory = MockTimerFactory()
+        
+        var firstTimerClosure: ((TimerType) -> ())?
+        let firstTimerExpectation = expectation(description: "firstTimerExpectation")
+        firstTimerFactory.buildScheduledTimerClosure = { _, _, block in
+            firstTimerClosure = block
+            
+            firstTimerExpectation.fulfill()
+        }
+        
+        sut.timerFactory = firstTimerFactory
+        
+        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .hide)
+        sut.startTypewritingAnimation()
+        
+        wait(for: [firstTimerExpectation], timeout: 3.0)
+        
+        firstTimerClosure?(firstTimerFactory.mockTimer)
+        
+        sut.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, sut.attributedText!.length), options: []) { (value, range, _) -> Void in
+            let clearRange = NSRange(location: 0, length: 1)
+            let blackRange = NSRange(location: 1, length: 3)
+            
+            if range == blackRange {
+                XCTAssertEqual(value as! UIColor, UIColor.black)
+            } else if range == clearRange {
+                XCTAssertEqual(value as! UIColor, UIColor.clear)
+            } else {
+                XCTFail("Unexpected color")
+            }
+        }
+        
+        let secondTimerFactory = MockTimerFactory()
+        
+        var secondTimerClosure: ((TimerType) -> ())?
+        let secondTimerExpectation = expectation(description: "secondTimerExpectation")
+        secondTimerFactory.buildScheduledTimerClosure = { _, _, block in
+            secondTimerClosure = block
+            
+            secondTimerExpectation.fulfill()
+        }
+        
+        sut.timerFactory = secondTimerFactory
+        
+        sut.restartTypewritingAnimation()
+        
+        wait(for: [secondTimerExpectation], timeout: 3.0)
+        
+        sut.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, sut.attributedText!.length), options: []) { (value, range, _) -> Void in
+            XCTAssertEqual(value as! UIColor, UIColor.black)
+        }
+        
+        secondTimerClosure?(secondTimerFactory.mockTimer)
+        
+        sut.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, sut.attributedText!.length), options: []) { (value, range, _) -> Void in
+            let clearRange = NSRange(location: 0, length: 1)
+            let blackRange = NSRange(location: 1, length: 3)
             
             if range == blackRange {
                 XCTAssertEqual(value as! UIColor, UIColor.black)
@@ -395,7 +682,7 @@ class TypewriterLabelTests: XCTestCase {
     
     // MARK: Complete
     
-    func test_complete_revealsFullText() {
+    func test_complete_configuredToRevealAnimation_revealsFullText() {
         let timerFactory = MockTimerFactory()
         
         let timerExpectation = expectation(description: "timerExpectation")
@@ -404,6 +691,7 @@ class TypewriterLabelTests: XCTestCase {
         }
         
         sut.timerFactory = timerFactory
+        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .reveal)
         
         sut.startTypewritingAnimation()
         
@@ -419,9 +707,34 @@ class TypewriterLabelTests: XCTestCase {
         }
     }
     
+    func test_complete_configuredToHideAnimation_hidesFullText() {
+        let timerFactory = MockTimerFactory()
+        
+        let timerExpectation = expectation(description: "timerExpectation")
+        timerFactory.buildScheduledTimerClosure = { _, _, block in
+            timerExpectation.fulfill()
+        }
+        
+        sut.timerFactory = timerFactory
+        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .hide)
+        
+        sut.startTypewritingAnimation()
+        
+        wait(for: [timerExpectation], timeout: 3.0)
+        
+        sut.completeTypewritingAnimation()
+        
+        sut.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, sut.attributedText!.length), options: []) { (value, range, _) -> Void in
+            let clearRange = NSRange(location: 0, length: self.sut.attributedText!.length)
+            
+            XCTAssertEqual(value as! UIColor, UIColor.clear)
+            XCTAssertEqual(range, clearRange)
+        }
+    }
+    
     // MARK: Subview
     
-    func test_labelAddedAsSubview_hidesText() {
+    func test_labelAddedAsSubview_configuredRevealAnimation_hidesText() {
         let view = UIView()
         view.addSubview(sut)
         

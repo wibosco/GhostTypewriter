@@ -8,11 +8,66 @@
 
 import UIKit
 
+/// An enum to control the direction of the animation i.e. from index 0 or index `n-1`.
+public enum TypewriterAnimationDirection {
+    case forward
+    case backward
+}
+
+/// An enum to control whether the animation reveals or hides each character it comes to.
+public enum TypewriterCharacterAnimationPresentationEffect {
+    case reveal
+    case hide
+}
+
+/// A config to allow control of the typewriting animation.
+public struct TypewriterConfig {
+    /// Allows for controlling the direction of the animation.
+    let animationDirection: TypewriterAnimationDirection
+    
+    /// Allows for controlling type of animation that occurs at each character.
+    let characterPresentation: TypewriterCharacterAnimationPresentationEffect
+    
+    /// A helper to allow for determing if characters should be revealed or hidden during the animation.
+    var shouldReveal: Bool {
+        characterPresentation == .reveal
+    }
+    
+    /// A helper to allow for determing which direction the animation is performed from.
+    var shouldAnimateForward: Bool {
+        animationDirection == .forward
+    }
+    
+    // MARK: - Init
+    
+    public init(animationDirection: TypewriterAnimationDirection, characterPresentation: TypewriterCharacterAnimationPresentationEffect) {
+        self.animationDirection = animationDirection
+        self.characterPresentation = characterPresentation
+    }
+    
+    // MARK: - Factories
+    
+    /// A helper factory to allow for creating the "default" animation of forward direction and revealing the characters.
+    static func forwardReveal() -> TypewriterConfig {
+        TypewriterConfig(animationDirection: .forward, characterPresentation: .reveal)
+    }
+}
+
 /// A UILabel subclass that adds a ghost type writing animation effect.
-public class TypewriterLabel: UILabel {
+public final class TypewriterLabel: UILabel {
     
     /// The interval (time gap) between each character being animated on screen.
     public var typingTimeInterval: TimeInterval = 0.1
+    
+    /// Boolean for if the label is animating or not.
+    public private(set) var isAnimating: Bool = false
+    
+    /// The config used to determine how the animation should be performed.
+    public var config = TypewriterConfig.forwardReveal() {
+        didSet {
+            resetTypewritingAnimation()
+        }
+    }
     
     /// Factory for making timers
     var timerFactory: TimerFactoryType = TimerFactory()
@@ -29,9 +84,6 @@ public class TypewriterLabel: UILabel {
     /// A callback closure for when the type writing animation is complete.
     private var completion: TypewriterLabelCompletion?
     
-    /// Boolean for if the label is animating or not.
-    public private(set) var isAnimating: Bool = false
-    
     // MARK: - Lifecycle
     
     /**
@@ -42,7 +94,9 @@ public class TypewriterLabel: UILabel {
     override public func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
-        hideAttributedText()
+        if config.shouldReveal {
+            hideAttributedText()
+        }
     }
     
     /**
@@ -62,39 +116,89 @@ public class TypewriterLabel: UILabel {
     public func startTypewritingAnimation(completion: TypewriterLabelCompletion? = nil) {
         self.completion = completion
         
-        if currentCharacterOffset == 0 {
-            hideAttributedText()
-        }
+        resetTypewritingAnimation()
         
         timer = timerFactory.buildScheduledTimer(withTimeInterval: typingTimeInterval, repeats: true, block: { _ in
             /*
              As each character is revealed the `attributedText` property value of this label
              is overridden so we need to keep fetching it inside this timer block.
              */
-            guard let attributedText = self.attributedText, self.currentCharacterOffset < attributedText.string.count else {
+            guard let attributedText = self.attributedText, self.isAnimationComplete() else {
                 completion?()
                 self.stopTypewritingAnimation()
                 return
             }
             
             let characterIndex = attributedText.string.index(attributedText.string.startIndex, offsetBy: self.currentCharacterOffset)
-            self.revealCharacter(atIndex: characterIndex)
+            self.updateCharacterPresentation(atIndex: characterIndex)
             
-            self.currentCharacterOffset += 1
+            self.iterateToNextCharacterOffset()
         })
         
         isAnimating = true
     }
     
     /**
-     Adjusts the alpha value on the attributed string at the given index.
+     Determines if the animation is complete.
+     
+     - Returns: `true` there are more characters to be animated, `false` otherwise.
+     */
+    private func isAnimationComplete() -> Bool {
+        guard let attributedText = attributedText else {
+            return false
+        }
+        
+        if config.shouldAnimateForward {
+            return currentCharacterOffset < attributedText.string.count
+        } else {
+            return currentCharacterOffset >= 0
+        }
+    }
+    
+    /**
+     Updates the presentation of a character to reveal or hide based on the config settings.
+     
+     - Parameter characterIndex: Index that the alpha value will be applied to.
+     */
+    private func updateCharacterPresentation(atIndex characterIndex: String.Index) {
+        if config.shouldReveal {
+            revealCharacter(atIndex: characterIndex)
+        } else {
+            hideCharacter(atIndex: characterIndex)
+        }
+    }
+    
+    /**
+     Updates character offset to next index based on config settings.
+     */
+    private func iterateToNextCharacterOffset() {
+        if config.shouldAnimateForward {
+            currentCharacterOffset += 1
+        } else {
+            currentCharacterOffset -= 1
+        }
+    }
+    
+    /**
+     Adjusts the alpha value on the attributed string at the given index to reveal that character.
      
      - Parameter characterIndex: Index that the alpha value will be applied to.
      */
     private func revealCharacter(atIndex characterIndex: String.Index) {
         let range = characterIndex...characterIndex
-  
-        updateAttributedTextVisibility(to: alpha, range: range)
+        
+        updateAttributedTextVisibility(to: 1, range: range)
+    }
+    
+    /**
+     Adjusts the alpha value on the attributed string at the given index to hide that character.
+     
+     - Parameter characterIndex: Index that the alpha value will be applied to.
+     */
+    private func hideCharacter(atIndex characterIndex: String.Index) {
+        let range = characterIndex...characterIndex
+        
+        updateAttributedTextVisibility(to: 0, range: range)
     }
     
     /**
@@ -118,8 +222,20 @@ public class TypewriterLabel: UILabel {
      */
     public func resetTypewritingAnimation() {
         stopTypewritingAnimation()
-        hideAttributedText()
-        currentCharacterOffset = 0
+        updateToStartPresentationState()
+        resetCharacterOffset()
+    }
+    
+    
+    /**
+     Resets character offset back to it's initial offset based on config settings.
+     */
+    private func resetCharacterOffset() {
+        if config.shouldAnimateForward {
+            currentCharacterOffset = 0
+        } else {
+            currentCharacterOffset = ((attributedText?.string.count ?? 1) - 1)
+        }
     }
     
     /**
@@ -137,13 +253,35 @@ public class TypewriterLabel: UILabel {
      */
     public func completeTypewritingAnimation() {
         stopTypewritingAnimation()
-        showAttributedText()
-        currentCharacterOffset = 0
+        updateToFinishedPresentationState()
+        resetCharacterOffset()
         
         completion?()
     }
     
     // MARK: - Visibility
+    
+    /**
+     Sets string to it's start presentation state based on config settings.
+     */
+    private func updateToStartPresentationState() {
+        if config.shouldReveal {
+            hideAttributedText()
+        } else {
+            showAttributedText()
+        }
+    }
+    
+    /**
+     Sets string to it's finished presentation state based on config settings.
+     */
+    private func updateToFinishedPresentationState() {
+        if config.shouldReveal {
+            showAttributedText()
+        } else {
+            hideAttributedText()
+        }
+    }
     
     /**
      Adjusts the alpha value on the attributed string so that it is transparent.
@@ -193,7 +331,7 @@ public class TypewriterLabel: UILabel {
             } else {
                 color = textColor
             }
-        
+            
             let adjustedColor = color.withAlphaComponent(alpha)
             attributedString.addAttribute(.foregroundColor, value: adjustedColor, range: range)
         }

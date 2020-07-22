@@ -10,7 +10,6 @@ import UIKit
 import GhostTypewriter
 
 class ViewController: UIViewController {
-
     @IBOutlet weak private var stackView: UIStackView!
     
     @IBOutlet weak private var startButton: UIButton!
@@ -26,6 +25,7 @@ class ViewController: UIViewController {
         let programmaticLabel = TypewriterLabel()
         programmaticLabel.numberOfLines = 0
         programmaticLabel.lineBreakMode = .byWordWrapping
+        programmaticLabel.config = TypewriterConfig(animationDirection: .backward, characterPresentation: .hide)
         
         let text = "Still not convinced...\n\nWell this label shows support for attributed labels created programmatically rather than via storyboards so maybe that will soothe you."
         
@@ -51,6 +51,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        titleLabel.config = TypewriterConfig(animationDirection: .backward, characterPresentation: .hide)
+        
         stackView.addArrangedSubview(programmaticLabel)
     }
     
@@ -65,7 +67,9 @@ class ViewController: UIViewController {
         
         titleLabel.startTypewritingAnimation {
             self.descriptionLabel.startTypewritingAnimation {
-                self.programmaticLabel.startTypewritingAnimation()
+                self.programmaticLabel.startTypewritingAnimation {
+                    self.stopButtonPressed(self.stopButton!)
+                }
             }
         }
     }
