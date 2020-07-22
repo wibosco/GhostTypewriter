@@ -25,7 +25,8 @@ class BackwardHideViewController: UIViewController {
         let programmaticLabel = TypewriterLabel()
         programmaticLabel.numberOfLines = 0
         programmaticLabel.lineBreakMode = .byWordWrapping
-        programmaticLabel.config = TypewriterConfig(animationDirection: .backward, characterPresentation: .hide)
+        programmaticLabel.animationDirection = .backward
+        programmaticLabel.characterPresentation = .hide
         
         let text = "Still not convinced...\n\nWell this label shows support for attributed labels created programmatically rather than via storyboards so maybe that will soothe you."
         
@@ -50,9 +51,6 @@ class BackwardHideViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        titleLabel.config = TypewriterConfig(animationDirection: .backward, characterPresentation: .hide)
-        descriptionLabel.config = TypewriterConfig(animationDirection: .backward, characterPresentation: .hide)
         
         stackView.addArrangedSubview(programmaticLabel)
     }
@@ -118,8 +116,8 @@ class BackwardHideViewController: UIViewController {
         completeButton.isEnabled = false
         restartButton.isEnabled = true
         
-        titleLabel.completeTypewritingAnimation()
-        descriptionLabel.completeTypewritingAnimation()
         programmaticLabel.completeTypewritingAnimation()
+        descriptionLabel.completeTypewritingAnimation()
+        titleLabel.completeTypewritingAnimation()
     }
 }

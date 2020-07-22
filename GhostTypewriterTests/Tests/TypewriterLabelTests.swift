@@ -68,7 +68,9 @@ class TypewriterLabelTests: XCTestCase {
         
         sut.timerFactory = timerFactory
         
-        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .reveal)
+        sut.animationDirection = .forward
+        sut.characterPresentation = .reveal
+        
         sut.startTypewritingAnimation()
         
         waitForExpectations(timeout: 3.0, handler: nil)
@@ -117,7 +119,9 @@ class TypewriterLabelTests: XCTestCase {
         
         sut.timerFactory = timerFactory
         
-        sut.config = TypewriterConfig(animationDirection: .backward, characterPresentation: .reveal)
+        sut.animationDirection = .backward
+        sut.characterPresentation = .reveal
+        
         sut.startTypewritingAnimation()
         
         waitForExpectations(timeout: 3.0, handler: nil)
@@ -165,7 +169,10 @@ class TypewriterLabelTests: XCTestCase {
         }
         
         sut.timerFactory = timerFactory
-        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .hide)
+        
+        sut.animationDirection = .forward
+        sut.characterPresentation = .hide
+        
         sut.startTypewritingAnimation()
         
         waitForExpectations(timeout: 3.0, handler: nil)
@@ -214,7 +221,9 @@ class TypewriterLabelTests: XCTestCase {
         
         sut.timerFactory = timerFactory
         
-        sut.config = TypewriterConfig(animationDirection: .backward, characterPresentation: .hide)
+        sut.animationDirection = .backward
+        sut.characterPresentation = .hide
+        
         sut.startTypewritingAnimation()
         
         waitForExpectations(timeout: 3.0, handler: nil)
@@ -260,7 +269,8 @@ class TypewriterLabelTests: XCTestCase {
     }
     
     func test_start_configuredToRevealAnimation_completes_revealFullText() {
-        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .reveal)
+        sut.animationDirection = .forward
+        sut.characterPresentation = .reveal
         
         let handlerExpectation = expectation(description: "handlerExpectation")
         sut.startTypewritingAnimation {
@@ -278,7 +288,8 @@ class TypewriterLabelTests: XCTestCase {
     }
     
     func test_start_configuredToHideAnimation_completes_hidesFullText() {
-        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .hide)
+        sut.animationDirection = .forward
+        sut.characterPresentation = .hide
         
         let handlerExpectation = expectation(description: "handlerExpectation")
         sut.startTypewritingAnimation {
@@ -355,7 +366,8 @@ class TypewriterLabelTests: XCTestCase {
         
         sut.attributedText = attributedString
         
-        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .reveal)
+        sut.animationDirection = .forward
+        sut.characterPresentation = .reveal
         
         let handlerExpectation = expectation(description: "handlerExpectation")
         sut.startTypewritingAnimation {
@@ -382,7 +394,9 @@ class TypewriterLabelTests: XCTestCase {
         
         waitForExpectations(timeout: 3.0, handler: nil)
         
-        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .reveal)
+        sut.animationDirection = .forward
+        sut.characterPresentation = .reveal
+        
         sut.resetTypewritingAnimation()
         
         sut.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, sut.attributedText!.length), options: []) { (value, range, _) -> Void in
@@ -398,7 +412,9 @@ class TypewriterLabelTests: XCTestCase {
         
         waitForExpectations(timeout: 3.0, handler: nil)
         
-        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .hide)
+        sut.animationDirection = .forward
+        sut.characterPresentation = .hide
+        
         sut.resetTypewritingAnimation()
         
         sut.attributedText!.enumerateAttribute(.foregroundColor, in: NSMakeRange(0, sut.attributedText!.length), options: []) { (value, range, _) -> Void in
@@ -419,7 +435,9 @@ class TypewriterLabelTests: XCTestCase {
         
         sut.timerFactory = timerFactory
         
-        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .reveal)
+        sut.animationDirection = .forward
+        sut.characterPresentation = .reveal
+        
         sut.startTypewritingAnimation()
         
         waitForExpectations(timeout: 3.0, handler: nil)
@@ -446,7 +464,9 @@ class TypewriterLabelTests: XCTestCase {
         
         sut.timerFactory = timerFactory
         
-        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .hide)
+        sut.animationDirection = .forward
+        sut.characterPresentation = .hide
+        
         sut.startTypewritingAnimation()
         
         waitForExpectations(timeout: 3.0, handler: nil)
@@ -496,7 +516,9 @@ class TypewriterLabelTests: XCTestCase {
         
         sut.timerFactory = firstTimerFactory
         
-        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .reveal)
+        sut.animationDirection = .forward
+        sut.characterPresentation = .reveal
+        
         sut.startTypewritingAnimation()
         
         wait(for: [firstTimerExpectation], timeout: 3.0)
@@ -565,7 +587,9 @@ class TypewriterLabelTests: XCTestCase {
         
         sut.timerFactory = firstTimerFactory
         
-        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .hide)
+        sut.animationDirection = .forward
+        sut.characterPresentation = .hide
+        
         sut.startTypewritingAnimation()
         
         wait(for: [firstTimerExpectation], timeout: 3.0)
@@ -691,7 +715,9 @@ class TypewriterLabelTests: XCTestCase {
         }
         
         sut.timerFactory = timerFactory
-        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .reveal)
+        
+        sut.animationDirection = .forward
+        sut.characterPresentation = .reveal
         
         sut.startTypewritingAnimation()
         
@@ -716,7 +742,9 @@ class TypewriterLabelTests: XCTestCase {
         }
         
         sut.timerFactory = timerFactory
-        sut.config = TypewriterConfig(animationDirection: .forward, characterPresentation: .hide)
+        
+        sut.animationDirection = .forward
+        sut.characterPresentation = .hide
         
         sut.startTypewritingAnimation()
         
