@@ -29,12 +29,12 @@ public struct TypewriterConfig {
     let characterPresentation: TypewriterCharacterAnimationPresentationEffect
     
     /// A helper to allow for determing if characters should be revealed or hidden during the animation.
-    var shouldReveal: Bool {
+    var isReveal: Bool {
         characterPresentation == .reveal
     }
     
     /// A helper to allow for determing which direction the animation is performed from.
-    var shouldAnimateForward: Bool {
+    var isForward: Bool {
         animationDirection == .forward
     }
     
@@ -78,6 +78,15 @@ public final class TypewriterLabel: UILabel {
     /// Current offset for next character to be revealed.
     private var currentCharacterOffset: Int = 0
     
+    /// Starting character offset
+    private var startingCharacterOffset: Int {
+        if config.isForward {
+            return 0
+        } else {
+            return ((attributedText?.string.count ?? 1) - 1)
+        }
+    }
+    
     ///Type alias for completion closure.
     public typealias TypewriterLabelCompletion = () -> ()
     
@@ -94,9 +103,13 @@ public final class TypewriterLabel: UILabel {
     override public func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
-        if config.shouldReveal {
-            hideAttributedText()
-        }
+        resetTypewritingAnimation()
+    }
+    
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+
+        resetTypewritingAnimation()
     }
     
     /**
@@ -116,7 +129,9 @@ public final class TypewriterLabel: UILabel {
     public func startTypewritingAnimation(completion: TypewriterLabelCompletion? = nil) {
         self.completion = completion
         
-        resetTypewritingAnimation()
+        if startingCharacterOffset == currentCharacterOffset {
+            resetTypewritingAnimation()
+        }
         
         timer = timerFactory.buildScheduledTimer(withTimeInterval: typingTimeInterval, repeats: true, block: { _ in
             /*
@@ -148,7 +163,7 @@ public final class TypewriterLabel: UILabel {
             return false
         }
         
-        if config.shouldAnimateForward {
+        if config.isForward {
             return currentCharacterOffset < attributedText.string.count
         } else {
             return currentCharacterOffset >= 0
@@ -161,7 +176,7 @@ public final class TypewriterLabel: UILabel {
      - Parameter characterIndex: Index that the alpha value will be applied to.
      */
     private func updateCharacterPresentation(atIndex characterIndex: String.Index) {
-        if config.shouldReveal {
+        if config.isReveal {
             revealCharacter(atIndex: characterIndex)
         } else {
             hideCharacter(atIndex: characterIndex)
@@ -172,7 +187,7 @@ public final class TypewriterLabel: UILabel {
      Updates character offset to next index based on config settings.
      */
     private func iterateToNextCharacterOffset() {
-        if config.shouldAnimateForward {
+        if config.isForward {
             currentCharacterOffset += 1
         } else {
             currentCharacterOffset -= 1
@@ -231,7 +246,7 @@ public final class TypewriterLabel: UILabel {
      Resets character offset back to it's initial offset based on config settings.
      */
     private func resetCharacterOffset() {
-        if config.shouldAnimateForward {
+        if config.isForward {
             currentCharacterOffset = 0
         } else {
             currentCharacterOffset = ((attributedText?.string.count ?? 1) - 1)
@@ -265,7 +280,7 @@ public final class TypewriterLabel: UILabel {
      Sets string to it's start presentation state based on config settings.
      */
     private func updateToStartPresentationState() {
-        if config.shouldReveal {
+        if config.isReveal {
             hideAttributedText()
         } else {
             showAttributedText()
@@ -276,7 +291,7 @@ public final class TypewriterLabel: UILabel {
      Sets string to it's finished presentation state based on config settings.
      */
     private func updateToFinishedPresentationState() {
-        if config.shouldReveal {
+        if config.isReveal {
             showAttributedText()
         } else {
             hideAttributedText()
