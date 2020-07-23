@@ -9,22 +9,54 @@
 import UIKit
 
 /// An enum to control the direction of the animation i.e. from index 0 or index `n-1`.
-public enum TypewriterAnimationDirection {
+public enum AnimationDirection {
     case forward
     case backward
     
+    // MARK: - Helpers
+    
+    /**
+     A helper to determine if the enum case is `forward`.
+     
+     - Returns: `true` if it is `forward`, `false` otherwise.
+     */
     var isForward: Bool {
         self == .forward
+    }
+    
+    /**
+     A helper to determine if the enum case is `backward`.
+     
+     - Returns: `true` if it is `backward`, `false` otherwise.
+     */
+    var isBackward: Bool {
+        self == .backward
     }
 }
 
 /// An enum to control whether the animation reveals or hides each character it comes to.
-public enum TypewriterCharacterAnimationPresentationEffect {
+public enum AnimationStyle {
     case reveal
     case hide
     
+    // MARK: - Helpers
+    
+    /**
+     A helper to determine if the enum case is `reveal`.
+     
+     - Returns: `true` if it is `reveal`, `false` otherwise.
+     */
     var isReveal: Bool {
         self == .reveal
+    }
+    
+    /**
+     A helper to determine if the enum case is `hide`.
+     
+     - Returns: `true` if it is `hide`, `false` otherwise.
+     */
+    var isHide: Bool {
+        self == .hide
     }
 }
 
@@ -37,30 +69,17 @@ public final class TypewriterLabel: UILabel {
     /// Boolean for if the label is animating or not.
     public private(set) var isAnimating: Bool = false
     
-    public var characterPresentation: TypewriterCharacterAnimationPresentationEffect = .reveal
-    public var animationDirection: TypewriterAnimationDirection = .forward {
+    /// The style that will be used when animating each character. NB. Setting this will cause the animation to reset.
+    public var animationStyle: AnimationStyle = .reveal {
         didSet {
             resetTypewritingAnimation()
         }
     }
     
-    @available(*, unavailable, message: "Interface Builder only property")
-    @IBInspectable public var revealCharacters: Bool {
-        get {
-            characterPresentation == .reveal
-        }
-        set {
-            characterPresentation = newValue ? .reveal : .hide
-        }
-    }
-    
-    @available(*, unavailable, message: "Interface Builder only property")
-    @IBInspectable public var forwardAnimation: Bool {
-        get {
-            animationDirection == .forward
-        }
-        set {
-            animationDirection = newValue ? .forward : .backward
+    /// The direction that the animation will traverse the labels content in. NB. Setting this will cause the animation to reset.
+    public var animationDirection: AnimationDirection = .forward {
+        didSet {
+            resetTypewritingAnimation()
         }
     }
     
@@ -101,6 +120,9 @@ public final class TypewriterLabel: UILabel {
         resetTypewritingAnimation()
     }
     
+    /**
+     Triggered when label created via the storyboard.
+     */
     public override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -171,7 +193,7 @@ public final class TypewriterLabel: UILabel {
      - Parameter characterIndex: Index that the alpha value will be applied to.
      */
     private func updateCharacterPresentation(atIndex characterIndex: String.Index) {
-        if characterPresentation.isReveal {
+        if animationStyle.isReveal {
             revealCharacter(atIndex: characterIndex)
         } else {
             hideCharacter(atIndex: characterIndex)
@@ -275,7 +297,7 @@ public final class TypewriterLabel: UILabel {
      Sets string to it's start presentation state based on config settings.
      */
     private func updateToStartPresentationState() {
-        if characterPresentation.isReveal {
+        if animationStyle.isReveal {
             hideAttributedText()
         } else {
             showAttributedText()
@@ -286,7 +308,7 @@ public final class TypewriterLabel: UILabel {
      Sets string to it's finished presentation state based on config settings.
      */
     private func updateToFinishedPresentationState() {
-        if characterPresentation.isReveal {
+        if animationStyle.isReveal {
             showAttributedText()
         } else {
             hideAttributedText()

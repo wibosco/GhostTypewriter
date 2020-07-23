@@ -26,7 +26,7 @@ class BackwardHideViewController: UIViewController {
         programmaticLabel.numberOfLines = 0
         programmaticLabel.lineBreakMode = .byWordWrapping
         programmaticLabel.animationDirection = .backward
-        programmaticLabel.characterPresentation = .hide
+        programmaticLabel.animationStyle = .hide
         
         let text = "Still not convinced...\n\nWell this label shows support for attributed labels created programmatically rather than via storyboards so maybe that will soothe you."
         
@@ -53,6 +53,12 @@ class BackwardHideViewController: UIViewController {
         super.viewDidLoad()
         
         stackView.addArrangedSubview(programmaticLabel)
+        
+        titleLabel.animationDirection = .backward
+        titleLabel.animationStyle = .hide
+        
+        descriptionLabel.animationDirection = .backward
+        descriptionLabel.animationStyle = .hide
     }
     
     // MARK: ButtonActions

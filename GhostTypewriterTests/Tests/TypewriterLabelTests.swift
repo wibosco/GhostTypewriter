@@ -69,7 +69,7 @@ class TypewriterLabelTests: XCTestCase {
         sut.timerFactory = timerFactory
         
         sut.animationDirection = .forward
-        sut.characterPresentation = .reveal
+        sut.animationStyle = .reveal
         
         sut.startTypewritingAnimation()
         
@@ -120,7 +120,7 @@ class TypewriterLabelTests: XCTestCase {
         sut.timerFactory = timerFactory
         
         sut.animationDirection = .backward
-        sut.characterPresentation = .reveal
+        sut.animationStyle = .reveal
         
         sut.startTypewritingAnimation()
         
@@ -171,7 +171,7 @@ class TypewriterLabelTests: XCTestCase {
         sut.timerFactory = timerFactory
         
         sut.animationDirection = .forward
-        sut.characterPresentation = .hide
+        sut.animationStyle = .hide
         
         sut.startTypewritingAnimation()
         
@@ -222,7 +222,7 @@ class TypewriterLabelTests: XCTestCase {
         sut.timerFactory = timerFactory
         
         sut.animationDirection = .backward
-        sut.characterPresentation = .hide
+        sut.animationStyle = .hide
         
         sut.startTypewritingAnimation()
         
@@ -270,7 +270,7 @@ class TypewriterLabelTests: XCTestCase {
     
     func test_start_configuredToRevealAnimation_completes_revealFullText() {
         sut.animationDirection = .forward
-        sut.characterPresentation = .reveal
+        sut.animationStyle = .reveal
         
         let handlerExpectation = expectation(description: "handlerExpectation")
         sut.startTypewritingAnimation {
@@ -289,7 +289,7 @@ class TypewriterLabelTests: XCTestCase {
     
     func test_start_configuredToHideAnimation_completes_hidesFullText() {
         sut.animationDirection = .forward
-        sut.characterPresentation = .hide
+        sut.animationStyle = .hide
         
         let handlerExpectation = expectation(description: "handlerExpectation")
         sut.startTypewritingAnimation {
@@ -367,7 +367,7 @@ class TypewriterLabelTests: XCTestCase {
         sut.attributedText = attributedString
         
         sut.animationDirection = .forward
-        sut.characterPresentation = .reveal
+        sut.animationStyle = .reveal
         
         let handlerExpectation = expectation(description: "handlerExpectation")
         sut.startTypewritingAnimation {
@@ -395,7 +395,7 @@ class TypewriterLabelTests: XCTestCase {
         waitForExpectations(timeout: 3.0, handler: nil)
         
         sut.animationDirection = .forward
-        sut.characterPresentation = .reveal
+        sut.animationStyle = .reveal
         
         sut.resetTypewritingAnimation()
         
@@ -413,7 +413,7 @@ class TypewriterLabelTests: XCTestCase {
         waitForExpectations(timeout: 3.0, handler: nil)
         
         sut.animationDirection = .forward
-        sut.characterPresentation = .hide
+        sut.animationStyle = .hide
         
         sut.resetTypewritingAnimation()
         
@@ -436,7 +436,7 @@ class TypewriterLabelTests: XCTestCase {
         sut.timerFactory = timerFactory
         
         sut.animationDirection = .forward
-        sut.characterPresentation = .reveal
+        sut.animationStyle = .reveal
         
         sut.startTypewritingAnimation()
         
@@ -465,7 +465,7 @@ class TypewriterLabelTests: XCTestCase {
         sut.timerFactory = timerFactory
         
         sut.animationDirection = .forward
-        sut.characterPresentation = .hide
+        sut.animationStyle = .hide
         
         sut.startTypewritingAnimation()
         
@@ -517,7 +517,7 @@ class TypewriterLabelTests: XCTestCase {
         sut.timerFactory = firstTimerFactory
         
         sut.animationDirection = .forward
-        sut.characterPresentation = .reveal
+        sut.animationStyle = .reveal
         
         sut.startTypewritingAnimation()
         
@@ -588,7 +588,7 @@ class TypewriterLabelTests: XCTestCase {
         sut.timerFactory = firstTimerFactory
         
         sut.animationDirection = .forward
-        sut.characterPresentation = .hide
+        sut.animationStyle = .hide
         
         sut.startTypewritingAnimation()
         
@@ -717,7 +717,7 @@ class TypewriterLabelTests: XCTestCase {
         sut.timerFactory = timerFactory
         
         sut.animationDirection = .forward
-        sut.characterPresentation = .reveal
+        sut.animationStyle = .reveal
         
         sut.startTypewritingAnimation()
         
@@ -744,7 +744,7 @@ class TypewriterLabelTests: XCTestCase {
         sut.timerFactory = timerFactory
         
         sut.animationDirection = .forward
-        sut.characterPresentation = .hide
+        sut.animationStyle = .hide
         
         sut.startTypewritingAnimation()
         
