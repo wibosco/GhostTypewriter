@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 * Added ability to change the direction of the animation.
 * Added ability to change the style of the animation.
+* Updated `fastlane` to 2.153.1
 
 ## [2.0.1](https://github.com/wibosco/GhostTypewriter/releases/tag/2.0.1)
 
