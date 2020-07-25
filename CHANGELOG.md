@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [2.1.0](https://github.com/wibosco/GhostTypewriter/releases/tag/2.1.0)
+
+* Added ability to change the direction of the animation.
+* Added ability to change the style of the animation.
+
 ## [2.0.1](https://github.com/wibosco/GhostTypewriter/releases/tag/2.0.1)
 
 * Resolved bug where the character index being revealed would go out-of-sync with the actual character being revealed resulting in a crash.

@@ -9,8 +9,7 @@
 import UIKit
 import GhostTypewriter
 
-class ViewController: UIViewController {
-
+class ForwardRevealViewController: UIViewController {
     @IBOutlet weak private var stackView: UIStackView!
     
     @IBOutlet weak private var startButton: UIButton!
@@ -65,7 +64,9 @@ class ViewController: UIViewController {
         
         titleLabel.startTypewritingAnimation {
             self.descriptionLabel.startTypewritingAnimation {
-                self.programmaticLabel.startTypewritingAnimation()
+                self.programmaticLabel.startTypewritingAnimation {
+                    self.stopButtonPressed(self.stopButton!)
+                }
             }
         }
     }
