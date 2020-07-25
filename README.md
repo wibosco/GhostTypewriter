@@ -133,7 +133,39 @@ import GhostTypewriter
 }
 ```
 
-#### Adjusting animation timing
+#### Animation Options
+
+By default `TypewriterLabel` hides the content of itself before revealing each character from index `0` to `n-1`. However it is possible to change this.
+
+To hide each character rather than reveal, set the `animationStyle` property to `.hide`:
+
+```swift
+import GhostTypewriter
+
+override func viewDidLoad() {
+    super.viewDidLoad()
+
+    titleLabel.animationStyle = .hide
+}
+```
+
+`animationStyle` is defaulted to `.reveal`.
+
+To go from index `n-1` to `0`, set the `animationDirection` to `.backward`:
+
+```swift
+import GhostTypewriter
+
+override func viewDidLoad() {
+    super.viewDidLoad()
+
+    titleLabel.animationDirection = .backward
+}
+```
+
+`animationDirection` is defaulted to `.forward`.
+
+#### Adjusting Animation Timing
 
 Each character of a `TypewriterLabel` instance is revealed at a pace set by the `typingTimeInterval` property.
 
