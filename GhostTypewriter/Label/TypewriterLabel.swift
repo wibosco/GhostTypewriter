@@ -144,6 +144,10 @@ public final class TypewriterLabel: UILabel {
      - Parameter completion: A callback closure for when the type writing animation is complete.
      */
     public func startTypewritingAnimation(completion: TypewriterLabelCompletion? = nil) {
+        guard !isAnimating else {
+            return
+        }
+        
         self.completion = completion
         
         if startingCharacterOffset == currentCharacterOffset {
