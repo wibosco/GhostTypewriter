@@ -60,26 +60,59 @@ public enum AnimationStyle {
     }
 }
 
+public enum AnimationState {
+    case isRevealed
+    case isHidden
+    case between(isAnimating: Bool)
+}
+
 /// A UILabel subclass that adds a ghost type writing animation effect.
 public final class TypewriterLabel: UILabel {
     
     /// The interval (time gap) between each character being animated on screen.
     public var typingTimeInterval: TimeInterval = 0.1
     
+    /// State property for determing what state the animation is in.
+    public var state: AnimationState {
+        if isComplete {
+            switch animationStyle {
+            case .reveal:
+                return .isRevealed
+            case .hide:
+                return .isHidden
+            }
+        } else {
+            return .between(isAnimating: isAnimating)
+        }
+    }
+    
     /// Boolean for if the label is animating or not.
-    public private(set) var isAnimating: Bool = false
+    private var isAnimating = false
+    
+    /// Boolean indicting if the label has completed its animation.
+    public var isComplete: Bool {
+        guard let attributedText = attributedText else {
+            return false
+        }
+        
+        if animationDirection.isForward {
+            return currentCharacterOffset < attributedText.string.count
+        } else {
+            return currentCharacterOffset >= 0
+        }
+    }
     
     /// The style that will be used when animating each character. NB. Setting this will cause the animation to reset.
     public var animationStyle: AnimationStyle = .reveal {
         didSet {
-            resetTypewritingAnimation()
+            reset()
         }
     }
     
     /// The direction that the animation will traverse the labels content in. NB. Setting this will cause the animation to reset.
     public var animationDirection: AnimationDirection = .forward {
         didSet {
-            resetTypewritingAnimation()
+            reset()
         }
     }
     
@@ -87,7 +120,11 @@ public final class TypewriterLabel: UILabel {
     var timerFactory: TimerFactoryType = TimerFactory()
     
     /// Timer instance that control's the animation.
-    private var timer: TimerType?
+    private var timer: TimerType? {
+        didSet {
+            oldValue?.invalidate()
+        }
+    }
     
     /// Current offset for next character to be revealed.
     private var currentCharacterOffset: Int = 0
@@ -105,7 +142,7 @@ public final class TypewriterLabel: UILabel {
     public typealias TypewriterLabelCompletion = () -> ()
     
     /// A callback closure for when the type writing animation is complete.
-    private var completion: TypewriterLabelCompletion?
+    public var completion: TypewriterLabelCompletion?
     
     // MARK: - Lifecycle
     
@@ -117,7 +154,7 @@ public final class TypewriterLabel: UILabel {
     override public func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
-        resetTypewritingAnimation()
+        reset()
     }
     
     /**
@@ -126,7 +163,7 @@ public final class TypewriterLabel: UILabel {
     public override func awakeFromNib() {
         super.awakeFromNib()
         
-        resetTypewritingAnimation()
+        reset()
     }
     
     /**
@@ -139,19 +176,13 @@ public final class TypewriterLabel: UILabel {
     // MARK: - Controls
     
     /**
-     Starts the type writing animation.
+     Plays the type writing animation.
      
-     - Parameter completion: A callback closure for when the type writing animation is complete.
+     If the animation was previously paused, calling `play` will resume the animation from the paused position.
      */
-    public func startTypewritingAnimation(completion: TypewriterLabelCompletion? = nil) {
-        guard !isAnimating else {
-            return
-        }
-        
-        self.completion = completion
-        
+    public func play() {
         if startingCharacterOffset == currentCharacterOffset {
-            resetTypewritingAnimation()
+            reset()
         }
         
         timer = timerFactory.buildScheduledTimer(withTimeInterval: typingTimeInterval, repeats: true, block: { _ in
@@ -159,9 +190,9 @@ public final class TypewriterLabel: UILabel {
              As each character is revealed the `attributedText` property value of this label
              is overridden so we need to keep fetching it inside this timer block.
              */
-            guard let attributedText = self.attributedText, self.isAnimationComplete() else {
-                completion?()
-                self.stopTypewritingAnimation()
+            guard let attributedText = self.attributedText, self.isComplete else {
+                self.completion?()
+                self.pause()
                 return
             }
             
@@ -175,21 +206,72 @@ public final class TypewriterLabel: UILabel {
     }
     
     /**
-     Determines if the animation is complete.
+     Pauses the type writing animation.
      
-     - Returns: `true` there are more characters to be animated, `false` otherwise.
+     Any characters that have been animated on/off screen, remain on/off screen.
      */
-    private func isAnimationComplete() -> Bool {
-        guard let attributedText = attributedText else {
-            return false
-        }
+    public func pause() {
+        isAnimating = false
         
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    /**
+     Resets the type writing animation back to its starting state.
+     
+     Does *not* restart the animation again.
+     */
+    public func reset() {
+        pause()
+        updateToStartPresentationState()
+        resetCharacterOffset()
+    }
+    
+    /**
+     Restarts the type writing animation from its initial state.
+     */
+    public func restart() {
+        reset()
+        play()
+    }
+    
+    /**
+     Completes the type writing animation.
+     */
+    public func finish() {
+        pause()
+        updateToEndPresentationState()
+        resetCharacterOffset()
+        
+        completion?()
+    }
+    
+    // MARK: - CharacterOffset
+    
+    /**
+     Updates character offset to next index based on config settings.
+     */
+    private func iterateToNextCharacterOffset() {
         if animationDirection.isForward {
-            return currentCharacterOffset < attributedText.string.count
+            currentCharacterOffset += 1
         } else {
-            return currentCharacterOffset >= 0
+            currentCharacterOffset -= 1
         }
     }
+    
+    /**
+     Resets character offset back to it's initial offset based on config settings.
+     */
+    private func resetCharacterOffset() {
+        if animationDirection.isForward {
+            currentCharacterOffset = 0
+        } else {
+            currentCharacterOffset = ((attributedText?.string.count ?? 1) - 1)
+        }
+    }
+    
+    // MARK: - Visibility
     
     /**
      Updates the presentation of a character to reveal or hide based on the config settings.
@@ -201,17 +283,6 @@ public final class TypewriterLabel: UILabel {
             revealCharacter(atIndex: characterIndex)
         } else {
             hideCharacter(atIndex: characterIndex)
-        }
-    }
-    
-    /**
-     Updates character offset to next index based on config settings.
-     */
-    private func iterateToNextCharacterOffset() {
-        if animationDirection.isForward {
-            currentCharacterOffset += 1
-        } else {
-            currentCharacterOffset -= 1
         }
     }
     
@@ -238,66 +309,6 @@ public final class TypewriterLabel: UILabel {
     }
     
     /**
-     Stops the type writing animation.
-     
-     Any characters that have been animated on screen, remain on screen.
-     */
-    public func stopTypewritingAnimation() {
-        isAnimating = false
-        
-        timer?.invalidate()
-        timer = nil
-    }
-    
-    /**
-     Resets the type writing animation.
-     
-     Hides the labels text.
-     
-     Does *not* restart the animation again.
-     */
-    public func resetTypewritingAnimation() {
-        stopTypewritingAnimation()
-        updateToStartPresentationState()
-        resetCharacterOffset()
-    }
-    
-    
-    /**
-     Resets character offset back to it's initial offset based on config settings.
-     */
-    private func resetCharacterOffset() {
-        if animationDirection.isForward {
-            currentCharacterOffset = 0
-        } else {
-            currentCharacterOffset = ((attributedText?.string.count ?? 1) - 1)
-        }
-    }
-    
-    /**
-     Restarts the type writing animation.
-     
-     - Parameter completion: A callback closure for when the type writing animation is complete.
-     */
-    public func restartTypewritingAnimation(completion: TypewriterLabelCompletion? = nil) {
-        resetTypewritingAnimation()
-        startTypewritingAnimation(completion: completion)
-    }
-    
-    /**
-     Abruptly completes the remaining type writing animation without an animation.
-     */
-    public func completeTypewritingAnimation() {
-        stopTypewritingAnimation()
-        updateToFinishedPresentationState()
-        resetCharacterOffset()
-        
-        completion?()
-    }
-    
-    // MARK: - Visibility
-    
-    /**
      Sets string to it's start presentation state based on config settings.
      */
     private func updateToStartPresentationState() {
@@ -311,7 +322,7 @@ public final class TypewriterLabel: UILabel {
     /**
      Sets string to it's finished presentation state based on config settings.
      */
-    private func updateToFinishedPresentationState() {
+    private func updateToEndPresentationState() {
         if animationStyle.isReveal {
             showAttributedText()
         } else {
@@ -373,5 +384,21 @@ public final class TypewriterLabel: UILabel {
         }
         
         self.attributedText = attributedString
+    }
+}
+
+public extension TypewriterLabel {
+    func styleAsMultilineForwardlyRevealingAnimation() {
+        animationStyle = .reveal
+        animationDirection = .forward
+        numberOfLines = 0
+        lineBreakMode = .byWordWrapping
+    }
+    
+    func styleAsMultilineBackwardlyHidingAnimation() {
+        animationStyle = .hide
+        animationDirection = .backward
+        numberOfLines = 0
+        lineBreakMode = .byWordWrapping
     }
 }

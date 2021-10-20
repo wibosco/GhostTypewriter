@@ -18,13 +18,22 @@ class ForwardRevealViewController: UIViewController {
     @IBOutlet weak private var restartButton: UIButton!
     @IBOutlet weak private var completeButton: UIButton!
     
-    @IBOutlet weak private var titleLabel: TypewriterLabel!
-    @IBOutlet weak private var descriptionLabel: TypewriterLabel!
+    @IBOutlet weak private var titleLabel: TypewriterLabel! {
+        didSet {
+            titleLabel.styleAsMultilineForwardlyRevealingAnimation()
+        }
+    }
+    
+    @IBOutlet weak private var descriptionLabel: TypewriterLabel! {
+        didSet {
+            descriptionLabel.styleAsMultilineForwardlyRevealingAnimation()
+        }
+    }
     
     private lazy var programmaticLabel: TypewriterLabel = {
         let programmaticLabel = TypewriterLabel()
-        programmaticLabel.numberOfLines = 0
-        programmaticLabel.lineBreakMode = .byWordWrapping
+        programmaticLabel.styleAsMultilineForwardlyRevealingAnimation()
+        programmaticLabel.font = UIFont.systemFont(ofSize: 15)
         
         let text = "Still not convinced...\n\nWell this label shows support for attributed labels created programmatically rather than via storyboards so maybe that will soothe you."
         
@@ -51,6 +60,20 @@ class ForwardRevealViewController: UIViewController {
         super.viewDidLoad()
         
         stackView.addArrangedSubview(programmaticLabel)
+        
+        titleLabel.completion = {
+            if !(self.descriptionLabel.isComplete) {
+                self.descriptionLabel.completion = {
+                    if !(self.programmaticLabel.isComplete) {
+                        self.programmaticLabel.completion = {
+                            self.stopButtonPressed(self.stopButton!)
+                        }
+                        self.programmaticLabel.play()
+                    }
+                }
+                self.descriptionLabel.play()
+            }
+        }
     }
     
     // MARK: ButtonActions
@@ -62,13 +85,7 @@ class ForwardRevealViewController: UIViewController {
         completeButton.isEnabled = true
         restartButton.isEnabled = true
         
-        titleLabel.startTypewritingAnimation {
-            self.descriptionLabel.startTypewritingAnimation {
-                self.programmaticLabel.startTypewritingAnimation {
-                    self.stopButtonPressed(self.stopButton!)
-                }
-            }
-        }
+        titleLabel.play()
     }
     
     @IBAction func stopButtonPressed(_ sender: Any) {
@@ -78,9 +95,9 @@ class ForwardRevealViewController: UIViewController {
         completeButton.isEnabled = true
         restartButton.isEnabled = true
         
-        titleLabel.stopTypewritingAnimation()
-        descriptionLabel.stopTypewritingAnimation()
-        programmaticLabel.stopTypewritingAnimation()
+        titleLabel.pause()
+        descriptionLabel.pause()
+        programmaticLabel.pause()
     }
     
     @IBAction func resetButtonPressed(_ sender: Any) {
@@ -90,9 +107,9 @@ class ForwardRevealViewController: UIViewController {
         completeButton.isEnabled = true
         restartButton.isEnabled = false
         
-        titleLabel.resetTypewritingAnimation()
-        descriptionLabel.resetTypewritingAnimation()
-        programmaticLabel.resetTypewritingAnimation()
+        titleLabel.reset()
+        descriptionLabel.reset()
+        programmaticLabel.reset()
     }
     
     @IBAction func restartButtonPressed(_ sender: Any) {
@@ -102,9 +119,9 @@ class ForwardRevealViewController: UIViewController {
         completeButton.isEnabled = true
         restartButton.isEnabled = true
         
-        titleLabel.restartTypewritingAnimation()
-        descriptionLabel.restartTypewritingAnimation()
-        programmaticLabel.restartTypewritingAnimation()
+        titleLabel.restart()
+        descriptionLabel.reset()
+        programmaticLabel.reset()
     }
     
     @IBAction func completeButtonPressed(_ sender: Any) {
@@ -114,8 +131,8 @@ class ForwardRevealViewController: UIViewController {
         completeButton.isEnabled = false
         restartButton.isEnabled = true
         
-        titleLabel.completeTypewritingAnimation()
-        descriptionLabel.completeTypewritingAnimation()
-        programmaticLabel.completeTypewritingAnimation()
+        titleLabel.finish()
+        descriptionLabel.finish()
+        programmaticLabel.finish()
     }
 }

@@ -10,17 +10,24 @@ import SwiftUI
 import GhostTypewriter
 
 enum TypewriterLabelAnimationState {
-    case start(_ completion: TypewriterLabel.TypewriterLabelCompletion? = nil)
+    case start
     case stop
     case reset
-    case restart(_ completion: TypewriterLabel.TypewriterLabelCompletion? = nil)
-    case complete
+    case restart
+    case finish
 }
+
+enum TypewriterLabelAnimationState2 {
+    case ready
+    case animating
+    case completed
+}
+
 
 struct WrappedTypewriterLabel: UIViewRepresentable {
     @Binding var dynamicHeight: CGFloat
     @Binding var animationState: TypewriterLabelAnimationState
-    
+        
     private let configuration: (TypewriterLabel) -> ()
     
     // MARK: - Init
@@ -46,16 +53,16 @@ struct WrappedTypewriterLabel: UIViewRepresentable {
 
     func updateUIView(_ view: TypewriterLabel, context: Context) {
         switch animationState {
-        case .start(let completion):
-            view.startTypewritingAnimation(completion: completion)
+        case .start:
+            view.play()
         case .stop:
-            view.stopTypewritingAnimation()
+            view.pause()
         case .reset:
-            view.resetTypewritingAnimation()
-        case .restart(let completion):
-            view.restartTypewritingAnimation(completion: completion)
-        case .complete:
-            view.completeTypewritingAnimation()
+            view.reset()
+        case .restart:
+            view.restart()
+        case .finish:
+            view.finish()
         }
         
         DispatchQueue.main.async {

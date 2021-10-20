@@ -38,30 +38,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="rYz-Gt-6NH">
-                                <rect key="frame" x="20" y="50" width="335" height="275.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rYz-Gt-6NH">
+                                <rect key="frame" x="20" y="8" width="335" height="211"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The heroic tale 💪 of one developer's pursuit of the perfect typing animation - there will be a 🐲!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1C-Sz-CSn" customClass="TypewriterLabel" customModule="GhostTypewriter">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="115"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="318.5" height="95.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrA-eT-4zu" customClass="TypewriterLabel" customModule="GhostTypewriter">
-                                        <rect key="frame" x="0.0" y="133" width="335" height="142.5"/>
-                                        <string key="text">OK....so the part about a dragon, I lied 😫. 
+                                        <rect key="frame" x="0.0" y="103.5" width="334.5" height="107.5"/>
+                                        <string key="text">OK...truth time...the part about a dragon and the part about being heroic - not true 😫.
 
-The heroic part, another lie 😓.
-
-This really is just an excuse to show you the animation in action and how it can handle any regular label text data  😀.</string>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+This really is just an excuse to show you the animation in action and how it can handle any type of regular label text data 😀.</string>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KaO-1G-KAV">
-                                <rect key="frame" x="8" y="498" width="359" height="100"/>
+                                <rect key="frame" x="8" y="510" width="359" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DI2-TD-U0S">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="44"/>
@@ -130,13 +128,13 @@ This really is just an excuse to show you the animation in action and how it can
                         <constraints>
                             <constraint firstItem="rYz-Gt-6NH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="8kv-pA-AOF"/>
                             <constraint firstItem="KaO-1G-KAV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="NJC-FZ-TUv"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KaO-1G-KAV" secondAttribute="bottom" constant="20" id="QiQ-1X-XIZ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KaO-1G-KAV" secondAttribute="bottom" constant="8" id="QiQ-1X-XIZ"/>
                             <constraint firstAttribute="trailing" secondItem="KaO-1G-KAV" secondAttribute="trailing" constant="8" id="XSD-Rd-COd"/>
                             <constraint firstAttribute="trailing" secondItem="rYz-Gt-6NH" secondAttribute="trailing" constant="20" id="nGc-bn-yPV"/>
-                            <constraint firstItem="rYz-Gt-6NH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="yVf-W2-hPW"/>
+                            <constraint firstItem="rYz-Gt-6NH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="yVf-W2-hPW"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Forward Reveal" id="OTb-ff-yRa"/>
+                    <tabBarItem key="tabBarItem" title="Forward Reveal" image="forward" id="OTb-ff-yRa"/>
                     <connections>
                         <outlet property="completeButton" destination="CHm-fp-cUh" id="K7K-N3-ioq"/>
                         <outlet property="descriptionLabel" destination="mrA-eT-4zu" id="f4i-x4-Gvl"/>
@@ -164,30 +162,28 @@ This really is just an excuse to show you the animation in action and how it can
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="4uW-fX-GXd">
-                                <rect key="frame" x="20" y="50" width="335" height="275.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4uW-fX-GXd">
+                                <rect key="frame" x="20" y="8" width="335" height="211"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The heroic tale 💪 of one developer's pursuit of the perfect typing animation - there will be a 🐲!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmO-Ah-7fm" customClass="TypewriterLabel" customModule="GhostTypewriter">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="115"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="318.5" height="95.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vre-s3-dVX" customClass="TypewriterLabel" customModule="GhostTypewriter">
-                                        <rect key="frame" x="0.0" y="133" width="335" height="142.5"/>
-                                        <string key="text">OK....so the part about a dragon, I lied 😫. 
+                                        <rect key="frame" x="0.0" y="103.5" width="334.5" height="107.5"/>
+                                        <string key="text">OK...truth time...the part about a dragon and the part about being heroic - not true 😫.
 
-The heroic part, another lie 😓.
-
-This really is just an excuse to show you the animation in action and how it can handle any regular label text data  😀.</string>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+This really is just an excuse to show you the animation in action and how it can handle any type of regular label text data 😀.</string>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0dA-fZ-ho4">
-                                <rect key="frame" x="8" y="498" width="359" height="100"/>
+                                <rect key="frame" x="8" y="510" width="359" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5i-ka-Baw">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="44"/>
@@ -255,14 +251,14 @@ This really is just an excuse to show you the animation in action and how it can
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="0dA-fZ-ho4" firstAttribute="leading" secondItem="G15-Mt-KiG" secondAttribute="leading" constant="8" id="QJU-c2-jKG"/>
-                            <constraint firstItem="4uW-fX-GXd" firstAttribute="top" secondItem="03p-nf-vMw" secondAttribute="bottom" constant="50" id="cIP-M6-CZd"/>
+                            <constraint firstItem="4uW-fX-GXd" firstAttribute="top" secondItem="03p-nf-vMw" secondAttribute="bottom" constant="8" id="cIP-M6-CZd"/>
                             <constraint firstAttribute="trailing" secondItem="0dA-fZ-ho4" secondAttribute="trailing" constant="8" id="gUf-rv-Zk0"/>
                             <constraint firstItem="4uW-fX-GXd" firstAttribute="leading" secondItem="G15-Mt-KiG" secondAttribute="leading" constant="20" id="gid-Zt-mUl"/>
                             <constraint firstAttribute="trailing" secondItem="4uW-fX-GXd" secondAttribute="trailing" constant="20" id="o2P-7z-ELH"/>
-                            <constraint firstItem="gVd-2K-Qr3" firstAttribute="top" secondItem="0dA-fZ-ho4" secondAttribute="bottom" constant="20" id="yXX-X7-PBl"/>
+                            <constraint firstItem="gVd-2K-Qr3" firstAttribute="top" secondItem="0dA-fZ-ho4" secondAttribute="bottom" constant="8" id="yXX-X7-PBl"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Backward Hide" id="y3Q-47-PR4"/>
+                    <tabBarItem key="tabBarItem" title="Backward Hide" image="backward" id="y3Q-47-PR4"/>
                     <connections>
                         <outlet property="completeButton" destination="0w4-l6-kko" id="z4i-Kw-n0I"/>
                         <outlet property="descriptionLabel" destination="vre-s3-dVX" id="gfk-wa-hAB"/>
@@ -279,4 +275,8 @@ This really is just an excuse to show you the animation in action and how it can
             <point key="canvasLocation" x="-71" y="207"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="backward" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="forward" width="21.333333969116211" height="21.333333969116211"/>
+    </resources>
 </document>
