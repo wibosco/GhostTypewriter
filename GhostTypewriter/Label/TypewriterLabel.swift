@@ -60,34 +60,14 @@ public enum AnimationStyle {
     }
 }
 
-public enum AnimationState {
-    case isRevealed
-    case isHidden
-    case between(isAnimating: Bool)
-}
-
 /// A UILabel subclass that adds a ghost type writing animation effect.
 public final class TypewriterLabel: UILabel {
     
     /// The interval (time gap) between each character being animated on screen.
     public var typingTimeInterval: TimeInterval = 0.1
     
-    /// State property for determing what state the animation is in.
-    public var state: AnimationState {
-        if isComplete {
-            switch animationStyle {
-            case .reveal:
-                return .isRevealed
-            case .hide:
-                return .isHidden
-            }
-        } else {
-            return .between(isAnimating: isAnimating)
-        }
-    }
-    
     /// Boolean for if the label is animating or not.
-    private var isAnimating = false
+    public private(set) var isAnimating: Bool = false
     
     /// Boolean indicting if the label has completed its animation.
     public var isComplete: Bool {
@@ -105,14 +85,14 @@ public final class TypewriterLabel: UILabel {
     /// The style that will be used when animating each character. NB. Setting this will cause the animation to reset.
     public var animationStyle: AnimationStyle = .reveal {
         didSet {
-            reset()
+            resetTypewritingAnimation()
         }
     }
     
     /// The direction that the animation will traverse the labels content in. NB. Setting this will cause the animation to reset.
     public var animationDirection: AnimationDirection = .forward {
         didSet {
-            reset()
+            resetTypewritingAnimation()
         }
     }
     
@@ -142,7 +122,7 @@ public final class TypewriterLabel: UILabel {
     public typealias TypewriterLabelCompletion = () -> ()
     
     /// A callback closure for when the type writing animation is complete.
-    public var completion: TypewriterLabelCompletion?
+    private var completion: TypewriterLabelCompletion?
     
     // MARK: - Lifecycle
     
@@ -154,7 +134,7 @@ public final class TypewriterLabel: UILabel {
     override public func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
-        reset()
+        resetTypewritingAnimation()
     }
     
     /**
@@ -163,7 +143,7 @@ public final class TypewriterLabel: UILabel {
     public override func awakeFromNib() {
         super.awakeFromNib()
         
-        reset()
+        resetTypewritingAnimation()
     }
     
     /**
@@ -176,13 +156,17 @@ public final class TypewriterLabel: UILabel {
     // MARK: - Controls
     
     /**
-     Plays the type writing animation.
+     Starts the type writing animation.
      
-     If the animation was previously paused, calling `play` will resume the animation from the paused position.
+     If the animation was previously stopped, calling `play` will resume the animation from the stopped position.
+     
+     - Parameter completion: A callback closure for when the type writing animation is complete.
      */
-    public func play() {
+    public func startTypewritingAnimation(completion: TypewriterLabelCompletion? = nil) {
+        self.completion = completion
+        
         if startingCharacterOffset == currentCharacterOffset {
-            reset()
+            resetTypewritingAnimation()
         }
         
         timer = timerFactory.buildScheduledTimer(withTimeInterval: typingTimeInterval, repeats: true, block: { _ in
@@ -192,7 +176,7 @@ public final class TypewriterLabel: UILabel {
              */
             guard let attributedText = self.attributedText, self.isComplete else {
                 self.completion?()
-                self.pause()
+                self.stopTypewritingAnimation()
                 return
             }
             
@@ -206,14 +190,13 @@ public final class TypewriterLabel: UILabel {
     }
     
     /**
-     Pauses the type writing animation.
+     Stops the type writing animation.
      
      Any characters that have been animated on/off screen, remain on/off screen.
      */
-    public func pause() {
+    public func stopTypewritingAnimation() {
         isAnimating = false
         
-        timer?.invalidate()
         timer = nil
     }
     
@@ -222,8 +205,8 @@ public final class TypewriterLabel: UILabel {
      
      Does *not* restart the animation again.
      */
-    public func reset() {
-        pause()
+    public func resetTypewritingAnimation() {
+        stopTypewritingAnimation()
         updateToStartPresentationState()
         resetCharacterOffset()
     }
@@ -231,16 +214,16 @@ public final class TypewriterLabel: UILabel {
     /**
      Restarts the type writing animation from its initial state.
      */
-    public func restart() {
-        reset()
-        play()
+    public func restartTypewritingAnimation(completion: TypewriterLabelCompletion? = nil) {
+        resetTypewritingAnimation()
+        startTypewritingAnimation(completion: completion)
     }
     
     /**
      Completes the type writing animation.
      */
-    public func finish() {
-        pause()
+    public func completeTypewritingAnimation() {
+        stopTypewritingAnimation()
         updateToEndPresentationState()
         resetCharacterOffset()
         

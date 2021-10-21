@@ -14,7 +14,7 @@ enum TypewriterLabelAnimationState {
     case stop
     case reset
     case restart
-    case finish
+    case complete
 }
 
 struct WrappedTypewriterLabel: UIViewRepresentable {
@@ -47,15 +47,15 @@ struct WrappedTypewriterLabel: UIViewRepresentable {
     func updateUIView(_ view: TypewriterLabel, context: Context) {
         switch animationState {
         case .start:
-            view.play()
+            view.startTypewritingAnimation()
         case .stop:
-            view.pause()
+            view.stopTypewritingAnimation()
         case .reset:
-            view.reset()
+            view.resetTypewritingAnimation()
         case .restart:
-            view.restart()
-        case .finish:
-            view.finish()
+            view.restartTypewritingAnimation()
+        case .complete:
+            view.completeTypewritingAnimation()
         }
         
         DispatchQueue.main.async {

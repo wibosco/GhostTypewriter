@@ -60,20 +60,6 @@ class ForwardRevealViewController: UIViewController {
         super.viewDidLoad()
         
         stackView.addArrangedSubview(programmaticLabel)
-        
-        titleLabel.completion = {
-            if !(self.descriptionLabel.isComplete) {
-                self.descriptionLabel.completion = {
-                    if !(self.programmaticLabel.isComplete) {
-                        self.programmaticLabel.completion = {
-                            self.stopButtonPressed(self.stopButton!)
-                        }
-                        self.programmaticLabel.play()
-                    }
-                }
-                self.descriptionLabel.play()
-            }
-        }
     }
     
     // MARK: ButtonActions
@@ -85,7 +71,17 @@ class ForwardRevealViewController: UIViewController {
         completeButton.isEnabled = true
         restartButton.isEnabled = true
         
-        titleLabel.play()
+        titleLabel.startTypewritingAnimation {
+            if !(self.descriptionLabel.isComplete) {
+                self.descriptionLabel.startTypewritingAnimation {
+                    if !(self.programmaticLabel.isComplete) {
+                        self.programmaticLabel.startTypewritingAnimation {
+                            self.stopButtonPressed(self.stopButton!)
+                        }
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func stopButtonPressed(_ sender: Any) {
@@ -95,9 +91,9 @@ class ForwardRevealViewController: UIViewController {
         completeButton.isEnabled = true
         restartButton.isEnabled = true
         
-        titleLabel.pause()
-        descriptionLabel.pause()
-        programmaticLabel.pause()
+        titleLabel.stopTypewritingAnimation()
+        descriptionLabel.stopTypewritingAnimation()
+        programmaticLabel.stopTypewritingAnimation()
     }
     
     @IBAction func resetButtonPressed(_ sender: Any) {
@@ -107,9 +103,9 @@ class ForwardRevealViewController: UIViewController {
         completeButton.isEnabled = true
         restartButton.isEnabled = false
         
-        titleLabel.reset()
-        descriptionLabel.reset()
-        programmaticLabel.reset()
+        titleLabel.resetTypewritingAnimation()
+        descriptionLabel.resetTypewritingAnimation()
+        programmaticLabel.resetTypewritingAnimation()
     }
     
     @IBAction func restartButtonPressed(_ sender: Any) {
@@ -119,9 +115,19 @@ class ForwardRevealViewController: UIViewController {
         completeButton.isEnabled = true
         restartButton.isEnabled = true
         
-        titleLabel.restart()
-        descriptionLabel.reset()
-        programmaticLabel.reset()
+        descriptionLabel.resetTypewritingAnimation()
+        programmaticLabel.resetTypewritingAnimation()
+        titleLabel.restartTypewritingAnimation {
+            if !(self.descriptionLabel.isComplete) {
+                self.descriptionLabel.startTypewritingAnimation {
+                    if !(self.programmaticLabel.isComplete) {
+                        self.programmaticLabel.startTypewritingAnimation {
+                            self.stopButtonPressed(self.stopButton!)
+                        }
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func completeButtonPressed(_ sender: Any) {
@@ -131,8 +137,8 @@ class ForwardRevealViewController: UIViewController {
         completeButton.isEnabled = false
         restartButton.isEnabled = true
         
-        titleLabel.finish()
-        descriptionLabel.finish()
-        programmaticLabel.finish()
+        titleLabel.completeTypewritingAnimation()
+        descriptionLabel.completeTypewritingAnimation()
+        programmaticLabel.completeTypewritingAnimation()
     }
 }

@@ -66,20 +66,6 @@ class BackwardHideViewController: UIViewController {
         
         descriptionLabel.animationDirection = .backward
         descriptionLabel.animationStyle = .hide
-        
-        programmaticLabel.completion = {
-            if !(self.descriptionLabel.isComplete) {
-                self.descriptionLabel.completion = {
-                    if !(self.titleLabel.isComplete) {
-                        self.titleLabel.completion = {
-                            self.stopButtonPressed(self.stopButton!)
-                        }
-                        self.titleLabel.play()
-                    }
-                }
-                self.descriptionLabel.play()
-            }
-        }
     }
     
     // MARK: ButtonActions
@@ -91,7 +77,17 @@ class BackwardHideViewController: UIViewController {
         completeButton.isEnabled = true
         restartButton.isEnabled = true
         
-        programmaticLabel.play()
+        programmaticLabel.startTypewritingAnimation {
+            if !(self.descriptionLabel.isComplete) {
+                self.descriptionLabel.startTypewritingAnimation {
+                    if !(self.titleLabel.isComplete) {
+                        self.titleLabel.startTypewritingAnimation {
+                            self.stopButtonPressed(self.stopButton!)
+                        }
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func stopButtonPressed(_ sender: Any) {
@@ -101,9 +97,9 @@ class BackwardHideViewController: UIViewController {
         completeButton.isEnabled = true
         restartButton.isEnabled = true
         
-        titleLabel.pause()
-        descriptionLabel.pause()
-        programmaticLabel.pause()
+        titleLabel.stopTypewritingAnimation()
+        descriptionLabel.stopTypewritingAnimation()
+        programmaticLabel.stopTypewritingAnimation()
     }
     
     @IBAction func resetButtonPressed(_ sender: Any) {
@@ -113,9 +109,9 @@ class BackwardHideViewController: UIViewController {
         completeButton.isEnabled = true
         restartButton.isEnabled = false
         
-        titleLabel.reset()
-        descriptionLabel.reset()
-        programmaticLabel.reset()
+        titleLabel.resetTypewritingAnimation()
+        descriptionLabel.resetTypewritingAnimation()
+        programmaticLabel.resetTypewritingAnimation()
     }
     
     @IBAction func restartButtonPressed(_ sender: Any) {
@@ -125,9 +121,19 @@ class BackwardHideViewController: UIViewController {
         completeButton.isEnabled = true
         restartButton.isEnabled = true
         
-        titleLabel.reset()
-        descriptionLabel.reset()
-        programmaticLabel.restart()
+        titleLabel.resetTypewritingAnimation()
+        descriptionLabel.resetTypewritingAnimation()
+        programmaticLabel.restartTypewritingAnimation {
+            if !(self.descriptionLabel.isComplete) {
+                self.descriptionLabel.startTypewritingAnimation {
+                    if !(self.titleLabel.isComplete) {
+                        self.titleLabel.startTypewritingAnimation {
+                            self.stopButtonPressed(self.stopButton!)
+                        }
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func completeButtonPressed(_ sender: Any) {
@@ -137,8 +143,8 @@ class BackwardHideViewController: UIViewController {
         completeButton.isEnabled = false
         restartButton.isEnabled = true
         
-        programmaticLabel.finish()
-        descriptionLabel.finish()
-        titleLabel.finish()
+        programmaticLabel.completeTypewritingAnimation()
+        descriptionLabel.completeTypewritingAnimation()
+        titleLabel.completeTypewritingAnimation()
     }
 }

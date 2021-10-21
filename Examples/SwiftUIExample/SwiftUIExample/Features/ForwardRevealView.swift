@@ -156,7 +156,7 @@ struct ForwardRevealView: View {
     }
     
     private func completeAnimation() {
-        animationState = .finish
+        animationState = .complete
         
         animating = false
     }
