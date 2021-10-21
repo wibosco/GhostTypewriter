@@ -8,7 +8,7 @@
 import SwiftUI
 import GhostTypewriter
 
-struct ContentView: View {
+struct ForwardRevealView: View {
     @State private var animationState: TypewriterLabelAnimationState = .stop
     
     @State private var typewriterContentHeight: CGFloat = 0
@@ -23,7 +23,7 @@ struct ContentView: View {
             
             let firstParagraph = "OK...truth time...the part about a dragon and the part about being heroic - not true 😫.\n\nThis really is just an excuse to show you the animation in action and how it can handle any type of regular label text data  😀."
             
-            let secondParagraph = "Still not convinced...\n\nWell what about a colourful label? - may that repair our fresh friendship"
+            let secondParagraph = "Still not convinced...\n\nWell what about a colourful label? - may that repair our fresh friendship."
             
             let attributedString = NSMutableAttributedString(string: "\(title)\n\n\(firstParagraph)\n\n\(secondParagraph)")
 
@@ -109,23 +109,25 @@ struct ContentView: View {
     // MARK: - Body
     
     var body: some View {
-        typewriter
-            .padding(EdgeInsets(top: 0, leading: 8, bottom: 8, trailing: 8))
-        Spacer()
-        startButton
-        .padding(.bottom, 8)
-        HStack {
+        VStack {
+            typewriter
+                .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
             Spacer()
-            stopButton
-            Spacer()
-            resetButton
-            Spacer()
-            restartButton
-            Spacer()
-            completeButton
-            Spacer()
+            startButton
+            .padding(.bottom, 8)
+            HStack {
+                Spacer()
+                stopButton
+                Spacer()
+                resetButton
+                Spacer()
+                restartButton
+                Spacer()
+                completeButton
+                Spacer()
+            }
+            .frame(maxWidth: .infinity)
         }
-        .frame(maxWidth: .infinity)
         .padding(.bottom, 8)
     }
     
@@ -160,8 +162,8 @@ struct ContentView: View {
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
+struct ForwardRevealView_Previews: PreviewProvider {
+    static var previews: some View {
+        ForwardRevealView()
+    }
+}

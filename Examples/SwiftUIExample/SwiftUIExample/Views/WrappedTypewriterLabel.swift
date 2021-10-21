@@ -17,13 +17,6 @@ enum TypewriterLabelAnimationState {
     case finish
 }
 
-enum TypewriterLabelAnimationState2 {
-    case ready
-    case animating
-    case completed
-}
-
-
 struct WrappedTypewriterLabel: UIViewRepresentable {
     @Binding var dynamicHeight: CGFloat
     @Binding var animationState: TypewriterLabelAnimationState
