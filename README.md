@@ -6,9 +6,11 @@
 
 A `UILabel` subclass that adds a typewriting animation effect - as if a 👻 was typing it directly on your user's device!
 
-This pod was inspired by the following post [here](http://williamboles.me/ghost-typing-your-way-to-hollywood/).
+`GhostTypewriter` was inspired by the following post [here](http://williamboles.me/ghost-typing-your-way-to-hollywood/).
 
-## Installation via [CocoaPods](https://cocoapods.org/)
+## Installation
+
+### [CocoaPods](https://cocoapods.org/)
 
 To integrate `GhostTypewriter` into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -26,6 +28,12 @@ $ pod install
 ```
 
 > CocoaPods 1.1.1+ is required to build `GhostTypewriter`.
+
+### [Swift Package Manager](https://swift.org/package-manager/)
+
+Swift Package Manager is a dependency manager built into Xcode.
+
+If you are using Xcode 11 or higher, go to `File -> Add Packages...` and enter package repository URL https://github.com/wibosco/GhostTypewriter into the search bar, then follow the instructions.
 
 ## Usage
 
