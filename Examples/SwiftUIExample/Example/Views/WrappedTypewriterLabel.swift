@@ -1,6 +1,6 @@
 //
 //  WrappedTypewriterLabel.swift
-//  SwiftUIExample
+//  Example
 //
 //  Created by William Boles on 18/10/2021.
 //

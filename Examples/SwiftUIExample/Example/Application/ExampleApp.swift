@@ -1,6 +1,6 @@
 //
-//  SwiftUIExampleApp.swift
-//  SwiftUIExample
+//  ExampleApp.swift
+//  Example
 //
 //  Created by William Boles on 15/10/2021.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct SwiftUIExampleApp: App {
+struct ExampleApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()

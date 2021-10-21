@@ -1,6 +1,6 @@
 //
 //  BackwardHideView.swift
-//  SwiftUIExample
+//  Example
 //
 //  Created by William Boles on 21/10/2021.
 //
