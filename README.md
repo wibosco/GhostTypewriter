@@ -1,14 +1,16 @@
 [![Build Status](https://github.com/wibosco/GhostTypewriter/actions/workflows/workflow.yml/badge.svg)](https://github.com/wibosco/GhostTypewriter/actions/workflows/workflow.yml)
-<a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat" alt="Swift" /></a>
-[![License](https://img.shields.io/cocoapods/l/GhostTypewriter.svg?style=flat)](http://cocoapods.org/pods/GhostTypewriter)
-[![Platform](https://img.shields.io/cocoapods/p/GhostTypewriter.svg?style=flat)](http://cocoapods.org/pods/GhostTypewriter)
-<a href="https://twitter.com/wibosco"><img src="https://img.shields.io/badge/twitter-@wibosco-blue.svg?style=flat" alt="Twitter: @wibosco" /></a>
+[![Swift](https://img.shields.io/badge/Swift-5-orange.svg?style=flat)](https://swift.org)
+[![License](http://img.shields.io/badge/License-MIT-green.svg?style=flat)](https://github.com/wibosco/GhostTypewriter/blob/main/LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey?style=flat)](https://github.com/wibosco/GhostTypewriter)
+[![Twitter](https://img.shields.io/badge/Twitter-@wibosco-blue.svg?style=flat)](https://twitter.com/wibosco)
 
 A `UILabel` subclass that adds a typewriting animation effect - as if a 👻 was typing it directly on your user's device!
 
-This pod was inspired by the following post [here](http://williamboles.me/ghost-typing-your-way-to-hollywood/).
+`GhostTypewriter` was inspired by the following post [here](http://williamboles.me/ghost-typing-your-way-to-hollywood/).
 
-## Installation via [CocoaPods](https://cocoapods.org/)
+## Installation
+
+### [CocoaPods](https://cocoapods.org/)
 
 To integrate `GhostTypewriter` into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -26,6 +28,12 @@ $ pod install
 ```
 
 > CocoaPods 1.1.1+ is required to build `GhostTypewriter`.
+
+### [Swift Package Manager](https://swift.org/package-manager/)
+
+Swift Package Manager is a dependency manager built into Xcode.
+
+If you are using Xcode 11 or higher, go to `File -> Add Packages...` and enter package repository URL https://github.com/wibosco/GhostTypewriter into the search bar, then follow the instructions.
 
 ## Usage
 

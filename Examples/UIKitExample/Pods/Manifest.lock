@@ -1,0 +1,16 @@
+PODS:
+  - GhostTypewriter (2.1.0)
+
+DEPENDENCIES:
+  - GhostTypewriter (from `../../`)
+
+EXTERNAL SOURCES:
+  GhostTypewriter:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  GhostTypewriter: 62540772d227fbfe633bfa728d08fe8af5b4d805
+
+PODFILE CHECKSUM: b4aa92d23b59737de454a708207fefefa2337411
+
+COCOAPODS: 1.11.2
