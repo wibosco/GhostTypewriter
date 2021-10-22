@@ -1,8 +1,8 @@
 [![Build Status](https://github.com/wibosco/GhostTypewriter/actions/workflows/workflow.yml/badge.svg)](https://github.com/wibosco/GhostTypewriter/actions/workflows/workflow.yml)
-<a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat" alt="Swift" /></a>
-[![License](https://img.shields.io/cocoapods/l/GhostTypewriter.svg?style=flat)](http://cocoapods.org/pods/GhostTypewriter)
-[![Platform](https://img.shields.io/cocoapods/p/GhostTypewriter.svg?style=flat)](http://cocoapods.org/pods/GhostTypewriter)
-<a href="https://twitter.com/wibosco"><img src="https://img.shields.io/badge/twitter-@wibosco-blue.svg?style=flat" alt="Twitter: @wibosco" /></a>
+[![Swift](https://img.shields.io/badge/Swift-5-orange.svg?style=flat)](https://swift.org)
+[![License](http://img.shields.io/badge/License-MIT-green.svg?style=flat)](https://github.com/wibosco/GhostTypewriter/blob/main/LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey?style=flat)](https://github.com/wibosco/GhostTypewriter)
+[![Twitter](https://img.shields.io/badge/Twitter-@wibosco-blue.svg?style=flat)](https://twitter.com/wibosco)
 
 A `UILabel` subclass that adds a typewriting animation effect - as if a 👻 was typing it directly on your user's device!
 
