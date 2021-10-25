@@ -69,6 +69,19 @@ public final class TypewriterLabel: UILabel {
     /// Boolean for if the label is animating or not.
     public private(set) var isAnimating: Bool = false
     
+    /// Boolean for if the typewriter animation is complete or not.
+    public var isComplete: Bool {
+        guard let attributedText = attributedText else {
+            return true
+        }
+        
+        if animationDirection.isForward {
+            return currentCharacterOffset == attributedText.string.count
+        } else {
+            return currentCharacterOffset == -1
+        }
+    }
+    
     /// The style that will be used when animating each character. NB. Setting this will cause the animation to reset.
     public var animationStyle: AnimationStyle = .reveal {
         didSet {
@@ -155,7 +168,7 @@ public final class TypewriterLabel: UILabel {
              As each character is revealed the `attributedText` property value of this label
              is overridden so we need to keep fetching it inside this timer block.
              */
-            guard let attributedText = self.attributedText, self.isAnimationComplete() else {
+            guard let attributedText = self.attributedText, !self.isComplete else {
                 completion?()
                 self.stopTypewritingAnimation()
                 return
@@ -168,23 +181,6 @@ public final class TypewriterLabel: UILabel {
         })
         
         isAnimating = true
-    }
-    
-    /**
-     Determines if the animation is complete.
-     
-     - Returns: `true` there are more characters to be animated, `false` otherwise.
-     */
-    private func isAnimationComplete() -> Bool {
-        guard let attributedText = attributedText else {
-            return false
-        }
-        
-        if animationDirection.isForward {
-            return currentCharacterOffset < attributedText.string.count
-        } else {
-            return currentCharacterOffset >= 0
-        }
     }
     
     /**
@@ -369,5 +365,21 @@ public final class TypewriterLabel: UILabel {
         }
         
         self.attributedText = attributedString
+    }
+}
+
+public extension TypewriterLabel {
+    func styleAsMultilineForwardlyRevealingAnimation() {
+        animationStyle = .reveal
+        animationDirection = .forward
+        numberOfLines = 0
+        lineBreakMode = .byWordWrapping
+    }
+    
+    func styleAsMultilineBackwardlyHidingAnimation() {
+        animationStyle = .hide
+        animationDirection = .backward
+        numberOfLines = 0
+        lineBreakMode = .byWordWrapping
     }
 }
