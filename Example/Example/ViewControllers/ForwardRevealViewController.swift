@@ -18,21 +18,30 @@ class ForwardRevealViewController: UIViewController {
     @IBOutlet weak private var restartButton: UIButton!
     @IBOutlet weak private var completeButton: UIButton!
     
-    @IBOutlet weak private var titleLabel: TypewriterLabel! {
+    @IBOutlet weak private var titleLabel: UILabel! {
         didSet {
-            titleLabel.styleAsMultilineForwardlyRevealingAnimation()
+            titleLabel.lineBreakMode = .byWordWrapping
+            titleLabel.numberOfLines = 0
+            titleLabelTypewriterAnimator = TypewriterAnimator.forwardlyRevealing(label: titleLabel)
         }
     }
     
-    @IBOutlet weak private var descriptionLabel: TypewriterLabel! {
+    private var titleLabelTypewriterAnimator: TypewriterAnimator!
+    
+    @IBOutlet weak private var descriptionLabel: UILabel! {
         didSet {
-            descriptionLabel.styleAsMultilineForwardlyRevealingAnimation()
+            descriptionLabel.lineBreakMode = .byWordWrapping
+            descriptionLabel.numberOfLines = 0
+            descriptionLabelTypewriterAnimator = TypewriterAnimator.forwardlyRevealing(label: descriptionLabel)
         }
     }
     
-    private lazy var programmaticLabel: TypewriterLabel = {
-        let programmaticLabel = TypewriterLabel()
-        programmaticLabel.styleAsMultilineForwardlyRevealingAnimation()
+    private var descriptionLabelTypewriterAnimator: TypewriterAnimator!
+    
+    private lazy var programmaticLabel: UILabel = {
+        let programmaticLabel = UILabel()
+        programmaticLabel.lineBreakMode = .byWordWrapping
+        programmaticLabel.numberOfLines = 0
         programmaticLabel.font = UIFont(name: "American Typewriter", size: 15)
         
         let text = "Still not convinced...\n\nWell this label shows support for attributed labels created programmatically rather than via storyboards so maybe that will soothe you."
@@ -51,8 +60,12 @@ class ForwardRevealViewController: UIViewController {
         
         programmaticLabel.attributedText = attributedString
         
+        programmaticLabelTypewriterAnimator = TypewriterAnimator.forwardlyRevealing(label: programmaticLabel)
+        
         return programmaticLabel
     }()
+    
+    private var programmaticLabelTypewriterAnimator: TypewriterAnimator!
     
     // MARK: - ViewLifecycle
     
@@ -70,12 +83,12 @@ class ForwardRevealViewController: UIViewController {
         resetButton.isEnabled = true
         completeButton.isEnabled = true
         restartButton.isEnabled = true
-        
-        titleLabel.startTypewritingAnimation {
-            if !(self.descriptionLabel.isComplete) {
-                self.descriptionLabel.startTypewritingAnimation {
-                    if !(self.programmaticLabel.isComplete) {
-                        self.programmaticLabel.startTypewritingAnimation {
+
+        titleLabelTypewriterAnimator.startTypewritingAnimation {
+            if !(self.descriptionLabelTypewriterAnimator.isComplete) {
+                self.descriptionLabelTypewriterAnimator.startTypewritingAnimation {
+                    if !(self.programmaticLabelTypewriterAnimator.isComplete) {
+                        self.programmaticLabelTypewriterAnimator.startTypewritingAnimation {
                             self.stopButtonPressed(self.stopButton!)
                         }
                     }
@@ -91,9 +104,9 @@ class ForwardRevealViewController: UIViewController {
         completeButton.isEnabled = true
         restartButton.isEnabled = true
         
-        titleLabel.stopTypewritingAnimation()
-        descriptionLabel.stopTypewritingAnimation()
-        programmaticLabel.stopTypewritingAnimation()
+        titleLabelTypewriterAnimator.stopTypewritingAnimation()
+        descriptionLabelTypewriterAnimator.stopTypewritingAnimation()
+        programmaticLabelTypewriterAnimator.stopTypewritingAnimation()
     }
     
     @IBAction func resetButtonPressed(_ sender: Any) {
@@ -103,9 +116,9 @@ class ForwardRevealViewController: UIViewController {
         completeButton.isEnabled = true
         restartButton.isEnabled = false
         
-        titleLabel.resetTypewritingAnimation()
-        descriptionLabel.resetTypewritingAnimation()
-        programmaticLabel.resetTypewritingAnimation()
+        titleLabelTypewriterAnimator.resetTypewritingAnimation()
+        descriptionLabelTypewriterAnimator.resetTypewritingAnimation()
+        programmaticLabelTypewriterAnimator.resetTypewritingAnimation()
     }
     
     @IBAction func restartButtonPressed(_ sender: Any) {
@@ -115,13 +128,13 @@ class ForwardRevealViewController: UIViewController {
         completeButton.isEnabled = true
         restartButton.isEnabled = true
         
-        descriptionLabel.resetTypewritingAnimation()
-        programmaticLabel.resetTypewritingAnimation()
-        titleLabel.restartTypewritingAnimation {
-            if !(self.descriptionLabel.isComplete) {
-                self.descriptionLabel.startTypewritingAnimation {
-                    if !(self.programmaticLabel.isComplete) {
-                        self.programmaticLabel.startTypewritingAnimation {
+        descriptionLabelTypewriterAnimator.resetTypewritingAnimation()
+        programmaticLabelTypewriterAnimator.resetTypewritingAnimation()
+        titleLabelTypewriterAnimator.restartTypewritingAnimation {
+            if !(self.descriptionLabelTypewriterAnimator.isComplete) {
+                self.descriptionLabelTypewriterAnimator.startTypewritingAnimation {
+                    if !(self.programmaticLabelTypewriterAnimator.isComplete) {
+                        self.programmaticLabelTypewriterAnimator.startTypewritingAnimation {
                             self.stopButtonPressed(self.stopButton!)
                         }
                     }
@@ -137,8 +150,8 @@ class ForwardRevealViewController: UIViewController {
         completeButton.isEnabled = false
         restartButton.isEnabled = true
         
-        titleLabel.completeTypewritingAnimation()
-        descriptionLabel.completeTypewritingAnimation()
-        programmaticLabel.completeTypewritingAnimation()
+        titleLabelTypewriterAnimator.completeTypewritingAnimation()
+        descriptionLabelTypewriterAnimator.completeTypewritingAnimation()
+        programmaticLabelTypewriterAnimator.completeTypewritingAnimation()
     }
 }

@@ -1,9 +1,9 @@
 //
-//  GhoastTypewriter.swift
-//  GhostTypeWriter
+//  TypewriterAnimator.swift
+//  GhostTypewriter
 //
-//  Created by William Boles on 19/12/2016.
-//  Copyright © 2016 Boles. All rights reserved.
+//  Created by William Boles on 25/10/2021.
+//  Copyright © 2021 Boles. All rights reserved.
 //
 
 import UIKit
@@ -60,10 +60,10 @@ public enum AnimationStyle {
     }
 }
 
-/// A UILabel subclass that adds a ghost type writing animation effect.
-public final class TypewriterLabel: UILabel {
+
+public class TypewriterAnimator {
+    private let label: UILabel
     
-    /// The interval (time gap) between each character being animated on screen.
     public var typingTimeInterval: TimeInterval = 0.1
     
     /// Boolean for if the label is animating or not.
@@ -71,7 +71,7 @@ public final class TypewriterLabel: UILabel {
     
     /// Boolean for if the typewriter animation is complete or not.
     public var isComplete: Bool {
-        guard let attributedText = attributedText else {
+        guard let attributedText = label.attributedText else {
             return true
         }
         
@@ -82,14 +82,14 @@ public final class TypewriterLabel: UILabel {
         }
     }
     
-    /// The style that will be used when animating each character. NB. Setting this will cause the animation to reset.
+    /// The style that will be used when animating each character.
     public var animationStyle: AnimationStyle = .reveal {
         didSet {
             resetTypewritingAnimation()
         }
     }
     
-    /// The direction that the animation will traverse the labels content in. NB. Setting this will cause the animation to reset.
+    /// The direction that the animation will traverse the labels content in.
     public var animationDirection: AnimationDirection = .forward {
         didSet {
             resetTypewritingAnimation()
@@ -110,7 +110,7 @@ public final class TypewriterLabel: UILabel {
         if animationDirection.isForward {
             return 0
         } else {
-            return ((attributedText?.string.count ?? 1) - 1)
+            return ((label.attributedText?.string.count ?? 1) - 1)
         }
     }
     
@@ -122,23 +122,8 @@ public final class TypewriterLabel: UILabel {
     
     // MARK: - Lifecycle
     
-    /**
-     Triggered when label is added to superview, will configure label with provided transparency.
-     
-     - Parameter newSuperview: View that the label is added to.
-     */
-    override public func willMove(toSuperview newSuperview: UIView?) {
-        super.willMove(toSuperview: newSuperview)
-        
-        resetTypewritingAnimation()
-    }
-    
-    /**
-     Triggered when label created via the storyboard.
-     */
-    public override func awakeFromNib() {
-        super.awakeFromNib()
-        
+    public init(label: UILabel) {
+        self.label = label
         resetTypewritingAnimation()
     }
     
@@ -168,7 +153,7 @@ public final class TypewriterLabel: UILabel {
              As each character is revealed the `attributedText` property value of this label
              is overridden so we need to keep fetching it inside this timer block.
              */
-            guard let attributedText = self.attributedText, !self.isComplete else {
+            guard let attributedText = self.label.attributedText, !self.isComplete else {
                 completion?()
                 self.stopTypewritingAnimation()
                 return
@@ -262,7 +247,7 @@ public final class TypewriterLabel: UILabel {
         if animationDirection.isForward {
             currentCharacterOffset = 0
         } else {
-            currentCharacterOffset = ((attributedText?.string.count ?? 1) - 1)
+            currentCharacterOffset = ((label.attributedText?.string.count ?? 1) - 1)
         }
     }
     
@@ -331,7 +316,7 @@ public final class TypewriterLabel: UILabel {
      - Parameter alpha: Alpha value the attributed string's characters will be set to.
      */
     private func updateAttributedTextVisibility(to alpha: CGFloat) {
-        guard let attributedText = attributedText else {
+        guard let attributedText = label.attributedText else {
             return
         }
         let range = attributedText.string.startIndex..<attributedText.string.endIndex
@@ -346,7 +331,7 @@ public final class TypewriterLabel: UILabel {
      - Parameter range: Range of attributed string's characters that the alpha value will be applied to.
      */
     private func updateAttributedTextVisibility<R: RangeExpression>(to alpha: CGFloat, range: R) where R.Bound == String.Index {
-        guard let attributedText = attributedText else {
+        guard let attributedText = label.attributedText else {
             return
         }
         
@@ -357,29 +342,31 @@ public final class TypewriterLabel: UILabel {
             if let colorValue = value as? UIColor {
                 color = colorValue
             } else {
-                color = textColor
+                color = label.textColor
             }
             
             let adjustedColor = color.withAlphaComponent(alpha)
             attributedString.addAttribute(.foregroundColor, value: adjustedColor, range: range)
         }
         
-        self.attributedText = attributedString
+        self.label.attributedText = attributedString
     }
 }
 
-public extension TypewriterLabel {
-    func styleAsMultilineForwardlyRevealingAnimation() {
-        animationStyle = .reveal
-        animationDirection = .forward
-        numberOfLines = 0
-        lineBreakMode = .byWordWrapping
+public extension TypewriterAnimator {
+    static func forwardlyRevealing(label: UILabel) -> TypewriterAnimator {
+        let animator = TypewriterAnimator(label: label)
+        animator.animationDirection = .forward
+        animator.animationStyle = .reveal
+        
+        return animator
     }
     
-    func styleAsMultilineBackwardlyHidingAnimation() {
-        animationStyle = .hide
-        animationDirection = .backward
-        numberOfLines = 0
-        lineBreakMode = .byWordWrapping
+    static func backwardlyHiding(label: UILabel) -> TypewriterAnimator {
+        let animator = TypewriterAnimator(label: label)
+        animator.animationDirection = .backward
+        animator.animationStyle = .hide
+        
+        return animator
     }
 }

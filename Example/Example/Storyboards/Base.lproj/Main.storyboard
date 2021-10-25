@@ -41,13 +41,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rYz-Gt-6NH">
                                 <rect key="frame" x="20" y="8" width="335" height="210.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The heroic tale 💪 of one developer's pursuit of the perfect typing animation - there will be a 🐲!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1C-Sz-CSn" customClass="TypewriterLabel" customModule="GhostTypewriter">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The heroic tale 💪 of one developer's pursuit of the perfect typing animation - there will be a 🐲!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1C-Sz-CSn">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="98.5"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrA-eT-4zu" customClass="TypewriterLabel" customModule="GhostTypewriter">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrA-eT-4zu">
                                         <rect key="frame" x="0.0" y="106.5" width="335" height="104"/>
                                         <string key="text">OK...truth time...the part about a dragon and the part about being heroic - not true 😫.
 
@@ -165,13 +165,13 @@ This really is just an excuse to show you the animation in action and how it can
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4uW-fX-GXd">
                                 <rect key="frame" x="20" y="8" width="335" height="210.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The heroic tale 💪 of one developer's pursuit of the perfect typing animation - there will be a 🐲!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmO-Ah-7fm" customClass="TypewriterLabel" customModule="GhostTypewriter">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The heroic tale 💪 of one developer's pursuit of the perfect typing animation - there will be a 🐲!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmO-Ah-7fm">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="98.5"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vre-s3-dVX" customClass="TypewriterLabel" customModule="GhostTypewriter">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vre-s3-dVX">
                                         <rect key="frame" x="0.0" y="106.5" width="335" height="104"/>
                                         <string key="text">OK...truth time...the part about a dragon and the part about being heroic - not true 😫.
 
@@ -276,7 +276,7 @@ This really is just an excuse to show you the animation in action and how it can
         </scene>
     </scenes>
     <resources>
-        <image name="backward" width="64" height="64"/>
-        <image name="forward" width="64" height="64"/>
+        <image name="backward" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="forward" width="21.333333969116211" height="21.333333969116211"/>
     </resources>
 </document>
