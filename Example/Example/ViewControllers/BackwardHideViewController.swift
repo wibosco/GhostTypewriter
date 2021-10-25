@@ -18,15 +18,22 @@ class BackwardHideViewController: UIViewController {
     @IBOutlet weak private var restartButton: UIButton!
     @IBOutlet weak private var completeButton: UIButton!
     
-    @IBOutlet weak private var titleLabel: TypewriterLabel!
-    @IBOutlet weak private var descriptionLabel: TypewriterLabel!
+    @IBOutlet weak private var titleLabel: TypewriterLabel! {
+        didSet {
+            titleLabel.styleAsMultilineBackwardlyHidingAnimation()
+        }
+    }
+    
+    @IBOutlet weak private var descriptionLabel: TypewriterLabel! {
+        didSet {
+            descriptionLabel.styleAsMultilineBackwardlyHidingAnimation()
+        }
+    }
     
     private lazy var programmaticLabel: TypewriterLabel = {
         let programmaticLabel = TypewriterLabel()
-        programmaticLabel.numberOfLines = 0
-        programmaticLabel.lineBreakMode = .byWordWrapping
-        programmaticLabel.animationDirection = .backward
-        programmaticLabel.animationStyle = .hide
+        programmaticLabel.styleAsMultilineBackwardlyHidingAnimation()
+        programmaticLabel.font = UIFont(name: "American Typewriter", size: 15)
         
         let text = "Still not convinced...\n\nWell this label shows support for attributed labels created programmatically rather than via storyboards so maybe that will soothe you."
         
@@ -53,12 +60,6 @@ class BackwardHideViewController: UIViewController {
         super.viewDidLoad()
         
         stackView.addArrangedSubview(programmaticLabel)
-        
-        titleLabel.animationDirection = .backward
-        titleLabel.animationStyle = .hide
-        
-        descriptionLabel.animationDirection = .backward
-        descriptionLabel.animationStyle = .hide
     }
     
     // MARK: ButtonActions
@@ -71,9 +72,13 @@ class BackwardHideViewController: UIViewController {
         restartButton.isEnabled = true
         
         programmaticLabel.startTypewritingAnimation {
-            self.descriptionLabel.startTypewritingAnimation {
-                self.titleLabel.startTypewritingAnimation {
-                    self.stopButtonPressed(self.stopButton!)
+            if !(self.descriptionLabel.isComplete) {
+                self.descriptionLabel.startTypewritingAnimation {
+                    if !(self.titleLabel.isComplete) {
+                        self.titleLabel.startTypewritingAnimation {
+                            self.stopButtonPressed(self.stopButton!)
+                        }
+                    }
                 }
             }
         }
@@ -110,9 +115,19 @@ class BackwardHideViewController: UIViewController {
         completeButton.isEnabled = true
         restartButton.isEnabled = true
         
-        titleLabel.restartTypewritingAnimation()
-        descriptionLabel.restartTypewritingAnimation()
-        programmaticLabel.restartTypewritingAnimation()
+        titleLabel.resetTypewritingAnimation()
+        descriptionLabel.resetTypewritingAnimation()
+        programmaticLabel.restartTypewritingAnimation {
+            if !(self.descriptionLabel.isComplete) {
+                self.descriptionLabel.startTypewritingAnimation {
+                    if !(self.titleLabel.isComplete) {
+                        self.titleLabel.startTypewritingAnimation {
+                            self.stopButtonPressed(self.stopButton!)
+                        }
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func completeButtonPressed(_ sender: Any) {
