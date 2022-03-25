@@ -97,7 +97,7 @@ import GhostTypewriter
 }
 ```
 
-It's important to note that resetting an `TypewriterLabel` instance does not cause the animation to restart instead you need to call `restartAnimationButtonPressed()`.
+It's important to note that resetting an `TypewriterLabel` instance does not cause the animation to restart instead you need to call `restartTypewritingAnimation()`.
 
 #### Restarting
 
