@@ -6,7 +6,7 @@
 
 A `UILabel` subclass that adds a typewriting animation effect - as if a 👻 was typing it directly on your user's device!
 
-`GhostTypewriter` was inspired by the following post [here](http://williamboles.me/ghost-typing-your-way-to-hollywood/).
+`GhostTypewriter` was inspired by the following post [here](https://williamboles.com/ghost-typing-your-way-to-hollywood/).
 
 ## Installation
 
