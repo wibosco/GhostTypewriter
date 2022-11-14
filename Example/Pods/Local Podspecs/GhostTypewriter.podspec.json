@@ -1,6 +1,6 @@
 {
   "name": "GhostTypewriter",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "summary": "A UILabel subclass that adds a type writing animation effect.",
   "homepage": "http://www.williamboles.me",
   "license": {
@@ -15,7 +15,7 @@
   "source": {
     "git": "https://github.com/wibosco/GhostTypewriter.git",
     "branch": "master",
-    "tag": "2.0.1"
+    "tag": "2.1.0"
   },
   "source_files": "GhostTypewriter/**/*.swift",
   "requires_arc": true,
