@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DC735FC2726FECE00A67117 /* TypewriterAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC735FB2726FECE00A67117 /* TypewriterAnimation.swift */; };
 		914248881E093E3A008729C9 /* TypewriterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914248841E093E3A008729C9 /* TypewriterLabel.swift */; };
 		91980F071E0860A2004714BE /* GhostTypewriter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91980EFD1E0860A2004714BE /* GhostTypewriter.framework */; };
 		C22D054623E1ADC500FF3F27 /* TimerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22D054523E1ADC500FF3F27 /* TimerFactory.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3DC735FB2726FECE00A67117 /* TypewriterAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterAnimation.swift; sourceTree = "<group>"; };
 		914248841E093E3A008729C9 /* TypewriterLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterLabel.swift; sourceTree = "<group>"; };
 		914248861E093E3A008729C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9142488B1E093E5A008729C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			children = (
 				C22D054423E1ADAB00FF3F27 /* Timer */,
 				914248841E093E3A008729C9 /* TypewriterLabel.swift */,
+				3DC735FB2726FECE00A67117 /* TypewriterAnimation.swift */,
 			);
 			path = Label;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C22D054623E1ADC500FF3F27 /* TimerFactory.swift in Sources */,
+				3DC735FC2726FECE00A67117 /* TypewriterAnimation.swift in Sources */,
 				914248881E093E3A008729C9 /* TypewriterLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
